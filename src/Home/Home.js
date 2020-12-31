@@ -7,7 +7,7 @@ export default function Home() {
     <div className="Home">
       <h1>Home</h1>
       <Map />
-      <div class="Home-date-filter">
+      <div className="Home-date-filter">
         <input
           type="text"
           id="startDate"
@@ -21,7 +21,7 @@ export default function Home() {
           name="endDate"
         ></input>
       </div>
-      <div class="Home-species-filter">
+      <div className="Home-species-filter">
         <select>
           <option value="all">All Species</option>
           <option value="robin">Robin</option>

@@ -15,8 +15,7 @@ export default function LandingPage() {
         </p>
         <p>
           Log your sightings with the species, date spotted, approximate
-          location and a description. Not sure what you've seen? Ask your
-          neighbors for help!
+          location and a description.
         </p>
       </section>
       <section>
