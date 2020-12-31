@@ -1,0 +1,8 @@
+.Observations {
+    text-align: center;
+}
+
+.Observations select {
+    width: 25%;
+    margin-left: 10px;
+}

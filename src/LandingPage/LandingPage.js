@@ -35,7 +35,7 @@ export default function LandingPage() {
           <h3>Analyze your sightings</h3>
         </header>
         <p>
-          [<em>placeholder for screenshot of sighting dashboard</em>]
+          [<em>placeholder for screenshot of observations</em>]
         </p>
         <p>
           Interactive charts show your historical sightings and observations of

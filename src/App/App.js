@@ -4,7 +4,7 @@ import LandingPage from "../LandingPage/LandingPage";
 import LandingPageNav from "../LandingPageNav/LandingPageNav";
 import AddObservation from "../AddObservation/AddObservation";
 import EditObservation from "../EditObservation/EditObservation";
-import Dashboard from "../Dashboard/Dashboard";
+import Observations from "../Observations/Observations";
 import Home from "../Home/Home";
 import "./App.css";
 
@@ -23,7 +23,7 @@ export default function App() {
           <Route path={"/home"} component={Home} />
           <Route path={"/add-observation"} component={AddObservation} />
           <Route path={"/edit/:observationId"} component={EditObservation} />
-          <Route path={"/dashboard"} component={Dashboard} />
+          <Route path={"/observations"} component={Observations} />
         </Switch>
       </main>
     </div>
