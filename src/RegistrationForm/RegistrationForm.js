@@ -4,7 +4,7 @@ export default function RegistrationForm() {
   return (
     <form className="RegistrationForm">
       <div>
-        <label for="first-name">First name</label>
+        <label htmlFor="first-name">First name</label>
         <input
           placeholder="First Name"
           type="text"
@@ -13,7 +13,7 @@ export default function RegistrationForm() {
         />
       </div>
       <div>
-        <label for="last-name">Last name</label>
+        <label htmlFor="last-name">Last name</label>
         <input
           type="text"
           name="last-name"
@@ -22,15 +22,15 @@ export default function RegistrationForm() {
         />
       </div>
       <div>
-        <label for="username">Email</label>
+        <label htmlFor="username">Email</label>
         <input type="text" name="username" id="username" />
       </div>
       <div>
-        <label for="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input type="password" name="password" id="password" />
       </div>
       <div>
-        <label for="zip">Zip code</label>
+        <label htmlFor="zip">Zip code</label>
         <input type="zip" name="zip" id="zip" />
       </div>
       <button type="submit">Sign Up!</button>

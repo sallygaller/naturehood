@@ -1,50 +1,56 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Observation from "../Observation/Observation";
 import "./Observations.css";
 
-export default function Observations() {
+export default function Observations(props) {
+  const observations = props.observations;
+
+  function countSpecies(observations, observation) {
+    let count = observations.filter(
+      (obs) => obs.species === observation.species
+    ).length;
+    return count;
+  }
+
   return (
     <div className="Observations">
       <h2>My Observations</h2>
+      <Link to={"/add-observation"}>
+        <button className="Observations-button" type="button">
+          Add Observation
+        </button>
+      </Link>
       <div className="Observations-sort">
-        <label for="Observations-sort">Sort by</label>
+        <label htmlFor="Observations-sort">Sort by</label>
         <select>
           <option value="date-desc">Date (Newest to Oldest)</option>
           <option value="date-asc">Date (Oldest to Newest)</option>
           <option value="species">Species</option>
         </select>
       </div>
-      <div className="Observations-item">
-        <h3>Robin</h3>
-        <p>
-          Date: 12/31/2020<br></br>
-          Time: 3:00 PM
-        </p>
-        <div className="Observations-item-description">
-          <p>Saw a robin at the bottom of my garden. It was very fat.</p>
-        </div>
+      <div>
+        <ul>
+          {observations.map((observation) => (
+            <li key={observation.id}>
+              <Observation observation={observation} />
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className="Observations-item">
-        <h3>Fox</h3>
-        <p>
-          Date: 12/28/2020<br></br>
-          Time: 6:00 AM
-        </p>
-        <div className="Observations-item-description">
-          <p>
-            Saw two young foxes with a mother fox. The mother fox hissed at me.
-          </p>
-        </div>
-      </div>
-      <div className="Observations-item">
-        <h3>Raccoon</h3>
-        <p>
-          Date: 12/26/2020<br></br>
-          Time: 7:00 AM
-        </p>
-        <div className="Observations-item-description">
-          <p>A group of raccoons chased me down the street.</p>
-        </div>
-      </div>
+      <h3>Analysis</h3>
+      <p>
+        Total observations: {observations.length} <br></br>
+        First observation: 12/10/2020 <br></br>
+        Last observation: 12/31/2020
+      </p>
+      <ul>
+        {observations.map((observation) => (
+          <li key={observation.id}>
+            {countSpecies(observations, observation)} {observation.species} seen{" "}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

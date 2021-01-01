@@ -1,8 +1,24 @@
 .Observations {
     text-align: center;
+    margin-left: 0px;
 }
 
 .Observations select {
     width: 25%;
-    margin-left: 10px;
+}
+
+.Observations ul, li {
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0; 
+}
+
+.Observations li {
+    margin-left: 0px;
+}
+
+.Observations-button {
+    margin: 0 auto;
+    text-align: center;
 }

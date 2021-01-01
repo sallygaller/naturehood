@@ -8,7 +8,8 @@ import Observations from "../Observations/Observations";
 import Home from "../Home/Home";
 import "./App.css";
 
-export default function App() {
+export default function App(props) {
+  const observations = props.observations;
   return (
     <div className="App">
       <header>
@@ -22,8 +23,16 @@ export default function App() {
           <Route exact path={"/"} component={LandingPage} />
           <Route path={"/home"} component={Home} />
           <Route path={"/add-observation"} component={AddObservation} />
-          <Route path={"/edit/:observationId"} component={EditObservation} />
-          <Route path={"/observations"} component={Observations} />
+          <Route
+            path={"/edit/observation/:observationId"}
+            render={(props) => (
+              <EditObservation {...props} observations={observations} />
+            )}
+          />
+          <Route
+            path={"/observations"}
+            render={() => <Observations observations={observations} />}
+          />
         </Switch>
       </main>
     </div>

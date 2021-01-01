@@ -5,17 +5,17 @@ export default function AddObservation() {
   return (
     <div className="AddObservation">
       <h2>Add New Observation</h2>
-      <div className="AddObservation">
+      <div>
         <form>
-          <label for="species">Species seen:</label>
+          <label htmlFor="species">Species seen:</label>
           <input
             className="AddObservation-text"
             type="text"
             name="species"
             id="species"
           ></input>
-          <label for="speciesType">Type of species:</label>
-          <select id="speciesType" name="speciesType">
+          <label htmlFor="type">Type of species:</label>
+          <select id="type" name="type">
             <option value="mammal">Mammal</option>
             <option value="bird">Bird</option>
             <option value="arthropod">Arthropod</option>
@@ -23,7 +23,7 @@ export default function AddObservation() {
             <option value="reptile">Reptile</option>
             <option value="fish">Fish</option>
           </select>
-          <label for="description">
+          <label htmlFor="description">
             Description (be as detailed as possible!):
           </label>
           <textarea
@@ -31,9 +31,9 @@ export default function AddObservation() {
             name="description"
             className="AddObservation-textarea"
           ></textarea>
-          <label for="date">Date seen:</label>
+          <label htmlFor="date">Date seen:</label>
           <input type="text" id="date" name="date" value="2020-12-31"></input>
-          <label for="date">Time seen (approximate):</label>
+          <label htmlFor="date">Time seen (approximate):</label>
           <input type="text" id="time" name="time" value="3:00"></input>
           <select id="ampm">
             <option>am</option>
