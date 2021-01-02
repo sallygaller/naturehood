@@ -1,13 +1,14 @@
 import React from "react";
-import Map from "../Map/Map";
-import "./Home.css";
+import MainMap from "../MainMap/MainMap";
+import "./MyNaturehood.css";
 
-export default function Home() {
+export default function MyNaturehood(props) {
+  const observations = props.observations;
   return (
-    <div className="Home">
-      <h2>Home</h2>
-      <Map />
-      <div className="Home-date-filter">
+    <div className="MyNaturehood">
+      <h2>My NatureHood</h2>
+      <MainMap observations={observations} />
+      <div className="MyNaturehood-date-filter">
         <input
           type="text"
           id="startDate"
@@ -21,7 +22,7 @@ export default function Home() {
           name="endDate"
         ></input>
       </div>
-      <div className="Home-species-filter">
+      <div className="MyNaturehood-species-filter">
         <select>
           <option value="all">All Species</option>
           <option value="robin">Robin</option>

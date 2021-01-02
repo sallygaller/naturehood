@@ -5,7 +5,8 @@ import LandingPageNav from "../LandingPageNav/LandingPageNav";
 import AddObservation from "../AddObservation/AddObservation";
 import EditObservation from "../EditObservation/EditObservation";
 import ObservationList from "../ObservationList/ObservationList";
-import Home from "../Home/Home";
+import DemoNav from "../DemoNav/DemoNav";
+import MyNaturehood from "../MyNaturehood/MyNaturehood";
 import "./App.css";
 
 export default function App(props) {
@@ -17,11 +18,15 @@ export default function App(props) {
           <h1 className="App-h1">natureHood</h1>
         </Link>
         <LandingPageNav />
+        <DemoNav />
       </header>
       <main>
         <Switch>
           <Route exact path={"/"} component={LandingPage} />
-          <Route path={"/home"} component={Home} />
+          <Route
+            path={"/mynaturehood"}
+            render={() => <MyNaturehood observations={observations} />}
+          />
           <Route path={"/add-observation"} component={AddObservation} />
           <Route
             path={"/edit/observation/:observationId"}

@@ -1,18 +1,5 @@
-// import React from "react";
-// import "./Map.css";
-// import API_KEY from "../config.js";
-// import Image from "./map.png";
-
-// export default function Map() {
-//   return (
-//     <div className="Map">
-//       <img src={Image} alt="temp" />
-//     </div>
-//   );
-// }
-
-import React from "react";
-import { Autocomplete, GoogleMap, LoadScript } from "@react-google-maps/api";
+import React, { useState } from "react";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import API_KEY from "../config.js";
 
 const containerStyle = {
@@ -22,16 +9,29 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 45.570966235743214,
-  lng: -122.76914618094335,
+  lat: 45.6008,
+  lng: -122.7606,
 };
 
-function Map() {
-  const [map, setMap] = React.useState(null);
+function Map(props) {
+  const getCoordinates = (e) => {
+    console.log(
+      "Marker dropped: Current Lat:" +
+        e.latLng.lat().toFixed(3) +
+        " Current Lng: " +
+        e.latLng.lng().toFixed(3)
+    );
+    const lat = e.latLng.lat().toFixed(3);
+    console.log(lat);
+    const lng = e.latLng.lng().toFixed(3);
+    console.log(lng);
+    props.onMarkerDrop(lat, lng);
+  };
+
+  const [map, setMap] = useState(null);
 
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
     setMap(map);
   }, []);
 
@@ -44,11 +44,16 @@ function Map() {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={10}
+        zoom={13}
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
-        {/* Child components, such as markers, info windows, etc. */}
+        <Marker
+          onLoad={onLoad}
+          position={center}
+          draggable={true}
+          onDragEnd={(e) => getCoordinates(e)}
+        />
         <></>
       </GoogleMap>
     </LoadScript>

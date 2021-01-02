@@ -13,8 +13,8 @@ const OBSERVATIONS = [
     time: "3:00",
     ampm: "PM",
     description: "I saw a robin. It was pretty fat.",
-    lat: 45.559802,
-    long: 122.753875,
+    lat: 45.591,
+    lng: -122.749,
   },
   {
     id: 2,
@@ -24,8 +24,8 @@ const OBSERVATIONS = [
     time: "6:00",
     ampm: "AM",
     description: "A group of raccoons chased me down the street.",
-    lat: 49.559802,
-    long: 120.753875,
+    lat: 45.589,
+    lng: -122.741,
   },
   {
     id: 3,
@@ -35,8 +35,8 @@ const OBSERVATIONS = [
     time: "5:00",
     ampm: "AM",
     description: "I saw a fox and her two cubs. The mother fox hissed at me.",
-    lat: 49.559802,
-    long: 120.753875,
+    lat: 45.586,
+    lng: -122.751,
   },
 ];
 

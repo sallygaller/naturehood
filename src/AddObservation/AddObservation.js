@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import Map from "../Map/Map";
 import "./AddObservation.css";
 
 export default function AddObservation() {
+  const [species, setSpecies] = useState("");
+  const [type, setType] = useState("");
+  const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("3:00");
+  const [ampm, setAmpm] = useState("pm");
+  const [lat, setLat] = useState(0);
+  const [lng, setLng] = useState(0);
+
+  const isFilledIn =
+    species && type && description && date && time && ampm && lat && lng;
+
+  const handleMarkerDrop = (lat, lng) => {
+    console.log("Handle marker drop called", lat + lng);
+    setLat(lat);
+    setLng(lng);
+  };
+
   return (
     <div className="AddObservation">
       <h2>Add New Observation</h2>
@@ -13,10 +32,16 @@ export default function AddObservation() {
             type="text"
             name="species"
             id="species"
+            value={species}
+            onChange={(e) => setSpecies(e.target.value)}
           ></input>
           <label htmlFor="type">Type of species:</label>
-          <select id="type" name="type">
-            <option value="mammal">Mammal</option>
+          <select
+            id="type"
+            name="type"
+            onChange={(e) => setType(e.target.value)}
+          >
+            <option value={type}></option>
             <option value="bird">Bird</option>
             <option value="arthropod">Arthropod</option>
             <option value="amphibian">Amphibian</option>
@@ -24,22 +49,49 @@ export default function AddObservation() {
             <option value="fish">Fish</option>
           </select>
           <label htmlFor="description">
-            Description (be as detailed as possible!):
+            Description (be as detailed as possible):
           </label>
           <textarea
             id="description"
             name="description"
             className="AddObservation-textarea"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           ></textarea>
           <label htmlFor="date">Date seen:</label>
-          <input type="text" id="date" name="date" value="2020-12-31"></input>
+          <input
+            type="text"
+            id="date"
+            name="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
           <label htmlFor="date">Time seen (approximate):</label>
-          <input type="text" id="time" name="time" value="3:00"></input>
-          <select id="ampm">
+          <input
+            type="text"
+            id="time"
+            name="time"
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+          />
+          <select
+            id="ampm"
+            value={ampm}
+            onChange={(e) => setAmpm(e.target.value)}
+          >
             <option>am</option>
             <option>pm</option>
           </select>
-          <input type="submit" value="Submit"></input>
+          <label htmlFor="location">Location (drag and drop the marker):</label>
+          <Map onMarkerDrop={handleMarkerDrop} />
+          <p>
+            Latitude: {lat}
+            <br></br>
+            Longitude: {lng}
+          </p>
+          <button type="submit" disabled={!isFilledIn}>
+            Submit
+          </button>
         </form>
       </div>
     </div>

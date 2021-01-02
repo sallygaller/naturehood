@@ -1,21 +1,21 @@
-.DemoPageNav {
+.DemoNav {
     background-color: #333;
     text-align: center;
   }
   
-  .DemoPageNav a,
-  .DemoPageNav a:active,
-  .DemoPageNav a:focus,
-  .DemoPageNav a:visited {
+  .DemoNav a,
+  .DemoNav a:active,
+  .DemoNav a:focus,
+  .DemoNav a:visited {
     color: #ececea;
     text-decoration: none;
   }
   
-  .DemoPageNav a:hover {
+  .DemoNav a:hover {
     color: #ffffff;
     text-decoration: solid;
   }
   
-  .DemoPageNav a:not(:last-of-type) {
+  .DemoNav a:not(:last-of-type) {
     margin-right: 32px;
   }
