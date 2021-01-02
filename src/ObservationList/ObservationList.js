@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Observation from "../Observation/Observation";
-import "./Observations.css";
+import "./ObservationList.css";
 
-export default function Observations(props) {
+export default function ObservationList(props) {
   const observations = props.observations;
 
   function countSpecies(observations, observation) {
@@ -14,14 +14,14 @@ export default function Observations(props) {
   }
 
   return (
-    <div className="Observations">
+    <div className="ObservationList">
       <h2>My Observations</h2>
       <Link to={"/add-observation"}>
         <button className="Observations-button" type="button">
           Add Observation
         </button>
       </Link>
-      <div className="Observations-sort">
+      <div>
         <label htmlFor="Observations-sort">Sort by</label>
         <select>
           <option value="date-desc">Date (Newest to Oldest)</option>

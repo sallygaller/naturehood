@@ -1,0 +1,21 @@
+.DemoPageNav {
+    background-color: #333;
+    text-align: center;
+  }
+  
+  .DemoPageNav a,
+  .DemoPageNav a:active,
+  .DemoPageNav a:focus,
+  .DemoPageNav a:visited {
+    color: #ececea;
+    text-decoration: none;
+  }
+  
+  .DemoPageNav a:hover {
+    color: #ffffff;
+    text-decoration: solid;
+  }
+  
+  .DemoPageNav a:not(:last-of-type) {
+    margin-right: 32px;
+  }

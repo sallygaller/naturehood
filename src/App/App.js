@@ -4,7 +4,7 @@ import LandingPage from "../LandingPage/LandingPage";
 import LandingPageNav from "../LandingPageNav/LandingPageNav";
 import AddObservation from "../AddObservation/AddObservation";
 import EditObservation from "../EditObservation/EditObservation";
-import Observations from "../Observations/Observations";
+import ObservationList from "../ObservationList/ObservationList";
 import Home from "../Home/Home";
 import "./App.css";
 
@@ -16,8 +16,8 @@ export default function App(props) {
         <Link to="/">
           <h1 className="App-h1">natureHood</h1>
         </Link>
+        <LandingPageNav />
       </header>
-      <LandingPageNav />
       <main>
         <Switch>
           <Route exact path={"/"} component={LandingPage} />
@@ -31,7 +31,7 @@ export default function App(props) {
           />
           <Route
             path={"/observations"}
-            render={() => <Observations observations={observations} />}
+            render={() => <ObservationList observations={observations} />}
           />
         </Switch>
       </main>

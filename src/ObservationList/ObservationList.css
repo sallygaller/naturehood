@@ -1,20 +1,20 @@
-.Observations {
+.ObservationList {
     text-align: center;
     margin-left: 0px;
 }
 
-.Observations select {
+.ObservationList select {
     width: 25%;
 }
 
-.Observations ul, li {
+.ObservationList ul, li {
     list-style-type: none;
     list-style-position: inside;
     margin: 0;
     padding: 0; 
 }
 
-.Observations li {
+.ObservationList li {
     margin-left: 0px;
 }
 
