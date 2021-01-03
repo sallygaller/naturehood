@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Map from "../Map/Map";
+import AddObservationMap from "../AddObservationMap/AddObservationMap";
 import "./AddObservation.css";
 
 export default function AddObservation() {
@@ -23,9 +23,9 @@ export default function AddObservation() {
 
   return (
     <div className="AddObservation">
-      <h2>Add New Observation</h2>
+      <h2>Add Observation</h2>
       <div>
-        <form>
+        <form className="AddObservation-form">
           <label htmlFor="species">Species seen:</label>
           <input
             className="AddObservation-text"
@@ -83,7 +83,7 @@ export default function AddObservation() {
             <option>pm</option>
           </select>
           <label htmlFor="location">Location (drag and drop the marker):</label>
-          <Map onMarkerDrop={handleMarkerDrop} />
+          <AddObservationMap onMarkerDrop={handleMarkerDrop} />
           <p>
             Latitude: {lat}
             <br></br>

@@ -1,26 +1,25 @@
 import React from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import LandingPage from "../LandingPage/LandingPage";
-import LandingPageNav from "../LandingPageNav/LandingPageNav";
+import Nav from "../Nav/Nav";
 import AddObservation from "../AddObservation/AddObservation";
 import EditObservation from "../EditObservation/EditObservation";
 import ObservationList from "../ObservationList/ObservationList";
-import DemoNav from "../DemoNav/DemoNav";
 import MyNaturehood from "../MyNaturehood/MyNaturehood";
+import LoginPage from "../LoginPage/LoginPage";
 import "./App.css";
 
 export default function App(props) {
   const observations = props.observations;
   return (
     <div className="App">
-      <header>
+      <header className="App-header App-row">
         <Link to="/">
           <h1 className="App-h1">natureHood</h1>
         </Link>
-        <LandingPageNav />
-        <DemoNav />
+        <Nav />
       </header>
-      <main>
+      <main className="App-main App-content">
         <Switch>
           <Route exact path={"/"} component={LandingPage} />
           <Route
@@ -38,6 +37,7 @@ export default function App(props) {
             path={"/observations"}
             render={() => <ObservationList observations={observations} />}
           />
+          <Route path={"/login"} render={() => <LoginPage />} />
         </Switch>
       </main>
     </div>

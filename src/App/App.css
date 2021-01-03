@@ -1,15 +1,17 @@
   .App {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    flex-flow: column;
+    height: 100%;
+  }
+
+  .App-main {
+    flex: 1 1 auto;
+    height: 100%
   }
   
-  .App > main {
-    flex: 1;
-  }
-  
-  .App > header {
+  .App-header {
     background-color: #333;
+    flex: 0 1 auto;
   }
 
   .App-h1 {

@@ -1,23 +1,13 @@
-.AddObservation h2 {
-    text-align: center;
-}
-
-.AddObservation {
+.LoginForm {
     border-radius: 5px;
     background-color: #f2f2f2;
-    padding: 20px;  
-}
-
-.AddObservation textarea {
-    font-family: sans-serif
-}
-
-.AddObservation-form {
-    width: 80%;
+    padding: 20px;
+    max-width: 75%;
     margin: 0 auto;
 }
 
-.AddObservation input[type=text], select, textarea {
+
+.LoginForm input[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -27,7 +17,17 @@
     box-sizing: border-box;
   }
 
-.AddObservation button:enabled {
+  .LoginForm input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+.LoginForm button:enabled {
     width: 100%;
     background-color: #4CAF50;
     color: white;
@@ -38,7 +38,7 @@
     cursor: pointer;
 }
 
-.AddObservation button:disabled {
+.LoginForm button:disabled {
     width: 100%;
     background-color: grey;
     color: white;
@@ -49,10 +49,10 @@
     cursor: pointer;
 }
 
-.AddObservation button:disabled:hover {
+.LoginForm button:disabled:hover {
     background-color: grey;
 }
 
-.AddObservation button:enabled:hover {
+.LoginForm button:enabled:hover {
     background-color: #45a049;
 }

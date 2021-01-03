@@ -22,7 +22,7 @@ export default function ObservationList(props) {
         </button>
       </Link>
       <div>
-        <label htmlFor="Observations-sort">Sort by</label>
+        <label htmlFor="Observations-sort">Sort by </label>
         <select>
           <option value="date-desc">Date (Newest to Oldest)</option>
           <option value="date-asc">Date (Oldest to Newest)</option>

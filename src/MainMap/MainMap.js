@@ -1,11 +1,7 @@
 import React from "react";
-import {
-  GoogleMap,
-  LoadScript,
-  MarkerClusterer,
-  Marker,
-} from "@react-google-maps/api";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import API_KEY from "../config.js";
+import "./MainMap.css";
 
 const containerStyle = {
   width: "400px",
@@ -22,49 +18,27 @@ export default function MainMap(props) {
   const locations = [
     { lat: props.observations[0].lat, lng: props.observations[0].lng },
     { lat: props.observations[1].lat, lng: props.observations[1].lng },
+    { lat: props.observations[2].lat, lng: props.observations[2].lng },
   ];
 
   function createKey(location) {
     return location.lat + location.lng;
   }
 
-  const [map, setMap] = React.useState(null);
-
-  const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
-    setMap(map);
-  }, []);
-
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null);
-  }, []);
-
   return (
-    <LoadScript googleMapsApiKey={API_KEY}>
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={16}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
-        <MarkerClusterer>
-          {(clusterer) =>
-            locations.map((location) => (
-              <Marker
-                key={createKey(location)}
-                position={location}
-                clusterer={clusterer}
-                averageCenter={true}
-              />
-            ))
-          }
-        </MarkerClusterer>
-        <></>
-      </GoogleMap>
-    </LoadScript>
+    <div className="MainMap">
+      <LoadScript googleMapsApiKey={API_KEY}>
+        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
+          {locations.map((location) => (
+            <Marker
+              key={createKey(location)}
+              position={location}
+              averageCenter={true}
+            />
+          ))}
+          <></>
+        </GoogleMap>
+      </LoadScript>
+    </div>
   );
 }
-
-// export default React.memo(MainMap);

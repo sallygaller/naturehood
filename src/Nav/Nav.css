@@ -1,0 +1,9 @@
+.Nav {
+    background-color: #333;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+.Nav a:not(:last-of-type) {
+  margin-right: 32px;
+}

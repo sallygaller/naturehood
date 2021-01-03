@@ -1,6 +1,7 @@
 .ObservationList {
     text-align: center;
     margin-left: 0px;
+    padding: 20px;  
 }
 
 .ObservationList select {

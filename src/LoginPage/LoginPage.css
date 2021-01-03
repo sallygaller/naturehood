@@ -1,0 +1,11 @@
+.LoginPage {
+    border-radius: 5px;
+    height: 100%;
+    padding: 20px;
+}
+
+.LoginPage h2 {
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 25px;
+}
