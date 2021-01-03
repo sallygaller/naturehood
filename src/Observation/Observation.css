@@ -1,3 +1,29 @@
 .Observation {
-    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
 }
+
+.Observation-small-column {
+    border: solid white;
+    text-align: left;
+    padding: 8px;
+    width: auto;
+}
+
+.Observation-wide-column {
+    border: solid white;
+    text-align: left;
+    padding: 8px;
+    width: 60%;
+}
+
+.Observation-button-column {
+    border: solid white;
+    text-align: center;
+    padding: 8px;
+    width: 10%;
+}
+
+
+

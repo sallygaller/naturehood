@@ -1,23 +1,31 @@
-  .App {
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-  }
+header {
+  background-color: #333;
+  flex: 0 1 auto;
+  flex-shrink: 0;
+}
 
-  .App-main {
-    flex: 1 1 auto;
-    height: 100%
-  }
-  
-  .App-header {
-    background-color: #333;
-    flex: 0 1 auto;
-  }
+main {
+  flex: 1 0 auto;
+  padding: 20px;
+}
 
-  .App-h1 {
-    text-align: center;
-    color: #fcfaf1;
-  }
+footer {
+  background-color: #333;
+  color: #fcfaf1;
+  margin-top: auto;
+  text-align: center;
+  flex-shrink: 0;
+  padding: 20px;
+}
+
+footer p {
+  font-size: 10px;
+}
+
+.App-h1 {
+  text-align: center;
+  color: #fcfaf1;
+}
   
 .App a,
 .App a:active,

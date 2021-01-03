@@ -4,19 +4,29 @@ import "./Observation.css";
 
 export default function Observation(props) {
   const observation = props.observation;
-  console.log(observation);
   return (
-    <div className="Observation">
-      <h3>{observation.species}</h3>
-      <p>
-        Date: {observation.date} <br></br>
-        Time: {observation.time} {observation.ampm}
-      </p>
-      <p>{observation.description}</p>
-      <Link to={`/edit/observation/${observation.id}`}>
-        <button type="button">Edit</button>
-      </Link>
-      <button>Delete</button>
+    <div>
+      <table className="Observation" id="observation">
+        <td className="Observation-small-column">
+          {observation.species}
+          <br></br>
+          Date: {observation.date}
+          <br></br>
+          Time: {observation.time} {observation.ampm}
+        </td>
+        <td className="Observation-wide-column">{observation.description}</td>
+        <td className="Observation-button-column">
+          <Link
+            className="Observation-item"
+            to={`/edit/observation/${observation.id}`}
+          >
+            <button type="button">Edit</button>
+          </Link>
+        </td>
+        <td className="Observation-button-column">
+          <button className="Observation-item">Delete</button>
+        </td>
+      </table>
     </div>
   );
 }

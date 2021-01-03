@@ -6,3 +6,12 @@ html, body {
   sans-serif;
   background-color: #f2f2f2;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.root {
+  height: 100%;
+}

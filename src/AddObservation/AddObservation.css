@@ -17,6 +17,11 @@
     margin: 0 auto;
 }
 
+.AddObservation-latlong {
+    font-style: italic;
+    font-size: 12px;
+}
+
 .AddObservation input[type=text], select, textarea {
     width: 100%;
     padding: 12px 20px;

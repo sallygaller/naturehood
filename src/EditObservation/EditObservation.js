@@ -11,10 +11,10 @@ export default function EditObservation(props) {
       <h2>Edit Observation</h2>
       <form>
         <label htmlFor="species">Species seen:</label>
-        <input type="text" value={observation.species}></input>
+        <input type="text" defaultValue={observation.species}></input>
         <label htmlFor="type">Type of species:</label>
         <select id="type" name="type">
-          <option value={observation.type}>{observation.type}</option>
+          <option defaultValue={observation.type}>{observation.type}</option>
           <option value="mammal">Mammal</option>
           <option value="bird">Bird</option>
           <option value="arthropod">Arthropod</option>
@@ -29,21 +29,21 @@ export default function EditObservation(props) {
           id="description"
           name="description"
           className="AddObservation-textarea"
-          value={observation.description}
+          defaultValue={observation.description}
         ></textarea>
         <label htmlFor="date">Date seen:</label>
         <input
           type="text"
           id="date"
           name="date"
-          value={observation.date}
+          defaultValue={observation.date}
         ></input>
         <label htmlFor="date">Time seen (approximate):</label>
         <input
           type="text"
           id="time"
           name="time"
-          value={observation.time}
+          defaultValue={observation.time}
         ></input>
         <select id="ampm">
           <option value={observation.ampm}>{observation.ampm}</option>

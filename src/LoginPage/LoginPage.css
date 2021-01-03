@@ -1,7 +1,7 @@
 .LoginPage {
-    border-radius: 5px;
     height: 100%;
     padding: 20px;
+    margin-bottom: auto;
 }
 
 .LoginPage h2 {

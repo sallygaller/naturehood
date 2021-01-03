@@ -19,7 +19,7 @@ export default function App(props) {
         </Link>
         <Nav />
       </header>
-      <main className="App-main App-content">
+      <main>
         <Switch>
           <Route exact path={"/"} component={LandingPage} />
           <Route
@@ -40,6 +40,9 @@ export default function App(props) {
           <Route path={"/login"} render={() => <LoginPage />} />
         </Switch>
       </main>
+      <footer>
+        <p>Created by Sally Galler</p>
+      </footer>
     </div>
   );
 }
