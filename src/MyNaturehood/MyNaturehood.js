@@ -6,7 +6,7 @@ export default function MyNaturehood(props) {
   const observations = props.observations;
   return (
     <div className="MyNaturehood">
-      <h2>My NatureHood</h2>
+      <h2>My natureHood</h2>
       <MainMap observations={observations} />
       <div className="MyNaturehood-date-filter">
         <input

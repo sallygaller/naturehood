@@ -42,6 +42,7 @@ export default function AddObservation() {
             onChange={(e) => setType(e.target.value)}
           >
             <option value={type}></option>
+            <option value="mammal">Mammal</option>
             <option value="bird">Bird</option>
             <option value="arthropod">Arthropod</option>
             <option value="amphibian">Amphibian</option>

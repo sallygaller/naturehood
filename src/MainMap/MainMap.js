@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  LoadScript,
+  Marker,
+  InfoWindow,
+} from "@react-google-maps/api";
 import API_KEY from "../config.js";
 import "./MainMap.css";
 
@@ -20,10 +25,13 @@ export default function MainMap(props) {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const [selectedAmpm, setSelectedAmpm] = useState(null);
+  const [selectedLat, setSelectedLat] = useState(null);
+  const [selectedLng, setSelectedLng] = useState(null);
+  const infoWindowPosition = { lat: selectedLat, lng: selectedLng };
 
-  function createKey(location) {
-    return location.lat + location.lng;
-  }
+  const divStyle = {
+    padding: 5,
+  };
 
   return (
     <div className="MainMap">
@@ -31,7 +39,7 @@ export default function MainMap(props) {
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
           {observations.map((observation) => (
             <Marker
-              key={createKey({ lat: observation.lat, lng: observation.lng })}
+              key={observation.id}
               position={{ lat: observation.lat, lng: observation.lng }}
               averageCenter={true}
               onClick={() => {
@@ -39,9 +47,20 @@ export default function MainMap(props) {
                 setSelectedSpecies(observation.species);
                 setSelectedTime(observation.time);
                 setSelectedAmpm(observation.ampm);
+                setSelectedLat(observation.lat);
+                setSelectedLng(observation.lng);
+                console.log(selectedSpecies);
+                console.log(selectedLng);
               }}
             />
           ))}
+          {/* {selectedSpecies && (
+            <InfoWindow position={infoWindowPosition}>
+              <div style={divStyle}>
+                <p>{selectedSpecies}</p>
+              </div>
+            </InfoWindow>
+          )} */}
         </GoogleMap>
       </LoadScript>
       <div>

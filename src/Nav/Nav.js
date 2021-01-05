@@ -11,7 +11,7 @@ export default function DemoNav() {
           fontWeight: "bold",
         }}
       >
-        My Naturehood
+        My natureHood
       </NavLink>{" "}
       <NavLink
         to="/observations"

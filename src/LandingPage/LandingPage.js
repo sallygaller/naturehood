@@ -12,7 +12,7 @@ export default function LandingPage() {
           [<em>placeholder for screenshot of entering new observation</em>]
         </p>
         <p>
-          Log your sightings with the species, date spotted, approximate
+          Record your sightings with the species, date spotted, approximate
           location and a description.
         </p>
       </section>
