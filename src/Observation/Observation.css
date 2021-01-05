@@ -1,29 +1,18 @@
 .Observation {
     width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
+    display:flex;
+    flex-direction: column;
+    padding-bottom: 25px;
 }
 
-.Observation-small-column {
-    border: solid white;
-    text-align: left;
-    padding: 8px;
-    width: auto;
+.Observation-item {
+    padding-right: 5px;
+    border: white;
+    align-self: center;
 }
 
-.Observation-wide-column {
-    border: solid white;
-    text-align: left;
-    padding: 8px;
-    width: 60%;
+.Observation-title {
+    font-weight: bold;
 }
-
-.Observation-button-column {
-    border: solid white;
-    text-align: center;
-    padding: 8px;
-    width: 10%;
-}
-
 
 

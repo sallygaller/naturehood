@@ -8,7 +8,7 @@ export default function DemoNav() {
       <NavLink
         to="/mynaturehood"
         activeStyle={{
-          "font-weight": "bold",
+          fontWeight: "bold",
         }}
       >
         My Naturehood
@@ -16,7 +16,7 @@ export default function DemoNav() {
       <NavLink
         to="/observations"
         activeStyle={{
-          "font-weight": "bold",
+          fontWeight: "bold",
         }}
       >
         My Observations
@@ -24,7 +24,7 @@ export default function DemoNav() {
       <NavLink
         to="/add-observation"
         activeStyle={{
-          "font-weight": "bold",
+          fontWeight: "bold",
         }}
       >
         Add Observation
@@ -32,7 +32,7 @@ export default function DemoNav() {
       <NavLink
         to="/login"
         activeStyle={{
-          "font-weight": "bold",
+          fontWeight: "bold",
         }}
       >
         Login

@@ -7,9 +7,7 @@ export default function LandingPage() {
     <div className="LandingPage">
       <h2>connecting you to nature and neighbor</h2>
       <section>
-        <header>
-          <h3>Record your wildlife observations</h3>
-        </header>
+        <h3>Record your wildlife observations</h3>
         <p>
           [<em>placeholder for screenshot of entering new observation</em>]
         </p>
@@ -19,9 +17,7 @@ export default function LandingPage() {
         </p>
       </section>
       <section>
-        <header>
-          <h3>See what wildlife your neighbors have spotted</h3>
-        </header>
+        <h3>See what wildlife your neighbors have spotted</h3>
         <p>
           [<em>placeholder for screenshot of map</em>]
         </p>
@@ -31,9 +27,7 @@ export default function LandingPage() {
         </p>
       </section>
       <section>
-        <header>
-          <h3>Analyze your sightings</h3>
-        </header>
+        <h3>Analyze your sightings</h3>
         <p>
           [<em>placeholder for screenshot of observations</em>]
         </p>
@@ -43,9 +37,7 @@ export default function LandingPage() {
         </p>
       </section>
       <section>
-        <header>
-          <h3>Start Exploring Your natureHood</h3>
-        </header>
+        <h3>Start Exploring Your natureHood</h3>
         <RegistrationForm />
       </section>
     </div>

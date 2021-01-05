@@ -24,3 +24,7 @@
     text-align: center;
     margin: 10px;
 }
+
+.ObservationList select {
+    width: 50%;
+}

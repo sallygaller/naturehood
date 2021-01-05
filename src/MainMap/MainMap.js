@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import API_KEY from "../config.js";
 import "./MainMap.css";
@@ -15,11 +15,11 @@ const center = {
 };
 
 export default function MainMap(props) {
-  const locations = [
-    { lat: props.observations[0].lat, lng: props.observations[0].lng },
-    { lat: props.observations[1].lat, lng: props.observations[1].lng },
-    { lat: props.observations[2].lat, lng: props.observations[2].lng },
-  ];
+  const observations = props.observations;
+  const [selectedSpecies, setSelectedSpecies] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedAmpm, setSelectedAmpm] = useState(null);
 
   function createKey(location) {
     return location.lat + location.lng;
@@ -29,16 +29,27 @@ export default function MainMap(props) {
     <div className="MainMap">
       <LoadScript googleMapsApiKey={API_KEY}>
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
-          {locations.map((location) => (
+          {observations.map((observation) => (
             <Marker
-              key={createKey(location)}
-              position={location}
+              key={createKey({ lat: observation.lat, lng: observation.lng })}
+              position={{ lat: observation.lat, lng: observation.lng }}
               averageCenter={true}
+              onClick={() => {
+                setSelectedDate(observation.date);
+                setSelectedSpecies(observation.species);
+                setSelectedTime(observation.time);
+                setSelectedAmpm(observation.ampm);
+              }}
             />
           ))}
-          <></>
         </GoogleMap>
       </LoadScript>
+      <div>
+        <p className={!selectedSpecies ? "MainMap-hidden" : null}>
+          {selectedSpecies}, seen {selectedTime}
+          {selectedAmpm} on {selectedDate}
+        </p>
+      </div>
     </div>
   );
 }
