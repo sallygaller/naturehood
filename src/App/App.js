@@ -3,10 +3,10 @@ import { Route, Link, Switch } from "react-router-dom";
 import LandingPage from "../LandingPage/LandingPage";
 import Nav from "../Nav/Nav";
 import AddObservation from "../AddObservation/AddObservation";
+import LoginPage from "../LoginPage/LoginPage";
 import EditObservation from "../EditObservation/EditObservation";
 import ObservationList from "../ObservationList/ObservationList";
 import MyNaturehood from "../MyNaturehood/MyNaturehood";
-import LoginPage from "../LoginPage/LoginPage";
 import "./App.css";
 
 export default function App(props) {
