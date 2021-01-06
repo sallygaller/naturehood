@@ -30,7 +30,7 @@ class MainMap extends React.Component {
     };
   }
 
-  onMarkerClick = (observation, marker, e) => {
+  handleMarkerClick = (observation, marker, e) => {
     this.setState({
       selectedObservation: observation,
       selectedObservationPosition: {
@@ -42,11 +42,12 @@ class MainMap extends React.Component {
     });
   };
 
-  oonCloseClick = (props) => {
+  handleCloseClick = (e) => {
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
         activeMarker: null,
+        selectedObservation: {},
       });
     }
   };
@@ -66,14 +67,14 @@ class MainMap extends React.Component {
                 key={observation.id}
                 position={{ lat: observation.lat, lng: observation.lng }}
                 averageCenter={true}
-                onClick={(e) => this.onMarkerClick(observation, e)}
+                onClick={(e) => this.handleMarkerClick(observation, e)}
               />
             ))}
             {this.state.showingInfoWindow && (
               <InfoWindow
                 marker={this.state.activeMarker}
                 visible={this.state.showingInfoWindow}
-                onCloseClick={this.onCloseClick}
+                onCloseClick={(e) => this.handleCloseClick(e)}
                 position={this.state.selectedObservationPosition}
               >
                 <div>

@@ -1,5 +1,6 @@
 import React from "react";
 import MainMap from "../MainMap/MainMap";
+import Observation from "../Observation/Observation";
 import "./MyNaturehood.css";
 
 export default function MyNaturehood(props) {
@@ -27,8 +28,18 @@ export default function MyNaturehood(props) {
           <option value="all">All Species</option>
           <option value="robin">Robin</option>
           <option value="fox">Fox</option>
-          <option value="fox">Raccoon</option>
+          <option value="raccoon">Raccoon</option>
         </select>
+      </div>
+      <div className="MyNaturehood-observations">
+        <h3>Recent Observations</h3>
+        <ul>
+          {observations.map((observation) => (
+            <li key={observation.id}>
+              <Observation observation={observation} />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
