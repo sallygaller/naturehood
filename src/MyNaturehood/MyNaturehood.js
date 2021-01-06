@@ -1,6 +1,5 @@
 import React from "react";
 import MainMap from "../MainMap/MainMap";
-import Observation from "../Observation/Observation";
 import "./MyNaturehood.css";
 
 export default function MyNaturehood(props) {
