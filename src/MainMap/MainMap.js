@@ -5,7 +5,7 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
-import config from "../config";
+import API_KEY from "../config";
 import "./MainMap.css";
 
 const containerStyle = {
@@ -56,7 +56,7 @@ class MainMap extends React.Component {
     const observations = this.props.observations;
     return (
       <div className="MainMap">
-        <LoadScript googleMapsApiKey={config.API_KEY}>
+        <LoadScript googleMapsApiKey={API_KEY}>
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}

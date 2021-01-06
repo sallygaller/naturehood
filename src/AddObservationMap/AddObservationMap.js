@@ -1,6 +1,6 @@
 import React from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import config from "../config";
+import API_KEY from "../config";
 import "./AddObservationMap.css";
 
 const containerStyle = {
@@ -23,7 +23,7 @@ export default function AddObservationMap(props) {
 
   return (
     <div className="AddObservationMap">
-      <LoadScript googleMapsApiKey={config.API_KEY}>
+      <LoadScript googleMapsApiKey={API_KEY}>
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={13}>
           <Marker
             position={center}
