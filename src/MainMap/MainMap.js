@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   GoogleMap,
   LoadScript,
@@ -19,56 +19,78 @@ const center = {
   lng: -122.7606,
 };
 
-export default function MainMap(props) {
-  const observations = props.observations;
-  const [selectedSpecies, setSelectedSpecies] = useState(null);
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedTime, setSelectedTime] = useState(null);
-  const [selectedAmpm, setSelectedAmpm] = useState(null);
-  const [selectedLat, setSelectedLat] = useState(null);
-  const [selectedLng, setSelectedLng] = useState(null);
-  const infoWindowPosition = { lat: selectedLat, lng: selectedLng };
+class MainMap extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedObservation: {},
+      selectedObservationPosition: {},
+    };
+  }
 
-  const divStyle = {
-    padding: 5,
+  onMarkerClick = (observation, marker, e) => {
+    this.setState({
+      selectedObservation: observation,
+      selectedObservationPosition: {
+        lat: observation.lat,
+        lng: observation.lng,
+      },
+      activeMarker: marker,
+      showingInfoWindow: true,
+    });
   };
 
-  return (
-    <div className="MainMap">
-      <LoadScript googleMapsApiKey={API_KEY}>
-        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
-          {observations.map((observation) => (
-            <Marker
-              key={observation.id}
-              position={{ lat: observation.lat, lng: observation.lng }}
-              averageCenter={true}
-              onClick={() => {
-                setSelectedDate(observation.date);
-                setSelectedSpecies(observation.species);
-                setSelectedTime(observation.time);
-                setSelectedAmpm(observation.ampm);
-                setSelectedLat(observation.lat);
-                setSelectedLng(observation.lng);
-                console.log(selectedSpecies);
-                console.log(selectedLng);
-              }}
-            />
-          ))}
-          {/* {selectedSpecies && (
-            <InfoWindow position={infoWindowPosition}>
-              <div style={divStyle}>
-                <p>{selectedSpecies}</p>
-              </div>
-            </InfoWindow>
-          )} */}
-        </GoogleMap>
-      </LoadScript>
-      <div>
-        <p className={!selectedSpecies ? "MainMap-hidden" : null}>
-          {selectedSpecies}, seen {selectedTime}
-          {selectedAmpm} on {selectedDate}
-        </p>
+  oonCloseClick = (props) => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null,
+      });
+    }
+  };
+
+  render() {
+    const observations = this.props.observations;
+    return (
+      <div className="MainMap">
+        <LoadScript googleMapsApiKey={API_KEY}>
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={center}
+            zoom={12}
+          >
+            {observations.map((observation) => (
+              <Marker
+                key={observation.id}
+                position={{ lat: observation.lat, lng: observation.lng }}
+                averageCenter={true}
+                onClick={(e) => this.onMarkerClick(observation, e)}
+              />
+            ))}
+            {this.state.showingInfoWindow && (
+              <InfoWindow
+                marker={this.state.activeMarker}
+                visible={this.state.showingInfoWindow}
+                onCloseClick={this.onCloseClick}
+                position={this.state.selectedObservationPosition}
+              >
+                <div>
+                  <p>
+                    {this.state.selectedObservation.species} seen{" "}
+                    {this.state.selectedObservation.date} at{" "}
+                    {this.state.selectedObservation.time}{" "}
+                    {this.state.selectedObservation.ampm}
+                  </p>
+                </div>
+              </InfoWindow>
+            )}
+          </GoogleMap>
+        </LoadScript>
       </div>
-    </div>
-  );
+    );
+  }
 }
+
+export default MainMap;
