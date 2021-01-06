@@ -16,7 +16,6 @@ export default function AddObservation() {
     species && type && description && date && time && ampm && lat && lng;
 
   const handleMarkerDrop = (lat, lng) => {
-    console.log("Handle marker drop called", lat + lng);
     setLat(lat);
     setLng(lng);
   };

@@ -16,16 +16,8 @@ const center = {
 
 export default function AddObservationMap(props) {
   const getCoordinates = (e) => {
-    console.log(
-      "Marker dropped: Current Lat:" +
-        e.latLng.lat().toFixed(3) +
-        " Current Lng: " +
-        e.latLng.lng().toFixed(3)
-    );
     const lat = e.latLng.lat().toFixed(3);
-    console.log(lat);
     const lng = e.latLng.lng().toFixed(3);
-    console.log(lng);
     props.onMarkerDrop(lat, lng);
   };
 

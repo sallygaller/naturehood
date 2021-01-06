@@ -6,3 +6,29 @@
 .MyNaturehood select {
     width: 50%;
 }
+
+.MyNaturehood-instructions {
+    margin-top: 0px;
+    font-size: 12px;
+}
+
+.MyNaturehood ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+.MyNaturehood li {
+    margin-left: 0px;
+    padding-bottom: 10px;
+}
+
+.MyNaturehood-item {
+    padding-right: 5px;
+    border: white;
+    align-self: center;
+}
+
+.MyNaturehood-title {
+    font-weight: bold;
+}

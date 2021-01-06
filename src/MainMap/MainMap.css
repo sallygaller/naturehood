@@ -1,12 +1,4 @@
 .MainMap {
-    padding-bottom: 30px;
+    padding-bottom: 5px;
 }
 
-.MainMap-hidden {
-    display: none;
-}
-
-.MainMap p {
-    font-size: 12px;
-    padding-bottom: 0px;
-}

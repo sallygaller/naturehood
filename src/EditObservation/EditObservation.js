@@ -5,7 +5,6 @@ export default function EditObservation(props) {
   const observation = props.observations.find(
     ({ id }) => id == props.match.params.observationId
   );
-  console.log(observation);
   return (
     <div className="EditObservation">
       <h2>Edit Observation</h2>

@@ -9,6 +9,9 @@ export default function MyNaturehood(props) {
     <div className="MyNaturehood">
       <h2>My natureHood</h2>
       <MainMap observations={observations} />
+      <p className="MyNaturehood-instructions">
+        Click on a marker to see a neighbor's observation.
+      </p>
       <div className="MyNaturehood-date-filter">
         <input
           type="text"
@@ -36,7 +39,14 @@ export default function MyNaturehood(props) {
         <ul>
           {observations.map((observation) => (
             <li key={observation.id}>
-              <Observation observation={observation} />
+              <div className="MyNaturehood-item MyNaturehood-title">
+                {observation.species}
+              </div>
+              <div className="MyNaturehood-item">
+                Date: {observation.date}
+                <br></br>
+                Time: {observation.time} {observation.ampm}
+              </div>
             </li>
           ))}
         </ul>
