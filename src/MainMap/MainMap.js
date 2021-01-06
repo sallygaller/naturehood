@@ -5,6 +5,7 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
+import { GoogleApiWrapper } from "google-maps-react";
 import API_KEY from "../config";
 import "./MainMap.css";
 
@@ -19,7 +20,7 @@ const center = {
   lng: -122.7606,
 };
 
-class MainMap extends React.Component {
+export class MainMap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,8 +56,8 @@ class MainMap extends React.Component {
   render() {
     const observations = this.props.observations;
     return (
-      <div className="MainMap">
-        <LoadScript id="script-loader" googleMapsApiKey={API_KEY}>
+      <div className="MainMap" id="map">
+        <LoadScript googleMapsApiKey={API_KEY}>
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
@@ -94,4 +95,6 @@ class MainMap extends React.Component {
   }
 }
 
-export default MainMap;
+export default GoogleApiWrapper({
+  apiKey: API_KEY,
+})(MainMap);
