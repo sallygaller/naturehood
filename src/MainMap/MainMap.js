@@ -56,7 +56,7 @@ class MainMap extends React.Component {
     const observations = this.props.observations;
     return (
       <div className="MainMap">
-        <LoadScript googleMapsApiKey={API_KEY}>
+        <LoadScript id="script-loader" googleMapsApiKey={API_KEY}>
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
