@@ -1,5 +1,6 @@
 import React from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { GoogleApiWrapper } from "google-maps-react";
 import API_KEY from "../config";
 import "./AddObservationMap.css";
 
@@ -14,7 +15,7 @@ const center = {
   lng: -122.7606,
 };
 
-export default function AddObservationMap(props) {
+export function AddObservationMap(props) {
   const getCoordinates = (e) => {
     const lat = e.latLng.lat().toFixed(3);
     const lng = e.latLng.lng().toFixed(3);
@@ -36,3 +37,7 @@ export default function AddObservationMap(props) {
     </div>
   );
 }
+
+export default GoogleApiWrapper({
+  apiKey: API_KEY,
+})(AddObservationMap);
