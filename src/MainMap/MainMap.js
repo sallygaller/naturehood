@@ -1,11 +1,10 @@
 import React from "react";
 import {
   GoogleMap,
-  LoadScript,
+  useJsApiLoader,
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
-import { GoogleApiWrapper } from "google-maps-react";
 import API_KEY from "../config";
 import "./MainMap.css";
 
@@ -20,7 +19,7 @@ const center = {
   lng: -122.7606,
 };
 
-export class MainMap extends React.Component {
+export default class MainMap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,48 +53,49 @@ export class MainMap extends React.Component {
   };
 
   render() {
-    const observations = this.props.observations;
     return (
-      <div className="MainMap" id="map">
-        {/* <LoadScript googleMapsApiKey={API_KEY}> */}
-        <GoogleMap
-          google={this.props.google}
-          mapContainerStyle={containerStyle}
-          center={center}
-          zoom={12}
-        >
-          {observations.map((observation) => (
-            <Marker
-              key={observation.id}
-              position={{ lat: observation.lat, lng: observation.lng }}
-              averageCenter={true}
-              onClick={(e) => this.handleMarkerClick(observation, e)}
-            />
-          ))}
-          {this.state.showingInfoWindow && (
-            <InfoWindow
-              marker={this.state.activeMarker}
-              visible={this.state.showingInfoWindow}
-              onCloseClick={(e) => this.handleCloseClick(e)}
-              position={this.state.selectedObservationPosition}
-            >
-              <div>
-                <p>
-                  {this.state.selectedObservation.species} seen{" "}
-                  {this.state.selectedObservation.date} at{" "}
-                  {this.state.selectedObservation.time}{" "}
-                  {this.state.selectedObservation.ampm}
-                </p>
-              </div>
-            </InfoWindow>
-          )}
-        </GoogleMap>
-        {/* </LoadScript> */}
+      <div>
+        <h1>Hi!</h1>
       </div>
     );
+    // const observations = this.props.observations;
+    // return (
+    //   <div className="MainMap" id="map">
+    //     <LoadScript googleMapsApiKey={API_KEY}>
+    //     <GoogleMap
+    //       google={this.props.google}
+    //       mapContainerStyle={containerStyle}
+    //       center={center}
+    //       zoom={12}
+    //     >
+    //       {observations.map((observation) => (
+    //         <Marker
+    //           key={observation.id}
+    //           position={{ lat: observation.lat, lng: observation.lng }}
+    //           averageCenter={true}
+    //           onClick={(e) => this.handleMarkerClick(observation, e)}
+    //         />
+    //       ))}
+    //       {this.state.showingInfoWindow && (
+    //         <InfoWindow
+    //           marker={this.state.activeMarker}
+    //           visible={this.state.showingInfoWindow}
+    //           onCloseClick={(e) => this.handleCloseClick(e)}
+    //           position={this.state.selectedObservationPosition}
+    //         >
+    //           <div>
+    //             <p>
+    //               {this.state.selectedObservation.species} seen{" "}
+    //               {this.state.selectedObservation.date} at{" "}
+    //               {this.state.selectedObservation.time}{" "}
+    //               {this.state.selectedObservation.ampm}
+    //             </p>
+    //           </div>
+    //         </InfoWindow>
+    //       )}
+    //     </GoogleMap>
+    //       </LoadScript>
+    //     </div>
+    //   );
   }
 }
-
-export default GoogleApiWrapper({
-  apiKey: API_KEY,
-})(MainMap);
