@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import API_KEY from "./config";
 
 import "./index.css";
 import App from "./App/App";
@@ -41,19 +40,6 @@ const OBSERVATIONS = [
     lng: -122.751,
   },
 ];
-
-// Create the script tag, set the appropriate attributes
-var script = document.createElement("script");
-script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&callback=initMap`;
-script.defer = true;
-
-// Attach your callback function to the `window` object
-window.initMap = function () {
-  // JS API is loaded and available
-};
-
-// Append the 'script' element to 'head'
-document.head.appendChild(script);
 
 ReactDOM.render(
   <BrowserRouter>
