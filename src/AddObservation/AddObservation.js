@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AddObservationMap from "../AddObservationMap/AddObservationMap";
+import GoogleMap from "../GoogleMap/GoogleMap";
 import "./AddObservation.css";
 
 export default function AddObservation() {
@@ -83,7 +84,8 @@ export default function AddObservation() {
             <option>pm</option>
           </select>
           <label htmlFor="location">Location (drag and drop the marker):</label>
-          <AddObservationMap onMarkerDrop={handleMarkerDrop} />
+          {/* <AddObservationMap onMarkerDrop={handleMarkerDrop} /> */}
+          <GoogleMap onMarkerDrop={handleMarkerDrop} />
           <p className="AddObservation-latlong">
             Latitude: {lat}
             <br></br>
