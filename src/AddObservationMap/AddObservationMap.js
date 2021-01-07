@@ -36,16 +36,16 @@ export default function AddObservationMap(props) {
 
   return (
     <div className="AddObservationMap">
-      <LoadScript googleMapsApiKey={API_KEY}>
-        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={13}>
-          <Marker
-            position={center}
-            draggable={true}
-            onDragEnd={(e) => getCoordinates(e)}
-          />
-          <></>
-        </GoogleMap>
-      </LoadScript>
+      {/* <LoadScript googleMapsApiKey={API_KEY}> */}
+      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={13}>
+        <Marker
+          position={center}
+          draggable={true}
+          onDragEnd={(e) => getCoordinates(e)}
+        />
+        <></>
+      </GoogleMap>
+      {/* </LoadScript> */}
     </div>
   );
 }
