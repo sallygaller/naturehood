@@ -57,39 +57,40 @@ export class MainMap extends React.Component {
     const observations = this.props.observations;
     return (
       <div className="MainMap" id="map">
-        <LoadScript googleMapsApiKey={API_KEY}>
-          <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={12}
-          >
-            {observations.map((observation) => (
-              <Marker
-                key={observation.id}
-                position={{ lat: observation.lat, lng: observation.lng }}
-                averageCenter={true}
-                onClick={(e) => this.handleMarkerClick(observation, e)}
-              />
-            ))}
-            {this.state.showingInfoWindow && (
-              <InfoWindow
-                marker={this.state.activeMarker}
-                visible={this.state.showingInfoWindow}
-                onCloseClick={(e) => this.handleCloseClick(e)}
-                position={this.state.selectedObservationPosition}
-              >
-                <div>
-                  <p>
-                    {this.state.selectedObservation.species} seen{" "}
-                    {this.state.selectedObservation.date} at{" "}
-                    {this.state.selectedObservation.time}{" "}
-                    {this.state.selectedObservation.ampm}
-                  </p>
-                </div>
-              </InfoWindow>
-            )}
-          </GoogleMap>
-        </LoadScript>
+        {/* <LoadScript googleMapsApiKey={API_KEY}> */}
+        <GoogleMap
+          google={this.props.google}
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={12}
+        >
+          {observations.map((observation) => (
+            <Marker
+              key={observation.id}
+              position={{ lat: observation.lat, lng: observation.lng }}
+              averageCenter={true}
+              onClick={(e) => this.handleMarkerClick(observation, e)}
+            />
+          ))}
+          {this.state.showingInfoWindow && (
+            <InfoWindow
+              marker={this.state.activeMarker}
+              visible={this.state.showingInfoWindow}
+              onCloseClick={(e) => this.handleCloseClick(e)}
+              position={this.state.selectedObservationPosition}
+            >
+              <div>
+                <p>
+                  {this.state.selectedObservation.species} seen{" "}
+                  {this.state.selectedObservation.date} at{" "}
+                  {this.state.selectedObservation.time}{" "}
+                  {this.state.selectedObservation.ampm}
+                </p>
+              </div>
+            </InfoWindow>
+          )}
+        </GoogleMap>
+        {/* </LoadScript> */}
       </div>
     );
   }
