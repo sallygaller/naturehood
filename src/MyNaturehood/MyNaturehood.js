@@ -8,8 +8,8 @@ export default function MyNaturehood(props) {
   return (
     <div className="MyNaturehood">
       <h2>My natureHood</h2>
-      <MapContainer observations={observations} />
-      {/* <MainMap observations={observations} /> */}
+      {/* <MapContainer observations={observations} /> */}
+      <MainMap observations={observations} />
       <p className="MyNaturehood-instructions">
         Click on a marker to see a neighbor's observation.
       </p>

@@ -13,6 +13,7 @@ class AddObservationMap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      map: null,
       lng: 12.550343,
       lat: 55.665957,
       zoom: 8,
@@ -20,7 +21,7 @@ class AddObservationMap extends React.Component {
   }
 
   componentDidMount() {
-    const map = new mapboxgl.Map({
+    this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [this.state.lng, this.state.lat],
@@ -29,7 +30,7 @@ class AddObservationMap extends React.Component {
 
     const marker = new mapboxgl.Marker({ draggable: true })
       .setLngLat([this.state.lng, this.state.lat])
-      .addTo(map);
+      .addTo(this.map);
     marker.on("dragend", onDragEnd);
     function onDragEnd() {
       const lngLat = marker.getLngLat();
@@ -40,13 +41,17 @@ class AddObservationMap extends React.Component {
       // this.props.onMarkerDrop(lat, lng);
     }
 
-    map.on("move", () => {
+    this.map.on("move", () => {
       this.setState({
-        lng: map.getCenter().lng.toFixed(4),
-        lat: map.getCenter().lat.toFixed(4),
-        zoom: map.getZoom().toFixed(2),
+        lng: this.map.getCenter().lng.toFixed(4),
+        lat: this.map.getCenter().lat.toFixed(4),
+        zoom: this.map.getZoom().toFixed(2),
       });
     });
+  }
+
+  componentWillUnmount() {
+    this.map.remove();
   }
 
   render() {
