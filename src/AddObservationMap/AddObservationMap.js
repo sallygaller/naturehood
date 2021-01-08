@@ -1,9 +1,9 @@
 import React from "react";
 import mapboxgl from "mapbox-gl";
 import "./AddObservationMap.css";
-import API_KEY from "../config";
+import API_TOKEN from "../config";
 
-mapboxgl.accessToken = API_KEY;
+mapboxgl.accessToken = API_TOKEN;
 
 class AddObservationMap extends React.Component {
   constructor(props) {
