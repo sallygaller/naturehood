@@ -85,7 +85,7 @@ export default function AddObservation() {
           </select>
           <label htmlFor="location">Location (drag and drop the marker):</label>
           {/* <AddObservationMap onMarkerDrop={handleMarkerDrop} /> */}
-          <MapContainer onMarkerDrop={handleMarkerDrop} />
+          <MapContainer onMarkerDrop={(e) => handleMarkerDrop} />
           <p className="AddObservation-latlong">
             Latitude: {lat}
             <br></br>

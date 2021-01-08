@@ -1,28 +1,21 @@
-import React, { Component } from "react";
-import { Map, GoogleApiWrapper } from "google-maps-react";
+import React from "react";
+import { LoadScript } from "@react-google-maps/api";
+import AddObservationMap from "../AddObservationMap/AddObservationMap";
+import MainMap from "../MainMap/MainMap";
 import API_KEY from "../config";
 
-const mapStyles = {
-  width: "100%",
-  height: "100%",
-};
-
-export class MapContainer extends Component {
-  render() {
-    return (
-      <Map
-        google={this.props.google}
-        zoom={14}
-        style={mapStyles}
-        initialCenter={{
-          lat: -1.2884,
-          lng: 36.8233,
-        }}
-      />
-    );
-  }
+export default function MapContainer(props) {
+  return (
+    <div className="AddObservationMap">
+      <LoadScript googleMapsApiKey={API_KEY}>
+        <AddObservationMap onMarkerDrop={(e) => props.handleMarkerDrop} />
+        <MainMap observations={props.observations} />
+      </LoadScript>{" "}
+    </div>
+  );
 }
 
-export default GoogleApiWrapper({
-  apiKey: API_KEY,
-})(MapContainer);
+/* <LoadScript googleMapsApiKey={API_KEY}>
+<AddObservationMap onMarkerDrop={props.onMarkerDrop} />
+<MainMap observations={props.observations} />
+</LoadScript> */
