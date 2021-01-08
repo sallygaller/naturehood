@@ -14,6 +14,7 @@ const center = {
 };
 
 export default function AddObservationMap(props) {
+  let mapRef = React.createRef();
   const getCoordinates = (e) => {
     const lat = e.latLng.lat().toFixed(3);
     const lng = e.latLng.lng().toFixed(3);
@@ -22,7 +23,12 @@ export default function AddObservationMap(props) {
 
   return (
     <div className="AddObservationMap">
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={13}>
+      <GoogleMap
+        ref={mapRef}
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={13}
+      >
         <Marker
           position={center}
           draggable={true}

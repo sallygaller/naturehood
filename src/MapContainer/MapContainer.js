@@ -6,7 +6,7 @@ import API_KEY from "../config";
 
 export default function MapContainer(props) {
   return (
-    <div className="AddObservationMap">
+    <div>
       <LoadScript googleMapsApiKey={API_KEY}>
         <AddObservationMap onMarkerDrop={(e) => props.handleMarkerDrop} />
         <MainMap observations={props.observations} />
