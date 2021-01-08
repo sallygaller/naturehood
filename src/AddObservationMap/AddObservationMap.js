@@ -1,41 +1,63 @@
 import React from "react";
-import { GoogleMap, Marker } from "@react-google-maps/api";
+import mapboxgl from "mapbox-gl";
 import "./AddObservationMap.css";
+import API_KEY from "../config";
 
-const containerStyle = {
-  width: "400px",
-  height: "400px",
-  margin: "0 auto",
-};
+mapboxgl.accessToken = API_KEY;
 
-const center = {
-  lat: 45.6008,
-  lng: -122.7606,
-};
+class AddObservationMap extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lng: 12.550343,
+      lat: 55.665957,
+      zoom: 8,
+    };
+  }
 
-export default function AddObservationMap(props) {
-  let mapRef = React.createRef();
-  const getCoordinates = (e) => {
-    const lat = e.latLng.lat().toFixed(3);
-    const lng = e.latLng.lng().toFixed(3);
-    props.onMarkerDrop(lat, lng);
-  };
+  componentDidMount() {
+    const map = new mapboxgl.Map({
+      container: this.mapContainer,
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: [this.state.lng, this.state.lat],
+      zoom: this.state.zoom,
+    });
 
-  return (
-    <div className="AddObservationMap">
-      <GoogleMap
-        ref={mapRef}
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={13}
-      >
-        <Marker
-          position={center}
-          draggable={true}
-          onDragEnd={(e) => getCoordinates(e)}
-        />
-        <></>
-      </GoogleMap>
-    </div>
-  );
+    const marker = new mapboxgl.Marker({ draggable: true })
+      .setLngLat([this.state.lng, this.state.lat])
+      .addTo(map);
+    marker.on("dragend", onDragEnd);
+    function onDragEnd() {
+      const lngLat = marker.getLngLat();
+      const lat = lngLat.lat;
+      const lng = lngLat.lng;
+      console.log(lat);
+      console.log(lng);
+      // this.props.onMarkerDrop(lat, lng);
+    }
+
+    map.on("move", () => {
+      this.setState({
+        lng: map.getCenter().lng.toFixed(4),
+        lat: map.getCenter().lat.toFixed(4),
+        zoom: map.getZoom().toFixed(2),
+      });
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="sidebarStyle">
+          <div>
+            Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom:{" "}
+            {this.state.zoom}
+          </div>
+        </div>
+        <div ref={(el) => (this.mapContainer = el)} className="mapContainer" />
+      </div>
+    );
+  }
 }
+
+export default AddObservationMap;

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AddObservationMap from "../AddObservationMap/AddObservationMap";
-import MapContainer from "../MapContainer/MapContainer";
 import "./AddObservation.css";
 
 export default function AddObservation() {
@@ -17,8 +16,9 @@ export default function AddObservation() {
     species && type && description && date && time && ampm && lat && lng;
 
   const handleMarkerDrop = (lat, lng) => {
-    setLat(lat);
-    setLng(lng);
+    console.log("hello!");
+    // setLat(lat);
+    // setLng(lng);
   };
 
   return (
@@ -84,8 +84,7 @@ export default function AddObservation() {
             <option>pm</option>
           </select>
           <label htmlFor="location">Location (drag and drop the marker):</label>
-          {/* <AddObservationMap onMarkerDrop={handleMarkerDrop} /> */}
-          <MapContainer onMarkerDrop={(e) => handleMarkerDrop} />
+          <AddObservationMap onMarkerDrop={handleMarkerDrop} />
           <p className="AddObservation-latlong">
             Latitude: {lat}
             <br></br>
