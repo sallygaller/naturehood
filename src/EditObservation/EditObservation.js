@@ -2,9 +2,8 @@ import React from "react";
 import "./EditObservation.css";
 
 export default function EditObservation(props) {
-  const observation = props.observations.find(
-    ({ id }) => id == props.match.params.observationId
-  );
+  const paramsId = parseInt(props.match.params.observationId);
+  const observation = props.observations.find(({ id }) => id === paramsId);
   return (
     <div className="EditObservation">
       <h2>Edit Observation</h2>

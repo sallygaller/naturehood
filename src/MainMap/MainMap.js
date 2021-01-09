@@ -30,8 +30,8 @@ class MainMap extends React.Component {
 
     const observations = this.props.observations;
     observations.map((observation) => {
-      const popup = new mapboxgl.Popup({ offset: 25 }).setText(
-        `${observation.species}: seen ${observation.date}
+      const popup = new mapboxgl.Popup({ offset: 0 }).setText(
+        `${observation.species} seen ${observation.date}
         at ${observation.time}${observation.ampm}`
       );
       new mapboxgl.Marker({ draggable: false })
