@@ -15,8 +15,7 @@ export default function AddObservation() {
   const isFilledIn =
     species && type && description && date && time && ampm && lat && lng;
 
-  const handleMarkerDrop = (lat, lng) => {
-    console.log("hello!");
+  const handleMarkerDrop = () => {
     // setLat(lat);
     // setLng(lng);
   };

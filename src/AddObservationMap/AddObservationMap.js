@@ -14,8 +14,8 @@ class AddObservationMap extends React.Component {
     super(props);
     this.state = {
       map: null,
-      lng: 12.550343,
-      lat: 55.665957,
+      lng: -122.7606,
+      lat: 45.6008,
       zoom: 8,
     };
   }
@@ -31,15 +31,6 @@ class AddObservationMap extends React.Component {
     const marker = new mapboxgl.Marker({ draggable: true })
       .setLngLat([this.state.lng, this.state.lat])
       .addTo(this.map);
-    marker.on("dragend", onDragEnd);
-    function onDragEnd() {
-      const lngLat = marker.getLngLat();
-      const lat = lngLat.lat;
-      const lng = lngLat.lng;
-      console.log(lat);
-      console.log(lng);
-      // this.props.onMarkerDrop(lat, lng);
-    }
 
     this.map.on("move", () => {
       this.setState({
