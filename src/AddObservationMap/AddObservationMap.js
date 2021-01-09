@@ -14,8 +14,6 @@ class AddObservationMap extends React.Component {
     super(props);
     this.state = {
       map: null,
-      lng: -122.7606,
-      lat: 45.6008,
       zoom: 12,
       lngLat: 0,
     };
@@ -25,26 +23,24 @@ class AddObservationMap extends React.Component {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [this.state.lng, this.state.lat],
+      center: [this.props.lng, this.props.lat],
       zoom: this.state.zoom,
     });
 
     const marker = new mapboxgl.Marker({ draggable: true })
-      .setLngLat([this.state.lng, this.state.lat])
+      .setLngLat([this.props.lng, this.props.lat])
       .addTo(this.map);
 
-    const onDragEnd = (e) => {
-      console.log(e);
-      const lngLat = marker.getLngLat();
-      console.log(lngLat);
+    const onDragEnd = () => {
+      const coordinates = marker.getLngLat();
+      this.props.setLng(coordinates.lng);
+      this.props.setLat(coordinates.lat);
     };
 
     marker.on("dragend", onDragEnd);
 
     this.map.on("move", () => {
       this.setState({
-        lng: this.map.getCenter().lng.toFixed(4),
-        lat: this.map.getCenter().lat.toFixed(4),
         zoom: this.map.getZoom().toFixed(2),
       });
     });
@@ -57,12 +53,6 @@ class AddObservationMap extends React.Component {
   render() {
     return (
       <div>
-        <div className="sidebarStyle">
-          <div>
-            Longitude: {this.state.lng} | Latitude: {this.state.lat} | Zoom:{" "}
-            {this.state.zoom}
-          </div>
-        </div>
         <div ref={(el) => (this.mapContainer = el)} className="mapContainer" />
       </div>
     );

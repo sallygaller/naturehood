@@ -9,15 +9,11 @@ export default function AddObservation() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("3:00");
   const [ampm, setAmpm] = useState("pm");
-  const [lat, setLat] = useState(0);
-  const [lng, setLng] = useState(0);
+  const [lat, setLat] = useState(45.6008);
+  const [lng, setLng] = useState(-122.7606);
 
   const isFilledIn =
     species && type && description && date && time && ampm && lat && lng;
-
-  const handleMarkerDrop = (lngLat) => {
-    console.log(lngLat);
-  };
 
   return (
     <div className="AddObservation">
@@ -82,7 +78,12 @@ export default function AddObservation() {
             <option>pm</option>
           </select>
           <label htmlFor="location">Location (drag and drop the marker):</label>
-          <AddObservationMap onMarkerDrop={handleMarkerDrop} />
+          <AddObservationMap
+            lat={lat}
+            lng={lng}
+            setLat={setLat}
+            setLng={setLng}
+          />
           <p className="AddObservation-latlong">
             Latitude: {lat}
             <br></br>

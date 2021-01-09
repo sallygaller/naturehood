@@ -29,7 +29,7 @@ class MainMap extends React.Component {
     });
 
     const observations = this.props.observations;
-    observations.map((observation) => {
+    observations.forEach((observation) => {
       const popup = new mapboxgl.Popup({ offset: 0 }).setText(
         `${observation.species} seen ${observation.date}
         at ${observation.time}${observation.ampm}`
