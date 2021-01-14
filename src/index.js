@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "./Context/Context";
 
 import "./index.css";
 import App from "./App/App";
@@ -43,7 +44,9 @@ const OBSERVATIONS = [
 
 ReactDOM.render(
   <BrowserRouter>
-    <App observations={OBSERVATIONS} />
+    <Provider>
+      <App />
+    </Provider>
   </BrowserRouter>,
   document.getElementById("root")
 );

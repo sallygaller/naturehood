@@ -1,25 +1,56 @@
 import React, { useState } from "react";
+import moment from "moment";
 import AddObservationMap from "../AddObservationMap/AddObservationMap";
 import "./AddObservation.css";
+import { API_ENDPOINT } from "../config";
 
 export default function AddObservation() {
   const [species, setSpecies] = useState("");
   const [type, setType] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
-  const [time, setTime] = useState("3:00");
+  const [timeShort, setTimeShort] = useState("3:00");
   const [ampm, setAmpm] = useState("pm");
   const [lat, setLat] = useState(45.6008);
   const [lng, setLng] = useState(-122.7606);
 
   const isFilledIn =
-    species && type && description && date && time && ampm && lat && lng;
+    species && type && description && date && timeShort && ampm && lat && lng;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const fullTime = timeShort.concat(ampm);
+    const time = moment(fullTime, "h:mm a").format("H:mm");
+    const observation = {
+      species,
+      type,
+      description,
+      date,
+      time,
+      lat,
+      lng,
+    };
+    fetch(API_ENDPOINT, {
+      method: "POST",
+      body: JSON.stringify(observation),
+      headers: {
+        "content-type": "application/json",
+      },
+    }).then((res) => {
+      if (!res.ok) {
+        return res.json().then((error) => {
+          throw error;
+        });
+      }
+      return res.json();
+    });
+  };
 
   return (
     <div className="AddObservation">
       <h2>Add Observation</h2>
       <div>
-        <form className="AddObservation-form">
+        <form className="AddObservation-form" onSubmit={(e) => handleSubmit(e)}>
           <label htmlFor="species">Species seen:</label>
           <input
             className="AddObservation-text"
@@ -36,12 +67,12 @@ export default function AddObservation() {
             onChange={(e) => setType(e.target.value)}
           >
             <option value={type}></option>
-            <option value="mammal">Mammal</option>
-            <option value="bird">Bird</option>
-            <option value="arthropod">Arthropod</option>
-            <option value="amphibian">Amphibian</option>
-            <option value="reptile">Reptile</option>
-            <option value="fish">Fish</option>
+            <option value="Mammal">Mammal</option>
+            <option value="Bird">Bird</option>
+            <option value="Arthropod">Arthropod</option>
+            <option value="Amphibian">Amphibian</option>
+            <option value="Reptile">Reptile</option>
+            <option value="Fish">Fish</option>
           </select>
           <label htmlFor="description">
             Description (be as detailed as possible):
@@ -66,8 +97,8 @@ export default function AddObservation() {
             type="text"
             id="time"
             name="time"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
+            value={timeShort}
+            onChange={(e) => setTimeShort(e.target.value)}
           />
           <select
             id="ampm"
@@ -89,7 +120,8 @@ export default function AddObservation() {
             <br></br>
             Longitude: {lng}
           </p>
-          <button type="submit" disabled={!isFilledIn}>
+          <button type="submit">
+            {/* <button type="submit" disabled={!isFilledIn}> */}
             Submit
           </button>
         </form>

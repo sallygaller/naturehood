@@ -1,7 +1,7 @@
 import React from "react";
 import mapboxgl from "mapbox-gl";
 import "./AddObservationMap.css";
-import API_TOKEN from "../config";
+import { API_TOKEN } from "../config";
 
 // @ts-ignore
 // eslint-disable-next-line import/no-webpack-loader-syntax
