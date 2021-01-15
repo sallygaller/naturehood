@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import moment from "moment";
 import AddObservationMap from "../AddObservationMap/AddObservationMap";
 import "./AddObservation.css";
 import { API_ENDPOINT } from "../config";
 
 export default function AddObservation() {
+  const history = useHistory();
   const [species, setSpecies] = useState("");
   const [type, setType] = useState("");
   const [description, setDescription] = useState("");
@@ -36,14 +38,18 @@ export default function AddObservation() {
       headers: {
         "content-type": "application/json",
       },
-    }).then((res) => {
-      if (!res.ok) {
-        return res.json().then((error) => {
-          throw error;
-        });
-      }
-      return res.json();
-    });
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((error) => {
+            throw error;
+          });
+        }
+        return res.json();
+      })
+      .then((data) => {
+        history.push("/");
+      });
   };
 
   return (

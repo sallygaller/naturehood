@@ -1,37 +1,55 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
+import { API_ENDPOINT } from "../config";
 import moment from "moment";
 import "./Observation.css";
 
 export default function Observation(props) {
-  const observation = props.observation;
-  const dateFormat = moment(observation.date).format("L");
-  const timeFormat = moment(observation.time, "hh:mm:ss").format("hh:mm a");
+  const history = useHistory();
+  const { id, species, date, time, description } = props.observation;
+  const dateFormat = moment(date).format("L");
+  const timeFormat = moment(time, "hh:mm:ss").format("hh:mm a");
   const timeFormatSplit = timeFormat.split(" ");
-  const time = timeFormatSplit[0];
+  const timeCorrect = timeFormatSplit[0];
   const ampm = timeFormatSplit[1];
+
+  const handleDeleteRequest = (id) => {
+    fetch(API_ENDPOINT + `/${id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => {
+        if (!res.ok) return res.json().then((error) => Promise.reject(error));
+        return res;
+      })
+      .then((data) => {
+        history.push("/");
+      })
+      .catch((error) => {
+        console.error({ error });
+      });
+  };
+
   return (
     <div className="Observation">
-      <div className="Observation-item Observation-title">
-        {observation.species}
-      </div>
+      <div className="Observation-item Observation-title">{species}</div>
       <div className="Observation-item">
         Date: {dateFormat}
         <br></br>
-        Time: {time}
+        Time: {timeCorrect}
         {ampm}
       </div>
-      <div className="Observation-item">{observation.description}</div>
+      <div className="Observation-item">{description}</div>
       <div className="Observation-item">
-        <Link
-          className="Observation-item"
-          to={`/observations/edit/${observation.id}`}
-        >
+        <Link className="Observation-item" to={`/observations/edit/${id}`}>
           <button type="button">Edit</button>
         </Link>
       </div>
       <div className="Observation-item">
-        <button>Delete</button>
+        <button onClick={() => handleDeleteRequest(id)}>Delete</button>
       </div>
     </div>
   );
