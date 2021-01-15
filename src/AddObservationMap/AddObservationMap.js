@@ -15,11 +15,13 @@ class AddObservationMap extends React.Component {
     this.state = {
       map: null,
       zoom: 12,
-      lngLat: 0,
+      lng: "",
+      lat: "",
     };
   }
 
   componentDidMount() {
+    console.log(this.props);
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/streets-v11",

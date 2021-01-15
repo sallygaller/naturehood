@@ -70,7 +70,7 @@ class App extends React.Component {
             />
             <Route path={"/add-observation"} component={AddObservation} />
             <Route
-              path={"/edit/observation/:observationId"}
+              path={"/observations/edit/:observationId"}
               render={(props) => (
                 <EditObservation {...props} observations={observations} />
               )}

@@ -18,7 +18,7 @@ export default function Observation(props) {
       <div className="Observation-item">
         <Link
           className="Observation-item"
-          to={`/edit/observation/${observation.id}`}
+          to={`/observations/edit/${observation.id}`}
         >
           <button type="button">Edit</button>
         </Link>
