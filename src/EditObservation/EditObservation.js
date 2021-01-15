@@ -17,8 +17,8 @@ class EditObservation extends React.Component {
       date: "",
       time: "",
       ampm: "",
-      lat: "",
-      lng: "",
+      lng: -122.7606,
+      lat: 45.6008,
     };
   }
 
@@ -32,7 +32,6 @@ class EditObservation extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.state);
     const { observationId } = this.props.match.params;
     fetch(API_ENDPOINT + `/${observationId}`, {
       method: "GET",
@@ -60,7 +59,6 @@ class EditObservation extends React.Component {
           lat: responseData.lat,
           lng: responseData.lng,
         });
-        console.log(this.state);
       })
       .catch((error) => {
         console.error(error);
