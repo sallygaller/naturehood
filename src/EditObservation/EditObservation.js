@@ -2,6 +2,7 @@ import React from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
 import AddObservationMap from "../AddObservationMap/AddObservationMap";
+import Context from "../Context/Context";
 import "./EditObservation.css";
 import { API_ENDPOINT } from "../config";
 
@@ -30,6 +31,8 @@ class EditObservation extends React.Component {
       push: PropTypes.func,
     }).isRequired,
   };
+
+  static contextType = Context;
 
   componentDidMount() {
     const { observationId } = this.props.match.params;
@@ -90,7 +93,6 @@ class EditObservation extends React.Component {
       lat,
       lng,
     };
-    console.log(newObservation);
     fetch(API_ENDPOINT + `/${this.state.id}`, {
       method: "PATCH",
       body: JSON.stringify(newObservation),
@@ -103,6 +105,7 @@ class EditObservation extends React.Component {
       })
       .then(() => {
         this.resetFields(newObservation);
+        this.context.updateObservation(newObservation);
         this.props.history.push("/observations");
       })
       .catch((error) => {

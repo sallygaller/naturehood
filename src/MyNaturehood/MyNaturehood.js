@@ -4,6 +4,7 @@ import "./MyNaturehood.css";
 
 export default function MyNaturehood(props) {
   const observations = props.observations;
+  console.log(observations);
   return (
     <div className="MyNaturehood">
       <h2>My natureHood</h2>

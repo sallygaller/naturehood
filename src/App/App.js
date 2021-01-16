@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import LandingPage from "../LandingPage/LandingPage";
 import Nav from "../Nav/Nav";
+import Context from "../Context/Context";
 import AddObservation from "../AddObservation/AddObservation";
 import LoginPage from "../LoginPage/LoginPage";
 import EditObservation from "../EditObservation/EditObservation";
@@ -17,18 +18,26 @@ class App extends React.Component {
     error: null,
   };
 
-  setObservations = (observations) => {
-    this.setState({
-      observations: observations,
-      error: null,
-    });
-  };
-
-  updateObservation = (updatedObservation) => {
+  handleUpdateObservation = (updatedObservation) => {
     this.setState({
       observations: this.state.observations.map((o) =>
         o.id !== updatedObservation.id ? o : updatedObservation
       ),
+    });
+  };
+
+  handleAddObservation = (observation) => {
+    this.setState({
+      observations: [...this.state.observations, observation],
+    });
+  };
+
+  handleDeleteObservation = (observationId) => {
+    const newObservations = this.state.observations.filter(
+      (observation) => observation.id !== observationId
+    );
+    this.setState({
+      observations: newObservations,
     });
   };
 
@@ -40,53 +49,66 @@ class App extends React.Component {
         }
         return res.json();
       })
-      .then(this.setObservations)
+      .then((observations) => {
+        this.setState({ observations });
+      })
       .catch((error) => {
         console.error({ error });
       });
   }
 
   render() {
+    const value = {
+      observations: this.state.observations,
+      addObservation: this.handleAddObservation,
+      deleteObservation: this.handleDeleteObservation,
+      updateObservation: this.handleUpdateObservation,
+      error: this.state.error,
+      // setError: this.setError,
+      // clearError: this.clearError,
+    };
     const { observations } = this.state;
     return (
       <div className="App">
-        <header className="App-header App-row">
-          <Link to="/">
-            <h1 className="App-h1">natureHood</h1>
-          </Link>
-          <Nav />
-        </header>
-        <main>
-          <Switch>
-            <Route exact path={"/"} component={LandingPage} />
-            <Route
-              path={"/mynaturehood"}
-              render={(props) => (
-                <MyNaturehood
-                  {...props}
-                  observations={this.state.observations}
-                />
-              )}
-            />
-            <Route path={"/add-observation"} component={AddObservation} />
-            <Route
-              path={"/observations/edit/:observationId"}
-              render={(props) => (
-                <EditObservation {...props} observations={observations} />
-              )}
-            />
-            <Route
-              path={"/observations"}
-              render={() => (
-                <ObservationList observations={this.state.observations} />
-              )}
-            />
-            <Route path={"/login"} render={() => <LoginPage />} />
-          </Switch>
-        </main>
-        <footer>
-          <p>Created by Sally Galler</p>
-        </footer>
+        <Context.Provider value={value}>
+          <header className="App-header App-row">
+            <Link to="/">
+              <h1 className="App-h1">natureHood</h1>
+            </Link>
+            <Nav />
+          </header>
+          <main>
+            <Switch>
+              <Route exact path={"/"} component={LandingPage} />
+              <Route
+                path={"/mynaturehood"}
+                render={(props) => (
+                  <MyNaturehood
+                    {...props}
+                    observations={this.state.observations}
+                  />
+                )}
+              />
+              <Route path={"/add-observation"} component={AddObservation} />
+              <Route
+                path={"/observations/edit/:observationId"}
+                render={(props) => (
+                  <EditObservation {...props} observations={observations} />
+                )}
+              />
+              <Route
+                path={"/observations"}
+                render={() => (
+                  <ObservationList observations={this.state.observations} />
+                )}
+              />
+              <Route path={"/login"} render={() => <LoginPage />} />
+            </Switch>
+          </main>
+          <footer>
+            <p>Created by Sally Galler</p>
+          </footer>
+        </Context.Provider>
       </div>
     );
   }

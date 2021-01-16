@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router";
 import moment from "moment";
+import Context from "../Context/Context";
 import AddObservationMap from "../AddObservationMap/AddObservationMap";
 import "./AddObservation.css";
 import { API_ENDPOINT } from "../config";
@@ -48,6 +49,7 @@ export default function AddObservation() {
         return res.json();
       })
       .then((data) => {
+        // useContext(Context);
         history.push("/");
       });
   };
