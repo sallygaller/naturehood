@@ -32,15 +32,6 @@ class App extends React.Component {
     });
   };
 
-  handleDeleteObservation = (observationId) => {
-    const newObservations = this.state.observations.filter(
-      (observation) => observation.id !== observationId
-    );
-    this.setState({
-      observations: newObservations,
-    });
-  };
-
   componentDidMount() {
     fetch(API_ENDPOINT)
       .then((res) => {

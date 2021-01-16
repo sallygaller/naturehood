@@ -21,6 +21,7 @@ class MainMap extends React.Component {
   }
 
   componentDidMount() {
+    console.log("ran");
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/streets-v11",
@@ -34,6 +35,7 @@ class MainMap extends React.Component {
         `${observation.species} seen ${observation.date}
         at ${observation.time}${observation.ampm}`
       );
+      console.log(popup);
       new mapboxgl.Marker({ draggable: false })
         .setLngLat([observation.lng, observation.lat])
         .setPopup(popup)
@@ -46,6 +48,21 @@ class MainMap extends React.Component {
         lat: this.map.getCenter().lat.toFixed(4),
         zoom: this.map.getZoom().toFixed(2),
       });
+    });
+  }
+
+  componentDidUpdate() {
+    const observations = this.props.observations;
+    observations.forEach((observation) => {
+      const popup = new mapboxgl.Popup({ offset: 0 }).setText(
+        `${observation.species} seen ${observation.date}
+        at ${observation.time}${observation.ampm}`
+      );
+      console.log(popup);
+      new mapboxgl.Marker({ draggable: false })
+        .setLngLat([observation.lng, observation.lat])
+        .setPopup(popup)
+        .addTo(this.map);
     });
   }
 

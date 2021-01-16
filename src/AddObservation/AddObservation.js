@@ -50,7 +50,7 @@ export default function AddObservation() {
       })
       .then((data) => {
         // useContext(Context);
-        history.push("/");
+        history.push("/observations");
       });
   };
 

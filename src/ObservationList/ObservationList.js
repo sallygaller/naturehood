@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Observation from "../Observation/Observation";
 import Analysis from "../Analysis/Analysis";
 import { API_ENDPOINT } from "../config";
@@ -37,6 +37,35 @@ class ObservationList extends React.Component {
       });
   }
 
+  handleDeleteObservation = (observationId) => {
+    const newObservations = this.state.observations.filter(
+      (observation) => observation.id !== observationId
+    );
+    this.setState({
+      observations: newObservations,
+    });
+  };
+
+  handleDeleteRequest = (id) => {
+    fetch(API_ENDPOINT + `/${id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => {
+        if (!res.ok) return res.json().then((error) => Promise.reject(error));
+        return res;
+      })
+      .then((data) => {
+        this.handleDeleteObservation(id);
+        this.props.history.push("/observations");
+      })
+      .catch((error) => {
+        console.error({ error });
+      });
+  };
+
   render() {
     return (
       <div className="ObservationList">
@@ -53,7 +82,10 @@ class ObservationList extends React.Component {
           <ul>
             {this.state.observations.map((observation) => (
               <li key={observation.id}>
-                <Observation observation={observation} />
+                <Observation
+                  observation={observation}
+                  handleDeleteRequest={this.handleDeleteRequest}
+                />
               </li>
             ))}
           </ul>
@@ -70,4 +102,4 @@ class ObservationList extends React.Component {
   }
 }
 
-export default ObservationList;
+export default withRouter(ObservationList);
