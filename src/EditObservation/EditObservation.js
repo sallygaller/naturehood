@@ -3,8 +3,9 @@ import moment from "moment";
 import PropTypes from "prop-types";
 import AddObservationMap from "../AddObservationMap/AddObservationMap";
 import Context from "../Context/Context";
-import "./EditObservation.css";
+import TokenService from "../services/token-service";
 import { API_ENDPOINT } from "../config";
+import "./EditObservation.css";
 
 class EditObservation extends React.Component {
   constructor(props) {
@@ -36,8 +37,9 @@ class EditObservation extends React.Component {
 
   componentDidMount() {
     const { observationId } = this.props.match.params;
-    fetch(API_ENDPOINT + `/${observationId}`, {
+    fetch(API_ENDPOINT + `/observations/${observationId}`, {
       method: "GET",
+      authorization: `bearer ${TokenService.getAuthToken()}`,
     })
       .then((res) => {
         if (!res.ok) return res.json().then((error) => Promise.reject(error));
@@ -93,11 +95,12 @@ class EditObservation extends React.Component {
       lat,
       lng,
     };
-    fetch(API_ENDPOINT + `/${this.state.id}`, {
+    fetch(API_ENDPOINT + `/observations/${this.state.id}`, {
       method: "PATCH",
       body: JSON.stringify(newObservation),
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then((res) => {

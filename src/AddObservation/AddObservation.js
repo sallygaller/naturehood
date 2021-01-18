@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router";
 import moment from "moment";
-import Context from "../Context/Context";
 import AddObservationMap from "../AddObservationMap/AddObservationMap";
-import "./AddObservation.css";
+import TokenService from "../services/token-service";
 import { API_ENDPOINT } from "../config";
+import "./AddObservation.css";
 
 export default function AddObservation() {
   const history = useHistory();
@@ -33,11 +33,12 @@ export default function AddObservation() {
       lat,
       lng,
     };
-    fetch(API_ENDPOINT, {
+    fetch(API_ENDPOINT + `/observations`, {
       method: "POST",
       body: JSON.stringify(observation),
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then((res) => {

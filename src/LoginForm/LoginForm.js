@@ -1,37 +1,51 @@
-import React, { useState } from "react";
+import React from "react";
+import TokenService from "../services/token-service";
+import AuthApiService from "../services/auth-api-service";
 import "./LoginForm.css";
 
-export default function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+class LoginForm extends React.Component {
+  static defaultProps = {
+    onLoginSuccess: () => {},
+  };
 
-  const isFilledIn = email && password;
+  state = { error: null };
 
-  return (
-    <div>
-      <form className="LoginForm">
-        <label htmlFor="LoginForm-email">Email address </label>
-        <input
-          type="text"
-          required
-          name="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
-        <label htmlFor="LoginForm-password">Password</label>
-        <input
-          required
-          name="password"
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-        <button type="submit" disabled={!isFilledIn}>
-          Login
-        </button>
-      </form>
-    </div>
-  );
+  handleSubmitJwtAuth = (e) => {
+    e.preventDefault();
+    const { email, password } = e.target;
+
+    AuthApiService.postLogin({
+      email: email.value,
+      password: password.value,
+    })
+      .then((res) => {
+        email.value = "";
+        password.value = "";
+        TokenService.saveAuthToken(res.authToken);
+        this.props.onLoginSuccess();
+      })
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
+  };
+
+  render() {
+    const { error } = this.state;
+    return (
+      <div>
+        <form
+          className="LoginForm"
+          onSubmit={(e) => this.handleSubmitJwtAuth(e)}
+        >
+          <label htmlFor="LoginForm-email">Email address </label>
+          <input type="text" required name="email" id="email"></input>
+          <label htmlFor="LoginForm-password">Password</label>
+          <input required name="password" type="password" id="password"></input>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    );
+  }
 }
+
+export default LoginForm;

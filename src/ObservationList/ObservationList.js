@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import Observation from "../Observation/Observation";
 import Analysis from "../Analysis/Analysis";
 import { API_ENDPOINT } from "../config";
+import TokenService from "../services/token-service";
 import "./ObservationList.css";
 
 class ObservationList extends React.Component {
@@ -23,7 +24,11 @@ class ObservationList extends React.Component {
   };
 
   componentDidMount() {
-    fetch(API_ENDPOINT)
+    fetch(API_ENDPOINT + `/observations`, {
+      headers: {
+        authorization: `bearer ${TokenService.getAuthToken()}`,
+      },
+    })
       .then((res) => {
         if (!res.ok) {
           throw new Error(console.log(res.status));
@@ -47,10 +52,11 @@ class ObservationList extends React.Component {
   };
 
   handleDeleteRequest = (id) => {
-    fetch(API_ENDPOINT + `/${id}`, {
+    fetch(API_ENDPOINT + `observations/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then((res) => {

@@ -2,6 +2,8 @@ import React from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import LandingPage from "../LandingPage/LandingPage";
 import Nav from "../Nav/Nav";
+import PrivateRoute from "../Utils/PrivateRoute";
+import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
 import Context from "../Context/Context";
 import AddObservation from "../AddObservation/AddObservation";
 import LoginPage from "../LoginPage/LoginPage";
@@ -18,35 +20,35 @@ class App extends React.Component {
     error: null,
   };
 
-  handleUpdateObservation = (updatedObservation) => {
-    this.setState({
-      observations: this.state.observations.map((o) =>
-        o.id !== updatedObservation.id ? o : updatedObservation
-      ),
-    });
-  };
+  // handleUpdateObservation = (updatedObservation) => {
+  //   this.setState({
+  //     observations: this.state.observations.map((o) =>
+  //       o.id !== updatedObservation.id ? o : updatedObservation
+  //     ),
+  //   });
+  // };
 
-  handleAddObservation = (observation) => {
-    this.setState({
-      observations: [...this.state.observations, observation],
-    });
-  };
+  // handleAddObservation = (observation) => {
+  //   this.setState({
+  //     observations: [...this.state.observations, observation],
+  //   });
+  // };
 
-  componentDidMount() {
-    fetch(API_ENDPOINT)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(console.log(res.status));
-        }
-        return res.json();
-      })
-      .then((observations) => {
-        this.setState({ observations });
-      })
-      .catch((error) => {
-        console.error({ error });
-      });
-  }
+  // componentDidMount() {
+  //   fetch(API_ENDPOINT)
+  //     .then((res) => {
+  //       if (!res.ok) {
+  //         throw new Error(console.log(res.status));
+  //       }
+  //       return res.json();
+  //     })
+  //     .then((observations) => {
+  //       this.setState({ observations });
+  //     })
+  //     .catch((error) => {
+  //       console.error({ error });
+  //     });
+  // }
 
   render() {
     const value = {
@@ -55,8 +57,6 @@ class App extends React.Component {
       deleteObservation: this.handleDeleteObservation,
       updateObservation: this.handleUpdateObservation,
       error: this.state.error,
-      // setError: this.setError,
-      // clearError: this.clearError,
     };
     const { observations } = this.state;
     return (
@@ -71,29 +71,20 @@ class App extends React.Component {
           <main>
             <Switch>
               <Route exact path={"/"} component={LandingPage} />
-              <Route
-                path={"/mynaturehood"}
-                render={(props) => (
-                  <MyNaturehood
-                    {...props}
-                    observations={this.state.observations}
-                  />
-                )}
+              <PrivateRoute path={"/mynaturehood"} component={MyNaturehood} />
+              <PrivateRoute
+                path={"/add-observation"}
+                component={AddObservation}
               />
-              <Route path={"/add-observation"} component={AddObservation} />
-              <Route
+              <PrivateRoute
                 path={"/observations/edit/:observationId"}
-                render={(props) => (
-                  <EditObservation {...props} observations={observations} />
-                )}
+                component={EditObservation}
               />
-              <Route
+              <PrivateRoute
                 path={"/observations"}
-                render={() => (
-                  <ObservationList observations={this.state.observations} />
-                )}
+                component={ObservationList}
               />
-              <Route path={"/login"} render={() => <LoginPage />} />
+              <PublicOnlyRoute path={"/login"} component={LoginPage} />
             </Switch>
           </main>
           <footer>
