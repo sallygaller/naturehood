@@ -16,11 +16,11 @@ class ObservationList extends React.Component {
   }
 
   setObservations = (observations) => {
+    console.log(observations);
     this.setState({
       observations: observations,
       error: null,
     });
-    console.log(this.state.observations);
   };
 
   componentDidMount() {
@@ -30,6 +30,7 @@ class ObservationList extends React.Component {
       },
     })
       .then((res) => {
+        console.log(res);
         if (!res.ok) {
           throw new Error(console.log(res.status));
         }
@@ -52,7 +53,7 @@ class ObservationList extends React.Component {
   };
 
   handleDeleteRequest = (id) => {
-    fetch(API_ENDPOINT + `observations/${id}`, {
+    fetch(API_ENDPOINT + `/observations/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -78,7 +79,11 @@ class ObservationList extends React.Component {
         <h2>My Observations</h2>
         <div>
           <label htmlFor="Observations-sort">Sort by </label>
-          <select>
+          <select
+            id="sort"
+            name="sort"
+            onChange={(e) => this.setSort(e.target.value)}
+          >
             <option value="date-desc">Date (Newest to Oldest)</option>
             <option value="date-asc">Date (Oldest to Newest)</option>
             <option value="species">Species</option>

@@ -16,9 +16,9 @@ export default function AddObservation() {
   const [ampm, setAmpm] = useState("pm");
   const [lat, setLat] = useState(45.6008);
   const [lng, setLng] = useState(-122.7606);
+  const [error, setError] = useState(null);
 
-  const isFilledIn =
-    species && type && description && date && timeShort && ampm && lat && lng;
+  const Required = () => <span className="AddObservation-required">*</span>;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,9 +50,15 @@ export default function AddObservation() {
         return res.json();
       })
       .then((data) => {
-        // useContext(Context);
         history.push("/observations");
+      })
+      .catch((error) => {
+        setError({ error });
       });
+  };
+
+  const handleClickCancel = () => {
+    history.push("/observations");
   };
 
   return (
@@ -60,7 +66,13 @@ export default function AddObservation() {
       <h2>Add Observation</h2>
       <div>
         <form className="AddObservation-form" onSubmit={(e) => handleSubmit(e)}>
-          <label htmlFor="species">Species seen:</label>
+          <div className="AddObservation-error" role="alert">
+            {error && <p>{error.message}</p>}
+          </div>
+          <label htmlFor="species">
+            Species seen:
+            <Required />
+          </label>
           <input
             className="AddObservation-text"
             type="text"
@@ -68,11 +80,16 @@ export default function AddObservation() {
             id="species"
             value={species}
             onChange={(e) => setSpecies(e.target.value)}
+            required
           ></input>
-          <label htmlFor="type">Type of species:</label>
+          <label htmlFor="type">
+            Type of species:
+            <Required />
+          </label>
           <select
             id="type"
             name="type"
+            required
             onChange={(e) => setType(e.target.value)}
           >
             <option value={type}></option>
@@ -101,23 +118,31 @@ export default function AddObservation() {
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />
-          <label htmlFor="date">Time seen (approximate):</label>
+          <label htmlFor="date">
+            Time seen (approximate):
+            <Required />
+          </label>
           <input
             type="text"
             id="time"
             name="time"
             value={timeShort}
             onChange={(e) => setTimeShort(e.target.value)}
+            required
           />
           <select
             id="ampm"
             value={ampm}
             onChange={(e) => setAmpm(e.target.value)}
+            required
           >
             <option>am</option>
             <option>pm</option>
           </select>
-          <label htmlFor="location">Location (drag and drop the marker):</label>
+          <label htmlFor="location">
+            Location (drag and drop the marker):
+            <Required />
+          </label>
           <AddObservationMap
             lat={lat}
             lng={lng}
@@ -129,6 +154,9 @@ export default function AddObservation() {
             <br></br>
             Longitude: {lng}
           </p>
+          <button type="button" onClick={handleClickCancel}>
+            Cancel
+          </button>{" "}
           <button type="submit">
             {/* <button type="submit" disabled={!isFilledIn}> */}
             Submit

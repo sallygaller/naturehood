@@ -39,7 +39,9 @@ class EditObservation extends React.Component {
     const { observationId } = this.props.match.params;
     fetch(API_ENDPOINT + `/observations/${observationId}`, {
       method: "GET",
-      authorization: `bearer ${TokenService.getAuthToken()}`,
+      headers: {
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
+      },
     })
       .then((res) => {
         if (!res.ok) return res.json().then((error) => Promise.reject(error));

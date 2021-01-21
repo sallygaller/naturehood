@@ -5,7 +5,17 @@ import IdleService from "../services/idle-service";
 import "./Nav.css";
 
 class Nav extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: false,
+    };
+  }
+
   handleLogoutClick = () => {
+    this.setState({
+      isLoggedIn: false,
+    });
     TokenService.clearAuthToken();
     /* when logging out, clear the callbacks to the refresh api and idle auto logout */
     TokenService.clearCallbackBeforeExpiry();
@@ -15,20 +25,14 @@ class Nav extends React.Component {
 
   renderLogoutLink() {
     return (
-      <div>
-        <NavLink onClick={this.handleLogoutClick} to="/">
-          Logout
-        </NavLink>
-      </div>
+      <NavLink onClick={this.handleLogoutClick} to="/">
+        Logout
+      </NavLink>
     );
   }
 
   renderLoginLink() {
-    return (
-      <div>
-        <NavLink to="/login">Log in</NavLink>
-      </div>
-    );
+    return <NavLink to="/login">Log in</NavLink>;
   }
 
   render() {

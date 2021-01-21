@@ -58,7 +58,6 @@ class MainMap extends React.Component {
         `${observation.species} seen ${observation.date}
         at ${observation.time}${observation.ampm}`
       );
-      console.log(popup);
       new mapboxgl.Marker({ draggable: false })
         .setLngLat([observation.lng, observation.lat])
         .setPopup(popup)

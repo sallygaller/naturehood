@@ -1,5 +1,6 @@
 import React from "react";
 import MainMap from "../MainMap/MainMap";
+import moment from "moment";
 import { API_ENDPOINT } from "../config";
 import TokenService from "../services/token-service";
 import "./MyNaturehood.css";
@@ -9,6 +10,7 @@ class MyNaturehood extends React.Component {
     super(props);
     this.state = {
       observations: [],
+      observationsFilter: [],
       error: null,
     };
   }
@@ -26,12 +28,34 @@ class MyNaturehood extends React.Component {
         return res.json();
       })
       .then((observations) => {
-        this.setState({ observations });
+        this.setState({
+          observations: observations,
+          observationsFilter: observations,
+        });
       })
       .catch((error) => {
         console.error({ error });
       });
   }
+
+  handleTypeChange = (e) => {
+    console.log(e.target.value);
+    this.setState({
+      observationsFilter: this.state.observations,
+    });
+    if (e.target.value === "All") {
+      this.setState({
+        observationsFilter: this.state.observations,
+      });
+    } else {
+      const newObservations = this.state.observations.filter(
+        (observation) => observation.type === e.target.value
+      );
+      this.setState({
+        observationsFilter: newObservations,
+      });
+    }
+  };
 
   render() {
     return (
@@ -41,40 +65,29 @@ class MyNaturehood extends React.Component {
         <p className="MyNaturehood-instructions">
           Click on a marker to see a neighbor's observation.
         </p>
-        <div className="MyNaturehood-date-filter">
-          <input
-            type="text"
-            id="startDate"
-            placeholder="Start Date"
-            name="startDate"
-          ></input>
-          <input
-            type="text"
-            id="endDate"
-            placeholder="End Date"
-            name="endDate"
-          ></input>
-        </div>
         <div className="MyNaturehood-species-filter">
-          <select>
-            <option value="all">All Species</option>
-            <option value="robin">Robin</option>
-            <option value="fox">Fox</option>
-            <option value="raccoon">Raccoon</option>
+          <select onClick={(e) => this.handleTypeChange(e)}>
+            <option value="All">All Species</option>
+            <option value="Mammal">Mammals</option>
+            <option value="Bird">Birds</option>
+            <option value="Arthropod">Arthropods</option>
+            <option value="Amphibian">Amphibians</option>
+            <option value="Reptile">Reptiles</option>
+            <option value="Fish">Fish</option>
           </select>
         </div>
         <div className="MyNaturehood-observations">
           <h3>Recent Observations</h3>
           <ul>
-            {this.state.observations.map((observation) => (
+            {this.state.observationsFilter.map((observation) => (
               <li key={observation.id}>
                 <div className="MyNaturehood-item MyNaturehood-title">
                   {observation.species}
                 </div>
                 <div className="MyNaturehood-item">
-                  Date: {observation.date}
+                  Date: {moment(observation.date).format("L")}
                   <br></br>
-                  Time: {observation.time} {observation.ampm}
+                  Time: {moment(observation.time, "hh:mm:ss").format("hh:mm a")}
                 </div>
               </li>
             ))}
