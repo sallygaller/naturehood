@@ -47,7 +47,7 @@ class Nav extends React.Component {
           My natureHood
         </NavLink>{" "}
         <NavLink
-          to="/observations"
+          to="/observations/user"
           activeStyle={{
             fontWeight: "bold",
           }}

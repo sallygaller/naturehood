@@ -76,27 +76,13 @@ class App extends React.Component {
     this.forceUpdate();
   };
 
-  handleAddObservation = (observation) => {
-    this.setState({
-      observations: [...this.state.observations, observation],
-    });
+  handleSetError = (error) => {
+    console.error(error);
+    this.setState({ error });
   };
 
-  handleUpdateObservation = (updatedObservation) => {
-    this.setState({
-      observations: this.state.observations.map((o) =>
-        o.id !== updatedObservation.id ? o : updatedObservation
-      ),
-    });
-  };
-
-  handleDeleteObservation = (observationId) => {
-    const newObservations = this.state.observations.filter(
-      (observation) => observation.id !== observationId
-    );
-    this.setState({
-      observations: newObservations,
-    });
+  clearError = () => {
+    this.setState({ error: null });
   };
 
   render() {
@@ -105,6 +91,7 @@ class App extends React.Component {
       addObservation: this.handleAddObservation,
       deleteObservation: this.handleDeleteObservation,
       updateObservation: this.handleUpdateObservation,
+      setObservations: this.handleSetObservations,
       error: this.state.error,
     };
     return (
@@ -129,7 +116,7 @@ class App extends React.Component {
                 component={EditObservation}
               />
               <PrivateRoute
-                path={"/observations"}
+                path={"/observations/user"}
                 component={ObservationList}
               />
               <PublicOnlyRoute path={"/login"} component={LoginPage} />

@@ -1,34 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { API_ENDPOINT } from "../config";
-import moment from "moment";
+import { dateFormat, timeFormat } from "../Utils/Utils";
 import "./Observation.css";
 
 export default function Observation(props) {
-  const { id, species, date, time, description } = props.observation;
-  const dateFormat = moment(date).format("L");
-  const timeFormat = moment(time, "hh:mm:ss").format("hh:mm a");
-  const timeFormatSplit = timeFormat.split(" ");
-  const timeCorrect = timeFormatSplit[0];
-  const ampm = timeFormatSplit[1];
+  const observation = props.observation;
 
   return (
     <div className="Observation">
-      <div className="Observation-item Observation-title">{species}</div>
-      <div className="Observation-item">
-        Date: {dateFormat}
-        <br></br>
-        Time: {timeCorrect}
-        {ampm}
+      <div className="Observation-item Observation-title">
+        {observation.species}
       </div>
-      <div className="Observation-item">{description}</div>
       <div className="Observation-item">
-        <Link className="Observation-item" to={`/observations/edit/${id}`}>
+        Date: {dateFormat(observation)}
+        <br></br>
+        Time: {timeFormat(observation)}
+      </div>
+      <div className="Observation-item">{observation.description}</div>
+      <div className="Observation-item">
+        <Link
+          className="Observation-item"
+          to={`/observations/edit/${observation.id}`}
+        >
           <button type="button">Edit</button>
         </Link>
       </div>
       <div className="Observation-item">
-        <button onClick={() => props.handleDeleteRequest(id)}>Delete</button>
+        <button onClick={() => props.handleDeleteRequest(observation.id)}>
+          Delete
+        </button>
       </div>
     </div>
   );

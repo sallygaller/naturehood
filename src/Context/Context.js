@@ -5,6 +5,7 @@ const Context = React.createContext({
   addObservation: () => {},
   deleteObservation: () => {},
   updateObservation: () => {},
+  setObservations: () => {},
   error: null,
   setError: () => {},
   clearError: () => {},

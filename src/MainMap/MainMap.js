@@ -1,5 +1,6 @@
 import React from "react";
 import mapboxgl from "mapbox-gl";
+import { dateFormat, timeFormat } from "../Utils/Utils";
 import "./MainMap.css";
 import { API_TOKEN } from "../config";
 
@@ -32,8 +33,8 @@ class MainMap extends React.Component {
     const observations = this.props.observations;
     observations.forEach((observation) => {
       const popup = new mapboxgl.Popup({ offset: 0 }).setText(
-        `${observation.species} seen ${observation.date}
-        at ${observation.time}${observation.ampm}`
+        `${observation.species} seen ${dateFormat(observation)}
+        at ${timeFormat(observation)}`
       );
       console.log(popup);
       new mapboxgl.Marker({ draggable: false })
@@ -55,8 +56,8 @@ class MainMap extends React.Component {
     const observations = this.props.observations;
     observations.forEach((observation) => {
       const popup = new mapboxgl.Popup({ offset: 0 }).setText(
-        `${observation.species} seen ${observation.date}
-        at ${observation.time}${observation.ampm}`
+        `${observation.species} seen ${dateFormat(observation)}
+        at ${timeFormat(observation)}`
       );
       new mapboxgl.Marker({ draggable: false })
         .setLngLat([observation.lng, observation.lat])

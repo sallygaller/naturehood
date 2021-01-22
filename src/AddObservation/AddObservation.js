@@ -5,6 +5,8 @@ import AddObservationMap from "../AddObservationMap/AddObservationMap";
 import TokenService from "../services/token-service";
 import { API_ENDPOINT } from "../config";
 import "./AddObservation.css";
+import Context from "../Context/Context";
+import { useContext } from "react";
 
 export default function AddObservation() {
   const history = useHistory();
@@ -17,6 +19,7 @@ export default function AddObservation() {
   const [lat, setLat] = useState(45.6008);
   const [lng, setLng] = useState(-122.7606);
   const [error, setError] = useState(null);
+  const context = useContext(Context);
 
   const Required = () => <span className="AddObservation-required">*</span>;
 
@@ -50,7 +53,7 @@ export default function AddObservation() {
         return res.json();
       })
       .then((data) => {
-        history.push("/observations");
+        history.push("/observations/user");
       })
       .catch((error) => {
         setError({ error });
@@ -58,7 +61,7 @@ export default function AddObservation() {
   };
 
   const handleClickCancel = () => {
-    history.push("/observations");
+    history.push("/observations/user");
   };
 
   return (

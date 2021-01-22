@@ -110,8 +110,7 @@ class EditObservation extends React.Component {
       })
       .then(() => {
         this.resetFields(newObservation);
-        this.context.updateObservation(newObservation);
-        this.props.history.push("/observations");
+        this.props.history.push("/observations/user");
       })
       .catch((error) => {
         console.error(error);
@@ -129,7 +128,7 @@ class EditObservation extends React.Component {
   };
 
   handleClickCancel = () => {
-    this.props.history.push("/");
+    this.props.history.push("/observations/user");
   };
 
   handleChange(e) {

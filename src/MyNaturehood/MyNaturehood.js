@@ -1,6 +1,6 @@
 import React from "react";
 import MainMap from "../MainMap/MainMap";
-import moment from "moment";
+import { dateFormat, timeFormat } from "../Utils/Utils";
 import { API_ENDPOINT } from "../config";
 import TokenService from "../services/token-service";
 import "./MyNaturehood.css";
@@ -39,7 +39,6 @@ class MyNaturehood extends React.Component {
   }
 
   handleTypeChange = (e) => {
-    console.log(e.target.value);
     this.setState({
       observationsFilter: this.state.observations,
     });
@@ -85,9 +84,9 @@ class MyNaturehood extends React.Component {
                   {observation.species}
                 </div>
                 <div className="MyNaturehood-item">
-                  Date: {moment(observation.date).format("L")}
+                  Date: {dateFormat(observation)}
                   <br></br>
-                  Time: {moment(observation.time, "hh:mm:ss").format("hh:mm a")}
+                  Time: {timeFormat(observation)}
                 </div>
               </li>
             ))}

@@ -2,6 +2,7 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import Observation from "../Observation/Observation";
 import Analysis from "../Analysis/Analysis";
+import Context from "../Context/Context";
 import { API_ENDPOINT } from "../config";
 import TokenService from "../services/token-service";
 import "./ObservationList.css";
@@ -15,6 +16,8 @@ class ObservationList extends React.Component {
     };
   }
 
+  static contextType = Context;
+
   setObservations = (observations) => {
     console.log(observations);
     this.setState({
@@ -24,13 +27,13 @@ class ObservationList extends React.Component {
   };
 
   componentDidMount() {
-    fetch(API_ENDPOINT + `/observations`, {
+    console.log("here!");
+    fetch(API_ENDPOINT + `/observations/user`, {
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then((res) => {
-        console.log(res);
         if (!res.ok) {
           throw new Error(console.log(res.status));
         }
@@ -39,7 +42,6 @@ class ObservationList extends React.Component {
       .then(this.setObservations)
       .catch((error) => {
         console.error(error);
-        this.setState({ error });
       });
   }
 
@@ -66,7 +68,7 @@ class ObservationList extends React.Component {
       })
       .then((data) => {
         this.handleDeleteObservation(id);
-        this.props.history.push("/observations");
+        this.props.history.push("/observations/user");
       })
       .catch((error) => {
         console.error({ error });
@@ -79,11 +81,7 @@ class ObservationList extends React.Component {
         <h2>My Observations</h2>
         <div>
           <label htmlFor="Observations-sort">Sort by </label>
-          <select
-            id="sort"
-            name="sort"
-            onChange={(e) => this.setSort(e.target.value)}
-          >
+          <select id="sort" name="sort">
             <option value="date-desc">Date (Newest to Oldest)</option>
             <option value="date-asc">Date (Oldest to Newest)</option>
             <option value="species">Species</option>
