@@ -3,7 +3,7 @@ import { Route, Link, Switch } from "react-router-dom";
 import LandingPage from "../LandingPage/LandingPage";
 import Nav from "../Nav/Nav";
 import PrivateRoute from "../Utils/PrivateRoute";
-import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
+import { withRouter } from "react-router-dom";
 import Context from "../Context/Context";
 import AddObservation from "../AddObservation/AddObservation";
 import LoginPage from "../LoginPage/LoginPage";
@@ -19,6 +19,7 @@ import "./App.css";
 class App extends React.Component {
   state = {
     observations: [],
+    isLoggedIn: false,
     error: null,
   };
 
@@ -85,6 +86,22 @@ class App extends React.Component {
     this.setState({ error: null });
   };
 
+  onLogin = () => {
+    this.setState({
+      isLoggedIn: true,
+    });
+    const { history } = this.props;
+    history.push("/mynaturehood");
+  };
+
+  onLogout = () => {
+    this.setState({
+      isLoggedIn: false,
+    });
+    const { history } = this.props;
+    history.push("/");
+  };
+
   render() {
     const value = {
       observations: this.state.observations,
@@ -101,7 +118,7 @@ class App extends React.Component {
             <Link to="/">
               <h1 className="App-h1">natureHood</h1>
             </Link>
-            <Nav />
+            <Nav isLoggedIn={this.state.isLoggedIn} onLogout={this.onLogout} />
           </header>
           <main>
             <Switch>
@@ -119,7 +136,10 @@ class App extends React.Component {
                 path={"/observations/user"}
                 component={ObservationList}
               />
-              <PublicOnlyRoute path={"/login"} component={LoginPage} />
+              <Route
+                path={"/login"}
+                render={() => <LoginPage onLogin={this.onLogin} />}
+              />
             </Switch>
           </main>
           <footer>
@@ -135,4 +155,4 @@ App.propTypes = {
   observations: PropTypes.array,
 };
 
-export default App;
+export default withRouter(App);

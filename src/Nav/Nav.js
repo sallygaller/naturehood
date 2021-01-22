@@ -5,22 +5,12 @@ import IdleService from "../services/idle-service";
 import "./Nav.css";
 
 class Nav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: false,
-    };
-  }
-
   handleLogoutClick = () => {
-    this.setState({
-      isLoggedIn: false,
-    });
     TokenService.clearAuthToken();
     /* when logging out, clear the callbacks to the refresh api and idle auto logout */
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
-    this.renderLoginLink();
+    this.props.onLogout();
   };
 
   renderLogoutLink() {
@@ -36,6 +26,7 @@ class Nav extends React.Component {
   }
 
   render() {
+    console.log(TokenService.hasAuthToken());
     return (
       <nav className="Nav">
         <NavLink
@@ -62,7 +53,7 @@ class Nav extends React.Component {
         >
           Add Observation
         </NavLink>{" "}
-        {TokenService.hasAuthToken()
+        {this.props.isLoggedIn
           ? this.renderLogoutLink()
           : this.renderLoginLink()}
       </nav>

@@ -19,7 +19,6 @@ class ObservationList extends React.Component {
   static contextType = Context;
 
   setObservations = (observations) => {
-    console.log(observations);
     this.setState({
       observations: observations,
       error: null,
