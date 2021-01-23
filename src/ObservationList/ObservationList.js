@@ -2,7 +2,6 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import Observation from "../Observation/Observation";
 import Analysis from "../Analysis/Analysis";
-import Context from "../Context/Context";
 import { API_ENDPOINT } from "../config";
 import TokenService from "../services/token-service";
 import "./ObservationList.css";
@@ -16,8 +15,6 @@ class ObservationList extends React.Component {
     };
   }
 
-  static contextType = Context;
-
   setObservations = (observations) => {
     this.setState({
       observations: observations,
@@ -26,7 +23,6 @@ class ObservationList extends React.Component {
   };
 
   componentDidMount() {
-    console.log("here!");
     fetch(API_ENDPOINT + `/observations/user`, {
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`,

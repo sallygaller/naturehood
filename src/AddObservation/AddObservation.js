@@ -5,8 +5,6 @@ import AddObservationMap from "../AddObservationMap/AddObservationMap";
 import TokenService from "../services/token-service";
 import { API_ENDPOINT } from "../config";
 import "./AddObservation.css";
-import Context from "../Context/Context";
-import { useContext } from "react";
 
 export default function AddObservation() {
   const history = useHistory();
@@ -19,7 +17,6 @@ export default function AddObservation() {
   const [lat, setLat] = useState(45.6008);
   const [lng, setLng] = useState(-122.7606);
   const [error, setError] = useState(null);
-  const context = useContext(Context);
 
   const Required = () => <span className="AddObservation-required">*</span>;
 
@@ -157,13 +154,10 @@ export default function AddObservation() {
             <br></br>
             Longitude: {lng}
           </p>
+          <button type="submit">Submit</button>{" "}
           <button type="button" onClick={handleClickCancel}>
             Cancel
           </button>{" "}
-          <button type="submit">
-            {/* <button type="submit" disabled={!isFilledIn}> */}
-            Submit
-          </button>
         </form>
       </div>
     </div>

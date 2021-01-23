@@ -18,7 +18,6 @@ function dateLatest(observations) {
 }
 
 function dateEarliest(observations) {
-  console.log(observations);
   let date = "3000-12-12";
   for (let i = 0; i < observations.length; i++) {
     if (observations[i].date < date) {

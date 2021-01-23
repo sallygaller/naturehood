@@ -15,26 +15,14 @@ class Nav extends React.Component {
 
   renderLogoutLink() {
     return (
-      <NavLink onClick={this.handleLogoutClick} to="/">
-        Logout
-      </NavLink>
-    );
-  }
-
-  renderLoginLink() {
-    return <NavLink to="/login">Log in</NavLink>;
-  }
-
-  render() {
-    console.log(TokenService.hasAuthToken());
-    return (
-      <nav className="Nav">
+      <div>
         <NavLink
           to="/mynaturehood"
           activeStyle={{
             fontWeight: "bold",
           }}
         >
+          {" "}
           My natureHood
         </NavLink>{" "}
         <NavLink
@@ -53,6 +41,26 @@ class Nav extends React.Component {
         >
           Add Observation
         </NavLink>{" "}
+        <NavLink onClick={this.handleLogoutClick} to="/">
+          Logout
+        </NavLink>
+      </div>
+    );
+  }
+
+  renderLoginLink() {
+    return (
+      <div>
+        <NavLink to="/login">Log in</NavLink>
+        <NavLink to="/register">Register</NavLink>
+      </div>
+    );
+  }
+
+  render() {
+    console.log(TokenService.hasAuthToken());
+    return (
+      <nav className="Nav">
         {this.props.isLoggedIn
           ? this.renderLogoutLink()
           : this.renderLoginLink()}

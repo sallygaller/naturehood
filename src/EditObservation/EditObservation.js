@@ -2,7 +2,6 @@ import React from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
 import AddObservationMap from "../AddObservationMap/AddObservationMap";
-import Context from "../Context/Context";
 import TokenService from "../services/token-service";
 import { API_ENDPOINT } from "../config";
 import "./EditObservation.css";
@@ -32,8 +31,6 @@ class EditObservation extends React.Component {
       push: PropTypes.func,
     }).isRequired,
   };
-
-  static contextType = Context;
 
   componentDidMount() {
     const { observationId } = this.props.match.params;

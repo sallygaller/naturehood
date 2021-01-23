@@ -1,14 +1,14 @@
 import React from "react";
 import { API_TOKEN_GOOGLE } from "../config";
 import AuthApiService from "../services/auth-api-service";
+import "./RegistrationForm.css";
 
 class RegistrationForm extends React.Component {
-  state = { error: null, isFilledIn: false, lat: null, lng: null };
-
-  handleRegistrationSuccess = (user) => {
-    const { history } = this.props;
-    history.push("/mynaturehood");
+  static defaultProps = {
+    onRegistrationSuccess: () => {},
   };
+
+  state = { error: null, lat: null, lng: null };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -26,15 +26,12 @@ class RegistrationForm extends React.Component {
         return res.json();
       })
       .then((responseData) => {
-        console.log(responseData);
-        console.log(responseData.results[0].geometry.location.lat);
         const lng = responseData.results[0].geometry.location.lng;
         const lat = responseData.results[0].geometry.location.lat;
         this.setState({
           lat: lat,
           lng: lng,
         });
-        console.log(this.state);
       })
       .catch((error) => {
         console.error({ error });
@@ -53,11 +50,12 @@ class RegistrationForm extends React.Component {
       lng: this.state.lng,
     })
       .then((user) => {
+        console.log("here!");
+        this.props.onRegistrationSuccess();
         fullname.value = "";
         email.value = "";
         password.value = "";
         zipcode.value = "";
-        this.onRegistrationSuccess();
       })
       .catch((res) => {
         this.setState({ error: res.error });
@@ -83,13 +81,9 @@ class RegistrationForm extends React.Component {
         </div>
         <div>
           <label htmlFor="zip">Zip code </label>
-          <input type="zipcode" name="zipcode" id="zipcode" />
+          <input type="text" name="zipcode" id="zipcode" />
         </div>
-        {/* <button type="submit" disabled={!isFilledIn}> */}
-        <button type="submit">Sign Up!</button>
-        <button onClick={() => this.handleOnClick} type="submit">
-          Test
-        </button>
+        <button type="submit">Register</button>
       </form>
     );
   }

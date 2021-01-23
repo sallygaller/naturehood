@@ -10,6 +10,7 @@ import LoginPage from "../LoginPage/LoginPage";
 import EditObservation from "../EditObservation/EditObservation";
 import ObservationList from "../ObservationList/ObservationList";
 import MyNaturehood from "../MyNaturehood/MyNaturehood";
+import RegistrationPage from "../RegistrationPage/RegistrationPage";
 import TokenService from "../services/token-service";
 import AuthApiService from "../services/auth-api-service";
 import IdleService from "../services/idle-service";
@@ -139,6 +140,10 @@ class App extends React.Component {
               <Route
                 path={"/login"}
                 render={() => <LoginPage onLogin={this.onLogin} />}
+              />
+              <Route
+                path={"/register"}
+                render={() => <RegistrationPage onLogin={this.onLogin} />}
               />
             </Switch>
           </main>

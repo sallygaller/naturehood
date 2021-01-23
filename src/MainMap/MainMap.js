@@ -22,7 +22,6 @@ class MainMap extends React.Component {
   }
 
   componentDidMount() {
-    console.log("ran");
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/streets-v11",
@@ -36,7 +35,6 @@ class MainMap extends React.Component {
         `${observation.species} seen ${dateFormat(observation)}
         at ${timeFormat(observation)}`
       );
-      console.log(popup);
       new mapboxgl.Marker({ draggable: false })
         .setLngLat([observation.lng, observation.lat])
         .setPopup(popup)

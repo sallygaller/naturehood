@@ -1,5 +1,4 @@
 import React from "react";
-import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import "./LandingPage.css";
 
 export default function LandingPage() {
@@ -38,7 +37,7 @@ export default function LandingPage() {
       </section>
       <section>
         <h3>Start Exploring Your natureHood</h3>
-        <RegistrationForm />
+        <p>Register Here</p>
       </section>
     </div>
   );

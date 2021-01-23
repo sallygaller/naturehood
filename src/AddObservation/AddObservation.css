@@ -32,33 +32,30 @@
     box-sizing: border-box;
   }
 
-.AddObservation button:enabled {
+.AddObservation button {
     width: 100%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.AddObservation button[type=submit] {
     background-color: #4CAF50;
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
-.AddObservation button:disabled {
-    width: 100%;
+.AddObservation button[type=button] {
     background-color: grey;
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
-.AddObservation button:disabled:hover {
-    background-color: grey;
+.AddObservation button:hover[type=button]  {
+    background-color: darkgrey;
 }
 
-.AddObservation button:enabled:hover {
+.AddObservation button:hover[type=submit]   {
     background-color: #45a049;
 }
 
