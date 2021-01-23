@@ -16,6 +16,7 @@ class MyNaturehood extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props);
     fetch(API_ENDPOINT + `/observations`, {
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`,
@@ -60,7 +61,11 @@ class MyNaturehood extends React.Component {
     return (
       <div className="MyNaturehood">
         <h2>My natureHood</h2>
-        <MainMap observations={this.state.observations} />
+        <MainMap
+          observations={this.state.observations}
+          centralLat={this.props.centralLat}
+          centralLng={this.props.centralLng}
+        />
         <p className="MyNaturehood-instructions">
           Click on a marker to see a neighbor's observation.
         </p>

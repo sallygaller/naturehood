@@ -8,7 +8,9 @@ class LoginForm extends React.Component {
     onLoginSuccess: () => {},
   };
 
-  state = { error: null };
+  state = {
+    error: null,
+  };
 
   handleSubmitJwtAuth = (e) => {
     e.preventDefault();
@@ -22,7 +24,7 @@ class LoginForm extends React.Component {
         email.value = "";
         password.value = "";
         TokenService.saveAuthToken(res.authToken);
-        this.props.onLoginSuccess();
+        this.props.onLoginSuccess(res.lat, res.lng);
       })
       .catch((res) => {
         this.setState({ error: res.error });

@@ -7,3 +7,11 @@
 .Nav a:not(:last-of-type) {
   margin-right: 32px;
 }
+
+.Nav a,
+.Nav a:active,
+.Nav a:focus,
+.Nav a:visited {
+  color: #ececea;
+  text-decoration: none;
+}

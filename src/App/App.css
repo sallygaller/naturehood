@@ -33,12 +33,12 @@ footer p {
 .App-h1 {
   text-align: center;
   color: #fcfaf1;
+  text-decoration: none;
 }
   
 .App a,
 .App a:active,
 .App a:focus,
 .App a:visited {
-  color: #ececea;
   text-decoration: none;
 }

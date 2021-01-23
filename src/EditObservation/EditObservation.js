@@ -18,8 +18,8 @@ class EditObservation extends React.Component {
       date: "",
       time: "",
       ampm: "",
-      lng: -122.7606,
-      lat: 45.6008,
+      lng: null,
+      lat: null,
     };
   }
 
@@ -33,6 +33,7 @@ class EditObservation extends React.Component {
   };
 
   componentDidMount() {
+    console.log(this.props.centralLat);
     const { observationId } = this.props.match.params;
     fetch(API_ENDPOINT + `/observations/${observationId}`, {
       method: "GET",
@@ -199,6 +200,8 @@ class EditObservation extends React.Component {
             lng={lng}
             setLat={this.setLat}
             setLng={this.setLng}
+            centralLat={this.props.centralLat}
+            centralLng={this.props.centralLng}
           />
           <p className="AddObservation-latlong">
             Latitude: {lat}

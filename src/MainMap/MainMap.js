@@ -15,8 +15,6 @@ class MainMap extends React.Component {
     super(props);
     this.state = {
       map: null,
-      lng: -122.7606,
-      lat: 45.6008,
       zoom: 11,
     };
   }
@@ -25,7 +23,7 @@ class MainMap extends React.Component {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [this.state.lng, this.state.lat],
+      center: [this.props.centralLng, this.props.centralLat],
       zoom: this.state.zoom,
     });
 
@@ -41,13 +39,13 @@ class MainMap extends React.Component {
         .addTo(this.map);
     });
 
-    this.map.on("move", () => {
-      this.setState({
-        lng: this.map.getCenter().lng.toFixed(4),
-        lat: this.map.getCenter().lat.toFixed(4),
-        zoom: this.map.getZoom().toFixed(2),
-      });
-    });
+    // this.map.on("move", () => {
+    //   this.setState({
+    //     lng: this.map.getCenter().lng.toFixed(4),
+    //     lat: this.map.getCenter().lat.toFixed(4),
+    //     zoom: this.map.getZoom().toFixed(2),
+    //   });
+    // });
   }
 
   componentDidUpdate() {

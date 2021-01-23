@@ -23,6 +23,7 @@ class ObservationList extends React.Component {
   };
 
   componentDidMount() {
+    console.log(this.props);
     fetch(API_ENDPOINT + `/observations/user`, {
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`,

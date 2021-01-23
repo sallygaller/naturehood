@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./LandingPage.css";
 
 export default function LandingPage() {
@@ -37,7 +38,16 @@ export default function LandingPage() {
       </section>
       <section>
         <h3>Start Exploring Your natureHood</h3>
-        <p>Register Here</p>
+        <p>
+          <Link to="/register">Register</Link>{" "}
+        </p>
+        <p>
+          <Link to="/login">Log in</Link>
+        </p>
+        <p className="LandingPage-instructions">
+          For demo purposes, please use the credentials provided on the Login
+          page.
+        </p>
       </section>
     </div>
   );

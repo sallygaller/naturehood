@@ -10,15 +10,15 @@ class LoginPage extends React.Component {
     },
   };
 
-  handleLoginSuccess = () => {
+  handleLoginSuccess = (centralLat, centralLng) => {
     this.props.history.push("/mynaturehood");
-    this.props.onLogin();
+    this.props.onLogin(centralLat, centralLng);
   };
 
   render() {
     return (
       <div className="LoginPage">
-        <h2>Welcome Back!</h2>
+        <h2>Log in...</h2>
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
       </div>
     );

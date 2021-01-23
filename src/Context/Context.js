@@ -1,14 +1,10 @@
 import React from "react";
 
 const Context = React.createContext({
-  observations: [],
-  addObservation: () => {},
-  deleteObservation: () => {},
-  updateObservation: () => {},
-  setObservations: () => {},
-  error: null,
-  setError: () => {},
-  clearError: () => {},
+  lat: null,
+  lng: null,
+  addLat: () => {},
+  addLng: () => {},
 });
 
 export default Context;

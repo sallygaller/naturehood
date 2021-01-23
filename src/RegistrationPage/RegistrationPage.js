@@ -1,17 +1,19 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import RegistrationForm from "../RegistrationForm/RegistrationForm";
 import "./RegistrationPage.css";
 
-class LoginPage extends React.Component {
+class RegistrationPage extends React.Component {
   static defaultProps = {
     history: {
       push: () => {},
     },
   };
 
-  handleRegistrationSuccess = (user) => {
-    const { history } = this.props;
-    history.push("/mynaturehood");
+  handleRegistrationSuccess = () => {
+    console.log(this.props.history);
+    console.log("here!");
+    this.props.history.push("/login");
   };
 
   render() {
@@ -26,4 +28,4 @@ class LoginPage extends React.Component {
   }
 }
 
-export default LoginPage;
+export default withRouter(RegistrationPage);

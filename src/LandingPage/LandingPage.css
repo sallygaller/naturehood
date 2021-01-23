@@ -7,6 +7,15 @@
     padding-bottom: 20px;
 }
 
-.LandingPage button {
-    margin-top: 20px;
+.LandingPage a,
+.LandingPage a:active,
+.LandingPage a:focus,
+.LandingPage a:visited {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.LandingPage-instructions {
+    font-size: 12px;
 }

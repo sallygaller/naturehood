@@ -24,12 +24,12 @@ class AddObservationMap extends React.Component {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [this.props.lng, this.props.lat],
+      center: [this.props.centralLng, this.props.centralLat],
       zoom: this.state.zoom,
     });
 
     const marker = new mapboxgl.Marker({ draggable: true })
-      .setLngLat([this.props.lng, this.props.lat])
+      .setLngLat([this.props.centralLng, this.props.centralLat])
       .addTo(this.map);
 
     const onDragEnd = () => {

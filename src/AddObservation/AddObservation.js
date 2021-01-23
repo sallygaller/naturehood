@@ -6,7 +6,8 @@ import TokenService from "../services/token-service";
 import { API_ENDPOINT } from "../config";
 import "./AddObservation.css";
 
-export default function AddObservation() {
+export default function AddObservation(props) {
+  console.log(props.centralLat);
   const history = useHistory();
   const [species, setSpecies] = useState("");
   const [type, setType] = useState("");
@@ -148,6 +149,8 @@ export default function AddObservation() {
             lng={lng}
             setLat={setLat}
             setLng={setLng}
+            centralLat={props.centralLat}
+            centralLng={props.centralLng}
           />
           <p className="AddObservation-latlong">
             Latitude: {lat}

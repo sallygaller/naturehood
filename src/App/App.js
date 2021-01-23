@@ -1,9 +1,8 @@
 import React from "react";
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Link, Switch, withRouter } from "react-router-dom";
 import LandingPage from "../LandingPage/LandingPage";
 import Nav from "../Nav/Nav";
 import PrivateRoute from "../Utils/PrivateRoute";
-import { withRouter } from "react-router-dom";
 import Context from "../Context/Context";
 import AddObservation from "../AddObservation/AddObservation";
 import LoginPage from "../LoginPage/LoginPage";
@@ -20,6 +19,8 @@ import "./App.css";
 class App extends React.Component {
   state = {
     observations: [],
+    centralLat: null,
+    centralLng: null,
     isLoggedIn: false,
     error: null,
   };
@@ -33,6 +34,9 @@ class App extends React.Component {
 
     /* if a user is logged in */
     if (TokenService.hasAuthToken()) {
+      this.setState({
+        isLoggedIn: true,
+      });
       /*
         tell the idle service to register event listeners
         the event listeners are fired when a user does something, e.g. move their mouse
@@ -65,6 +69,9 @@ class App extends React.Component {
   }
 
   logoutFromIdle = () => {
+    this.setState({
+      isLoggedIn: false,
+    });
     /* remove the token from localStorage */
     TokenService.clearAuthToken();
     /* remove any queued calls to the refresh endpoint */
@@ -87,10 +94,13 @@ class App extends React.Component {
     this.setState({ error: null });
   };
 
-  onLogin = () => {
+  onLogin = (centralLat, centralLng) => {
     this.setState({
       isLoggedIn: true,
+      centralLat: centralLat,
+      centralLng: centralLng,
     });
+    console.log(centralLat, centralLng);
     const { history } = this.props;
     history.push("/mynaturehood");
   };
@@ -98,6 +108,8 @@ class App extends React.Component {
   onLogout = () => {
     this.setState({
       isLoggedIn: false,
+      centralLat: null,
+      centralLng: null,
     });
     const { history } = this.props;
     history.push("/");
@@ -106,10 +118,8 @@ class App extends React.Component {
   render() {
     const value = {
       observations: this.state.observations,
-      addObservation: this.handleAddObservation,
-      deleteObservation: this.handleDeleteObservation,
-      updateObservation: this.handleUpdateObservation,
-      setObservations: this.handleSetObservations,
+      lat: this.state.lat,
+      lng: this.state.lng,
       error: this.state.error,
     };
     return (
@@ -124,18 +134,29 @@ class App extends React.Component {
           <main>
             <Switch>
               <Route exact path={"/"} component={LandingPage} />
-              <PrivateRoute path={"/mynaturehood"} component={MyNaturehood} />
+              <PrivateRoute
+                path={"/mynaturehood"}
+                component={MyNaturehood}
+                centralLat={this.state.centralLat}
+                centralLng={this.state.centralLng}
+              />
               <PrivateRoute
                 path={"/add-observation"}
                 component={AddObservation}
+                centralLat={this.state.centralLat}
+                centralLng={this.state.centralLng}
               />
               <PrivateRoute
                 path={"/observations/edit/:observationId"}
                 component={EditObservation}
+                centralLat={this.state.centralLat}
+                centralLng={this.state.centralLng}
               />
               <PrivateRoute
                 path={"/observations/user"}
                 component={ObservationList}
+                centralLat={this.state.centralLat}
+                centralLng={this.state.centralLng}
               />
               <Route
                 path={"/login"}

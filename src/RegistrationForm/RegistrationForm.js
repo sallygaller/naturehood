@@ -8,7 +8,14 @@ class RegistrationForm extends React.Component {
     onRegistrationSuccess: () => {},
   };
 
-  state = { error: null, lat: null, lng: null };
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      // lat: null,
+      // lng: null,
+    };
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -26,31 +33,19 @@ class RegistrationForm extends React.Component {
         return res.json();
       })
       .then((responseData) => {
-        const lng = responseData.results[0].geometry.location.lng;
-        const lat = responseData.results[0].geometry.location.lat;
-        this.setState({
-          lat: lat,
-          lng: lng,
+        console.log("yay!");
+        const newLng = responseData.results[0].geometry.location.lng;
+        const newLat = responseData.results[0].geometry.location.lat;
+        AuthApiService.postUser({
+          fullname: fullname.value,
+          email: email.value,
+          password: password.value,
+          zipcode: zipcode.value,
+          lat: newLat,
+          lng: newLng,
         });
       })
-      .catch((error) => {
-        console.error({ error });
-      });
-
-    this.setState({
-      error: null,
-    });
-
-    AuthApiService.postUser({
-      fullname: fullname.value,
-      email: email.value,
-      password: password.value,
-      zipcode: zipcode.value,
-      lat: this.state.lat,
-      lng: this.state.lng,
-    })
       .then((user) => {
-        console.log("here!");
         this.props.onRegistrationSuccess();
         fullname.value = "";
         email.value = "";
