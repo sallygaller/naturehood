@@ -41,9 +41,21 @@ class LoginForm extends React.Component {
         >
           <div role="alert">{error && <p className="red">{error}</p>}</div>
           <label htmlFor="LoginForm-email">Email address </label>
-          <input type="text" required name="email" id="email"></input>
+          <input
+            type="text"
+            required
+            name="email"
+            id="email"
+            defaultValue="clare.raccoon@madeup.com"
+          ></input>
           <label htmlFor="LoginForm-password">Password</label>
-          <input required name="password" type="password" id="password"></input>
+          <input
+            required
+            name="password"
+            type="password"
+            id="password"
+            defaultValue="Secret12345!"
+          ></input>
           <button type="submit">Login</button>
         </form>
       </div>

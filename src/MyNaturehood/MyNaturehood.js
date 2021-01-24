@@ -16,7 +16,6 @@ class MyNaturehood extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     fetch(API_ENDPOINT + `/observations`, {
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`,
@@ -42,6 +41,7 @@ class MyNaturehood extends React.Component {
   handleTypeChange = (e) => {
     this.setState({
       observationsFilter: this.state.observations,
+      error: null,
     });
     if (e.target.value === "All") {
       this.setState({
@@ -51,6 +51,11 @@ class MyNaturehood extends React.Component {
       const newObservations = this.state.observations.filter(
         (observation) => observation.type === e.target.value
       );
+      if (newObservations.length === 0) {
+        this.setState({
+          error: "No observations of that species type found.",
+        });
+      }
       this.setState({
         observationsFilter: newObservations,
       });
@@ -58,11 +63,12 @@ class MyNaturehood extends React.Component {
   };
 
   render() {
+    const { error } = this.state;
     return (
       <div className="MyNaturehood">
         <h2>My natureHood</h2>
         <MainMap
-          observations={this.state.observations}
+          observations={this.state.observationsFilter}
           centralLat={this.props.centralLat}
           centralLng={this.props.centralLng}
         />
@@ -82,6 +88,9 @@ class MyNaturehood extends React.Component {
         </div>
         <div className="MyNaturehood-observations">
           <h3>Recent Observations</h3>
+          <div className="AddObservation-error" role="alert">
+            {error && <p>{error}</p>}
+          </div>
           <ul>
             {this.state.observationsFilter.map((observation) => (
               <li key={observation.id}>

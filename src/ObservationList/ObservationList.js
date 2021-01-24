@@ -23,7 +23,6 @@ class ObservationList extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
     fetch(API_ENDPOINT + `/observations/user`, {
       headers: {
         authorization: `bearer ${TokenService.getAuthToken()}`,
@@ -75,14 +74,6 @@ class ObservationList extends React.Component {
     return (
       <div className="ObservationList">
         <h2>My Observations</h2>
-        <div>
-          <label htmlFor="Observations-sort">Sort by </label>
-          <select id="sort" name="sort">
-            <option value="date-desc">Date (Newest to Oldest)</option>
-            <option value="date-asc">Date (Oldest to Newest)</option>
-            <option value="species">Species</option>
-          </select>
-        </div>
         <div>
           <ul>
             {this.state.observations.map((observation) => (

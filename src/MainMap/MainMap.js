@@ -6,7 +6,7 @@ import { API_TOKEN } from "../config";
 
 // @ts-ignore
 // eslint-disable-next-line import/no-webpack-loader-syntax
-mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
+// mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 mapboxgl.accessToken = API_TOKEN;
 
@@ -31,21 +31,13 @@ class MainMap extends React.Component {
     observations.forEach((observation) => {
       const popup = new mapboxgl.Popup({ offset: 0 }).setText(
         `${observation.species} seen ${dateFormat(observation)}
-        at ${timeFormat(observation)}`
+        at ${timeFormat(observation)} - "${observation.description}"`
       );
       new mapboxgl.Marker({ draggable: false })
         .setLngLat([observation.lng, observation.lat])
         .setPopup(popup)
         .addTo(this.map);
     });
-
-    // this.map.on("move", () => {
-    //   this.setState({
-    //     lng: this.map.getCenter().lng.toFixed(4),
-    //     lat: this.map.getCenter().lat.toFixed(4),
-    //     zoom: this.map.getZoom().toFixed(2),
-    //   });
-    // });
   }
 
   componentDidUpdate() {
@@ -53,7 +45,7 @@ class MainMap extends React.Component {
     observations.forEach((observation) => {
       const popup = new mapboxgl.Popup({ offset: 0 }).setText(
         `${observation.species} seen ${dateFormat(observation)}
-        at ${timeFormat(observation)}`
+        at ${timeFormat(observation)} - "${observation.description}"`
       );
       new mapboxgl.Marker({ draggable: false })
         .setLngLat([observation.lng, observation.lat])

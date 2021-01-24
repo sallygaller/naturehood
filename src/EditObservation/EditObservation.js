@@ -33,7 +33,6 @@ class EditObservation extends React.Component {
   };
 
   componentDidMount() {
-    console.log(this.props.centralLat);
     const { observationId } = this.props.match.params;
     fetch(API_ENDPOINT + `/observations/${observationId}`, {
       method: "GET",
@@ -181,7 +180,7 @@ class EditObservation extends React.Component {
             defaultValue={description}
             onChange={(e) => this.handleChange(e)}
           ></textarea>
-          <label htmlFor="date">Date seen:</label>
+          <label htmlFor="date">Date seen (MM/DD/YYYY):</label>
           <input
             type="text"
             id="date"

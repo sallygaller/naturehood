@@ -27,7 +27,7 @@
     box-sizing: border-box;
   }
 
-.RegistrationForm button:enabled {
+.RegistrationForm button[type=submit]  {
     width: 100%;
     background-color: #4CAF50;
     color: white;
@@ -38,21 +38,34 @@
     cursor: pointer;
 }
 
-.RegistrationForm button:disabled {
-    width: 100%;
-    background-color: grey;
+.RegistrationForm button[type=submit]:hover   {
+    background-color:#4CAF60;
+}
+
+.RegistrationForm button[type=button]  {
+    width: 25%;
+    background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-.RegistrationForm button:disabled:hover {
-    background-color: grey;
+.RegistrationForm-password p {
+    font-style: italic;
+    font-size: 12px;
+    margin: 0px;
 }
 
-.RegistrationForm button:enabled:hover {
-    background-color: #45a049;
+.red {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 0px;
+}
+
+.RegistrationForm-latlng {
+    margin-top: 25px;
 }

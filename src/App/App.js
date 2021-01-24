@@ -100,7 +100,6 @@ class App extends React.Component {
       centralLat: centralLat,
       centralLng: centralLng,
     });
-    console.log(centralLat, centralLng);
     const { history } = this.props;
     history.push("/mynaturehood");
   };

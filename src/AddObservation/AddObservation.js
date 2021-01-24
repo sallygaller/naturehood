@@ -7,7 +7,6 @@ import { API_ENDPOINT } from "../config";
 import "./AddObservation.css";
 
 export default function AddObservation(props) {
-  console.log(props.centralLat);
   const history = useHistory();
   const [species, setSpecies] = useState("");
   const [type, setType] = useState("");
@@ -111,7 +110,7 @@ export default function AddObservation(props) {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
-          <label htmlFor="date">Date seen:</label>
+          <label htmlFor="date">Date seen (MM/DD/YYYY):</label>
           <input
             type="text"
             id="date"
@@ -130,6 +129,7 @@ export default function AddObservation(props) {
             value={timeShort}
             onChange={(e) => setTimeShort(e.target.value)}
             required
+            placeholder="03:00"
           />
           <select
             id="ampm"
