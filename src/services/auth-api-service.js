@@ -14,13 +14,13 @@ const AuthApiService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-  postLogin(credentials) {
+  postLogin(email, password) {
     return fetch(`${API_ENDPOINT}/auth/login`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(credentials),
+      body: JSON.stringify({ email, password }),
     })
       .then((res) =>
         !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
