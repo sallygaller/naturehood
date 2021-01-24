@@ -27,6 +27,7 @@ class LoginForm extends React.Component {
         this.props.onLoginSuccess(res.lat, res.lng);
       })
       .catch((res) => {
+        console.error(res.error);
         this.setState({ error: res.error });
       });
   };
