@@ -115,54 +115,62 @@ class App extends React.Component {
   };
 
   render() {
+    const value = {
+      observations: this.state.observations,
+      lat: this.state.lat,
+      lng: this.state.lng,
+      error: this.state.error,
+    };
     return (
       <div className="App">
-        <header className="App-header App-row">
-          <Link to="/">
-            <h1 className="App-h1">natureHood</h1>
-          </Link>
-          <Nav isLoggedIn={this.state.isLoggedIn} onLogout={this.onLogout} />
-        </header>
-        <main>
-          <Switch>
-            <Route exact path={"/"} component={LandingPage} />
-            <PrivateRoute
-              path={"/mynaturehood"}
-              component={MyNaturehood}
-              centralLat={this.state.centralLat}
-              centralLng={this.state.centralLng}
-            />
-            <PrivateRoute
-              path={"/add-observation"}
-              component={AddObservation}
-              centralLat={this.state.centralLat}
-              centralLng={this.state.centralLng}
-            />
-            <PrivateRoute
-              path={"/observations/edit/:observationId"}
-              component={EditObservation}
-              centralLat={this.state.centralLat}
-              centralLng={this.state.centralLng}
-            />
-            <PrivateRoute
-              path={"/observations/user"}
-              component={ObservationList}
-              centralLat={this.state.centralLat}
-              centralLng={this.state.centralLng}
-            />
-            <Route
-              path={"/login"}
-              render={() => <LoginPage onLogin={this.onLogin} />}
-            />
-            <Route
-              path={"/register"}
-              render={() => <RegistrationPage onLogin={this.onLogin} />}
-            />
-          </Switch>
-        </main>
-        <footer>
-          <p>Created by Sally Galler</p>
-        </footer>
+        <Context.Provider value={value}>
+          <header className="App-header App-row">
+            <Link to="/">
+              <h1 className="App-h1">natureHood</h1>
+            </Link>
+            <Nav isLoggedIn={this.state.isLoggedIn} onLogout={this.onLogout} />
+          </header>
+          <main>
+            <Switch>
+              <Route exact path={"/"} component={LandingPage} />
+              <PrivateRoute
+                path={"/mynaturehood"}
+                component={MyNaturehood}
+                centralLat={this.state.centralLat}
+                centralLng={this.state.centralLng}
+              />
+              <PrivateRoute
+                path={"/add-observation"}
+                component={AddObservation}
+                centralLat={this.state.centralLat}
+                centralLng={this.state.centralLng}
+              />
+              <PrivateRoute
+                path={"/observations/edit/:observationId"}
+                component={EditObservation}
+                centralLat={this.state.centralLat}
+                centralLng={this.state.centralLng}
+              />
+              <PrivateRoute
+                path={"/observations/user"}
+                component={ObservationList}
+                centralLat={this.state.centralLat}
+                centralLng={this.state.centralLng}
+              />
+              <Route
+                path={"/login"}
+                render={() => <LoginPage onLogin={this.onLogin} />}
+              />
+              <Route
+                path={"/register"}
+                render={() => <RegistrationPage onLogin={this.onLogin} />}
+              />
+            </Switch>
+          </main>
+          <footer>
+            <p>Created by Sally Galler</p>
+          </footer>
+        </Context.Provider>
       </div>
     );
   }
