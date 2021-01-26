@@ -66,8 +66,9 @@ class RegistrationForm extends React.Component {
         this.props.onRegistrationSuccess();
       })
       .catch((res) => {
-        console.error(res.error);
-        this.setState({ error: res.error });
+        this.setState({
+          error: res.error,
+        });
       });
   };
 
