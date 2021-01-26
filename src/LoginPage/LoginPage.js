@@ -19,6 +19,7 @@ class LoginPage extends React.Component {
     return (
       <div className="LoginPage">
         <h2>Log in...</h2>
+        <p>For demo purposes, please use the login credentials provided.</p>
         <LoginForm onLoginSuccess={this.handleLoginSuccess} />
       </div>
     );
