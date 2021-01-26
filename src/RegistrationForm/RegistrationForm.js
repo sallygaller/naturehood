@@ -113,8 +113,9 @@ class RegistrationForm extends React.Component {
           />
         </div>
         <div className="RegistrationForm-latlng">
+          <p>One more thing...</p>
           <label htmlFor="Latlng">
-            Finally, let's figure out the latitude and longtitude of your
+            Click the green button to find the latitude and longitude of your
             zipcode:
           </label>
           <button type="button" onClick={(e) => this.handleLatLng(e)}>

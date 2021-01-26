@@ -194,6 +194,7 @@ class EditObservation extends React.Component {
             <option>am</option>
             <option>pm</option>
           </select>
+          <label htmlFor="location">Location (drag and drop the marker):</label>
           <AddObservationMap
             lat={lat}
             lng={lng}
