@@ -1,17 +1,7 @@
 import React from "react";
-import { speciesTypes } from "../Utils/Utils";
+import SpeciesAnalysis from "../SpeciesAnalysis/SpeciesAnalysis";
 import moment from "moment";
-
-function countSpecies(speciesType, observations) {
-  let type = speciesType.type;
-  let results = 0;
-  for (let i = 0; i < observations.length; i++) {
-    if (observations[i].type === type) {
-      results = results + 1;
-    }
-  }
-  return results;
-}
+import { speciesTypes } from "../Utils/Utils";
 
 function dateLatest(observations) {
   let dates = observations.map((observation) => {
@@ -34,8 +24,10 @@ export default function Analysis(props) {
       <ul>
         {speciesTypes.map((speciesType) => (
           <li key={speciesType.id}>
-            {countSpecies(speciesType, observations)} {speciesType.type}
-            {speciesType.type === "Fish" ? "" : "s"} seen
+            <SpeciesAnalysis
+              speciesType={speciesType}
+              observations={observations}
+            />
           </li>
         ))}
       </ul>

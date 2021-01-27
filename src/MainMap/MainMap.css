@@ -3,11 +3,19 @@
 }
 
 .mapContainer {
-    height: 400px;
-    width: 400px;
+    height: 250px;
+    width: 250px;
     margin: 0 auto;
 }
 
 .mapboxgl-popup-content {
     font-size: 12px;
 }
+
+  @media screen and (min-width: 460px) {
+    .mapContainer {
+        height: 400px;
+        width: 400px;
+        margin: 0 auto;
+    }
+  }

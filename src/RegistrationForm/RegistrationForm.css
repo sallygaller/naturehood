@@ -43,11 +43,11 @@
 }
 
 .RegistrationForm button[type=button]  {
-    width: 25%;
-    background-color: #4CAF50;
+    width: 100%;
+    background-color: orange;
     color: white;
     padding: 14px 20px;
-    margin: 10px;
+    margin: 10px auto;
     border: none;
     border-radius: 4px;
     cursor: pointer;

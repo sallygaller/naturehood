@@ -76,14 +76,16 @@ class ObservationList extends React.Component {
         <h2>My Observations</h2>
         <div>
           <ul>
-            {this.state.observations.map((observation) => (
-              <li key={observation.id}>
-                <Observation
-                  observation={observation}
-                  handleDeleteRequest={this.handleDeleteRequest}
-                />
-              </li>
-            ))}
+            {this.state.observations
+              .sort((a, b) => (a.date < b.date ? 1 : -1))
+              .map((observation) => (
+                <li key={observation.id}>
+                  <Observation
+                    observation={observation}
+                    handleDeleteRequest={this.handleDeleteRequest}
+                  />
+                </li>
+              ))}
           </ul>
           <Link to={"/add-observation"}>
             <button className="Observations-button" type="button">

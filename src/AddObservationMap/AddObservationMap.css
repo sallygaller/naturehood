@@ -1,11 +1,12 @@
 .AddObservationMap {
     text-align: center;
-    padding: 15px;
+    padding: 15px 0px;
 }
 
 .mapContainer {
     height: 200px;
     width: 200px;
+    margin: 10px auto;
 }
 
 .sidebarStyle {
@@ -20,3 +21,11 @@
     padding: 6px;
     font-weight: bold;
     }
+
+@media screen and (min-width: 460px) {
+    .mapContainer {
+        height: 400px;
+        width: 400px;
+        margin: 10px auto;
+    }
+}

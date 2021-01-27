@@ -189,7 +189,13 @@ class EditObservation extends React.Component {
             defaultValue={date}
           ></input>
           <label htmlFor="date">Time seen (approximate):</label>
-          <input type="text" id="time" name="time" defaultValue={time}></input>
+          <input
+            type="text"
+            id="time"
+            name="time"
+            onChange={(e) => this.handleChange(e)}
+            defaultValue={time}
+          ></input>
           <select id="ampm" name="ampm" onChange={(e) => this.handleChange(e)}>
             <option>am</option>
             <option>pm</option>

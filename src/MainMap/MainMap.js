@@ -34,6 +34,7 @@ class MainMap extends React.Component {
         at ${timeFormat(observation)} - "${observation.description}"`
       );
       new mapboxgl.Marker({ draggable: false })
+        .class("test")
         .setLngLat([observation.lng, observation.lat])
         .setPopup(popup)
         .addTo(this.map);
