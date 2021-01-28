@@ -60,3 +60,8 @@
     background-color: #45a049;
 }
 
+.AddObservation-error {
+    color: red;
+    text-align: center;
+} 
+

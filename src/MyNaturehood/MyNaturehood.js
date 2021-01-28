@@ -88,7 +88,7 @@ class MyNaturehood extends React.Component {
         </div>
         <div className="MyNaturehood-observations">
           <h3>Recent Observations</h3>
-          <div className="AddObservation-error" role="alert">
+          <div className="MyNaturehood-error" role="alert">
             {error && <p>{error}</p>}
           </div>
           <ul>

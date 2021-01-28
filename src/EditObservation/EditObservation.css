@@ -51,3 +51,8 @@
 .EditObservation button[type=button]:hover {
     background-color: lightgray;
 }
+
+.EditObservation-error {
+    color: red;
+    text-align: center;
+} 

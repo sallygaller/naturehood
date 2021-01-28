@@ -147,11 +147,22 @@ class EditObservation extends React.Component {
   };
 
   render() {
-    const { species, type, description, date, time, lat, lng } = this.state;
-
+    const {
+      species,
+      type,
+      description,
+      date,
+      time,
+      lat,
+      lng,
+      error,
+    } = this.state;
     return (
       <div className="EditObservation">
         <h2>Edit Observation</h2>
+        <div role="alert">
+          {error && <p className="EditObservation-error">{error}</p>}
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="species">Species seen:</label>
           <input

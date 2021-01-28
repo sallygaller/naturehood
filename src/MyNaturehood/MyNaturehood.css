@@ -32,3 +32,8 @@
 .MyNaturehood-title {
     font-weight: bold;
 }
+
+.MyNaturehood-error {
+    color: red;
+    text-align: center;
+} 

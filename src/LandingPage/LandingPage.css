@@ -1,10 +1,22 @@
 .LandingPage {
     text-align: center;
     padding-top: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.LandingPage h2 {
+    text-align: center;
+    padding-top: 20px;
+    font-family: 'Noto Sans HK', sans-serif;
 }
 
 .LandingPage section {
-    padding-bottom: 20px;
+    padding: 20px;
+    border-style: solid;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border-image: url("../App/images/banner.jpg") 80 round;
+    border-width: 8px;
 }
 
 .LandingPage a,

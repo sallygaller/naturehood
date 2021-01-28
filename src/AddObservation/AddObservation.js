@@ -19,42 +19,48 @@ export default function AddObservation(props) {
   const [error, setError] = useState(null);
 
   const Required = () => <span className="AddObservation-required">*</span>;
+  const validTime = (str) => /^(1[0-2]|0?[1-9]):[0-5][0-9]$/.test(str);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const fullTime = timeShort.concat(ampm);
-    const time = moment(fullTime, "h:mm a").format("H:mm");
-    const observation = {
-      species,
-      type,
-      description,
-      date,
-      time,
-      lat,
-      lng,
-    };
-    fetch(API_ENDPOINT + `/observations`, {
-      method: "POST",
-      body: JSON.stringify(observation),
-      headers: {
-        "content-type": "application/json",
-        authorization: `bearer ${TokenService.getAuthToken()}`,
-      },
-    })
-      .then((res) => {
-        if (!res.ok) {
-          return res.json().then((error) => {
-            throw error;
-          });
-        }
-        return res.json();
+    if (!validTime(timeShort)) {
+      console.log("Oh no");
+      setError("Time must be in twelve hour HH:MM format (e.g. 08:15)");
+    } else {
+      const fullTime = timeShort.concat(ampm);
+      const time = moment(fullTime, "h:mm a").format("H:mm");
+      const observation = {
+        species,
+        type,
+        description,
+        date,
+        time,
+        lat,
+        lng,
+      };
+      fetch(API_ENDPOINT + `/observations`, {
+        method: "POST",
+        body: JSON.stringify(observation),
+        headers: {
+          "content-type": "application/json",
+          authorization: `bearer ${TokenService.getAuthToken()}`,
+        },
       })
-      .then((data) => {
-        history.push("/observations/user");
-      })
-      .catch((error) => {
-        setError({ error });
-      });
+        .then((res) => {
+          if (!res.ok) {
+            return res.json().then((error) => {
+              throw error;
+            });
+          }
+          return res.json();
+        })
+        .then((data) => {
+          history.push("/observations/user");
+        })
+        .catch((error) => {
+          setError(error.message);
+        });
+    }
   };
 
   const handleClickCancel = () => {
@@ -67,7 +73,12 @@ export default function AddObservation(props) {
       <div>
         <form className="AddObservation-form" onSubmit={(e) => handleSubmit(e)}>
           <div className="AddObservation-error" role="alert">
-            {error && <p>{error.message}</p>}
+            {error && (
+              <p>
+                {error.message}
+                {error}
+              </p>
+            )}
           </div>
           <label htmlFor="species">
             Species seen:
@@ -129,7 +140,7 @@ export default function AddObservation(props) {
             value={timeShort}
             onChange={(e) => setTimeShort(e.target.value)}
             required
-            placeholder="03:00"
+            placeholder="HH:MM"
           />
           <select
             id="ampm"

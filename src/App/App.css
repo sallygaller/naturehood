@@ -5,10 +5,11 @@
 }
 
 header {
-  background-color: #333;
   flex: 0 1 auto;
   padding-top: 10px;
   flex-shrink: 0;
+  background-image: url("./images/banner.jpg");
+  background-size: cover;
 }
 
 main {
@@ -18,7 +19,8 @@ main {
 }
 
 footer {
-  background-color: #333;
+  background-image: url("./images/banner.jpg");
+  background-size: cover;
   color: #fcfaf1;
   margin-top: auto;
   text-align: center;
@@ -32,6 +34,8 @@ footer p {
 }
 
 .App-h1 {
+  font-family: 'Noto Sans HK', sans-serif;
+  font-size: 36px;
   text-align: center;
   color: #fcfaf1;
   text-decoration: none;
