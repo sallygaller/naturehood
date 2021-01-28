@@ -5,8 +5,10 @@ import "./LandingPage.css";
 export default function LandingPage() {
   return (
     <div className="LandingPage">
-      <h2>connecting you to nature and neighbor</h2>
-      <section>
+      <div class="LandingPage-header">
+        <h2>connecting you to nature and neighbor</h2>
+      </div>
+      <section className="LandingPage-first-section">
         <h3>Record your wildlife observations</h3>
         <p>
           [<em>placeholder for screenshot of entering new observation</em>]
@@ -16,7 +18,7 @@ export default function LandingPage() {
           location and a description.
         </p>
       </section>
-      <section>
+      <section className="LandingPage-section">
         <h3>See what wildlife your neighbors have spotted</h3>
         <p>
           [<em>placeholder for screenshot of map</em>]
@@ -26,7 +28,7 @@ export default function LandingPage() {
           to see a particular species or when it was seen.
         </p>
       </section>
-      <section>
+      <section className="LandingPage-section">
         <h3>Analyze your sightings</h3>
         <p>
           [<em>placeholder for screenshot of observations</em>]
@@ -36,7 +38,7 @@ export default function LandingPage() {
           your favorite species.
         </p>
       </section>
-      <section>
+      <section className="LandingPage-section">
         <h3>Start Exploring Your natureHood</h3>
         <p>
           <Link to="/register">Register</Link>{" "}

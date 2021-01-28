@@ -5,11 +5,17 @@
 
 .MyNaturehood select {
     width: 50%;
+    background-color: #f2f2f2;
 }
 
 .MyNaturehood-instructions {
     margin-top: 0px;
     font-size: 12px;
+    margin-bottom: 50px;
+}
+
+.MyNaturehood h3 {
+    margin-bottom: 10px;
 }
 
 .MyNaturehood ul {
@@ -24,9 +30,16 @@
 }
 
 .MyNaturehood-item {
-    padding-right: 5px;
-    border: white;
     align-self: center;
+}
+
+.MyNaturehood-speciesImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #012611;
 }
 
 .MyNaturehood-title {
@@ -37,3 +50,9 @@
     color: red;
     text-align: center;
 } 
+
+.MyNaturehood-observations {
+    background-color: #D2D8D9;
+    padding: 10px;
+    width: 100%;
+}

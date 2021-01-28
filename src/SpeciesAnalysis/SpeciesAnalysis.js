@@ -1,10 +1,5 @@
 import React from "react";
-import Mammal from "./images/mammal.jpeg";
-import Insect from "./images/insect.jpeg";
-import Bird from "./images/bird.jpeg";
-import Reptile from "./images/reptile.jpeg";
-import Fish from "./images/fish.jpeg";
-import Amphibian from "./images/amphibian.jpeg";
+import { className } from "../Utils/Utils";
 import "./SpeciesAnalysis.css";
 
 function countSpecies(speciesType, observations) {
@@ -16,27 +11,6 @@ function countSpecies(speciesType, observations) {
     }
   }
   return results;
-}
-
-function className(speciesType) {
-  if (speciesType.type === "Mammal") {
-    return Mammal;
-  }
-  if (speciesType.type === "Bird") {
-    return Bird;
-  }
-  if (speciesType.type === "Arthropod") {
-    return Insect;
-  }
-  if (speciesType.type === "Reptile") {
-    return Reptile;
-  }
-  if (speciesType.type === "Fish") {
-    return Fish;
-  }
-  if (speciesType.type === "Amphibian") {
-    return Amphibian;
-  } else return null;
 }
 
 export default function SpeciesAnalysis(props) {

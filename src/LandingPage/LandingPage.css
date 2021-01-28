@@ -10,13 +10,33 @@
     font-family: 'Noto Sans HK', sans-serif;
 }
 
-.LandingPage section {
+.LandingPage-section {
     padding: 20px;
     border-style: solid;
     margin-bottom: 5px;
     border-radius: 5px;
     border-image: url("../App/images/banner.jpg") 80 round;
     border-width: 8px;
+}
+
+.LandingPage-first-section {
+    padding: 20px;
+    border-style: solid;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border-image: url("../App/images/banner.jpg") 80 round;
+    border-width: 8px;
+    border-top-style: none;
+}
+
+.LandingPage-header {
+    background-image: url("../App/images/banner.jpg");
+    padding-bottom: 10px;
+}
+
+.LandingPage h2 {
+    margin-bottom: 0px;
+    color: #fcfaf1;
 }
 
 .LandingPage a,

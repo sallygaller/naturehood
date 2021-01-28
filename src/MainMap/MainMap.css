@@ -1,15 +1,25 @@
 .MainMap {
-    padding-bottom: 5px;
+    padding: 10px;
 }
 
 .mapContainer {
     height: 250px;
     width: 250px;
     margin: 0 auto;
+    border: 15px;
+    border-style: solid;
+    border-image: url("../App/images/banner.jpg") 80 round;
 }
 
 .mapboxgl-popup-content {
     font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+    border-color: #012611;
+    border-width: 5px;
+}
+
+.mapboxgl-marker {
+    color: green;
 }
 
   @media screen and (min-width: 460px) {

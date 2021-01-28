@@ -23,7 +23,7 @@ class AddObservationMap extends React.Component {
   componentDidMount() {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/mapbox/light-v10",
       center: [this.props.centralLng, this.props.centralLat],
       zoom: this.state.zoom,
     });

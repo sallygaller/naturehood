@@ -18,7 +18,9 @@ class RegistrationForm extends React.Component {
     };
   }
 
-  handleLatLng = (e) => {
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { fullname, email, password, zipcode } = e.target;
     fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?address=` +
         this.state.zipcode +
@@ -33,42 +35,26 @@ class RegistrationForm extends React.Component {
       .then((responseData) => {
         const newLng = responseData.results[0].geometry.location.lng;
         const newLat = responseData.results[0].geometry.location.lat;
-        this.setState({
+        AuthApiService.postUser({
+          fullname: fullname.value,
+          email: email.value,
+          password: password.value,
+          zipcode: zipcode.value,
           lat: newLat,
           lng: newLng,
-        });
-      });
-  };
-
-  handleZipCodeChange = (e) => {
-    this.setState({
-      zipcode: e.target.value,
-    });
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const { fullname, email, password, zipcode, lat, lng } = e.target;
-    this.setState({ error: null });
-    AuthApiService.postUser({
-      fullname: fullname.value,
-      email: email.value,
-      password: password.value,
-      zipcode: zipcode.value,
-      lat: lat.value,
-      lng: lng.value,
-    })
-      .then((user) => {
-        fullname.value = "";
-        email.value = "";
-        password.value = "";
-        zipcode.value = "";
-        this.props.onRegistrationSuccess();
-      })
-      .catch((res) => {
-        this.setState({
-          error: res.error,
-        });
+        })
+          .then((user) => {
+            fullname.value = "";
+            email.value = "";
+            password.value = "";
+            zipcode.value = "";
+            this.props.onRegistrationSuccess();
+          })
+          .catch((res) => {
+            this.setState({
+              error: res.error,
+            });
+          });
       });
   };
 
@@ -113,8 +99,8 @@ class RegistrationForm extends React.Component {
             placeholder="97203"
           />
         </div>
-        <div className="RegistrationForm-latlng">
-          <p>One more thing...</p>
+        {/* <div className="RegistrationForm-latlng"> */}
+        {/* <p>One more thing...</p>
           <label htmlFor="Latlng">
             Click the orange button to find the latitude and longitude of your
             zipcode:
@@ -131,7 +117,7 @@ class RegistrationForm extends React.Component {
         <div>
           <label htmlFor="lat">Longitude:</label>
           <input type="text" name="lng" id="lng" value={this.state.lng} />
-        </div>
+        </div> */}
         <button type="submit">Register</button>
       </form>
     );

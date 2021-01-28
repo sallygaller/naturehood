@@ -22,7 +22,7 @@ class MainMap extends React.Component {
   componentDidMount() {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/mapbox/light-v10",
       center: [this.props.centralLng, this.props.centralLat],
       zoom: this.state.zoom,
     });
@@ -34,7 +34,6 @@ class MainMap extends React.Component {
         at ${timeFormat(observation)} - "${observation.description}"`
       );
       new mapboxgl.Marker({ draggable: false })
-        .class("test")
         .setLngLat([observation.lng, observation.lat])
         .setPopup(popup)
         .addTo(this.map);
@@ -61,7 +60,7 @@ class MainMap extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="MainMap">
         <div ref={(el) => (this.mapContainer = el)} className="mapContainer" />
       </div>
     );

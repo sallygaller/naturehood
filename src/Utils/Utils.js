@@ -1,4 +1,10 @@
 import moment from "moment";
+import Mammal from "../SpeciesAnalysis/images/mammal.jpeg";
+import Insect from "../SpeciesAnalysis/images/insect.jpeg";
+import Bird from "../SpeciesAnalysis/images/bird.jpeg";
+import Reptile from "../SpeciesAnalysis/images/reptile.jpeg";
+import Fish from "../SpeciesAnalysis//images/fish.jpeg";
+import Amphibian from "../SpeciesAnalysis//images/amphibian.jpeg";
 
 export function dateFormat(observation) {
   const dateFormat = moment(observation.date).format("L");
@@ -8,6 +14,27 @@ export function dateFormat(observation) {
 export function timeFormat(observation) {
   const timeFormat = moment(observation.time, "hh:mm:ss").format("hh:mm a");
   return timeFormat;
+}
+
+export function className(speciesType) {
+  if (speciesType.type === "Mammal") {
+    return Mammal;
+  }
+  if (speciesType.type === "Bird") {
+    return Bird;
+  }
+  if (speciesType.type === "Arthropod") {
+    return Insect;
+  }
+  if (speciesType.type === "Reptile") {
+    return Reptile;
+  }
+  if (speciesType.type === "Fish") {
+    return Fish;
+  }
+  if (speciesType.type === "Amphibian") {
+    return Amphibian;
+  } else return null;
 }
 
 export const speciesTypes = [
