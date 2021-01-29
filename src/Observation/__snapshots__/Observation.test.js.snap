@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="Observation"
+>
+  <div
+    className="Observation-time-date"
+  >
+    08:30 am
+    , 
+    12/25/2020
+  </div>
+  <div
+    className="Observation-title"
+  >
+    Robin
+  </div>
+  <div>
+    I saw a robin at my feeder
+  </div>
+  <div
+    className="Observation-buttons"
+  >
+    <a
+      href="/observations/edit/1"
+      onClick={[Function]}
+    >
+      <button
+        className="Observation-button"
+        type="button"
+      >
+        Edit
+      </button>
+    </a>
+     
+    <button
+      className="Observation-button"
+      onClick={[Function]}
+    >
+      Delete
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders the UI as expected with no observation 1`] = `
+<div
+  className="Observation"
+>
+  <div
+    className="Observation-time-date"
+  >
+    Invalid date
+    , 
+    01/29/2021
+  </div>
+  <div
+    className="Observation-title"
+  />
+  <div />
+  <div
+    className="Observation-buttons"
+  >
+    <a
+      href="/observations/edit/undefined"
+      onClick={[Function]}
+    >
+      <button
+        className="Observation-button"
+        type="button"
+      >
+        Edit
+      </button>
+    </a>
+     
+    <button
+      className="Observation-button"
+      onClick={[Function]}
+    >
+      Delete
+    </button>
+  </div>
+</div>
+`;

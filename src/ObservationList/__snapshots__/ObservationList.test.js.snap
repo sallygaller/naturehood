@@ -1,0 +1,245 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="ObservationList"
+>
+  <h2>
+    My Observations
+  </h2>
+  <a
+    href="/add-observation"
+    onClick={[Function]}
+  >
+    <button
+      className="ObservationList-button"
+      type="button"
+    >
+      Add Observation
+    </button>
+  </a>
+  <div>
+    <ul />
+  </div>
+  <div
+    className="Analysis"
+  >
+    <p>
+      Total observations: 
+      0
+       
+      <br />
+      Most recent observation: 
+      01/29/2021
+    </p>
+    <ul>
+      <li>
+        <div
+          className="SpeciesAnalysis"
+        >
+          0
+           
+          <img
+            alt="Mammal"
+            className="SpeciesAnalysis-img"
+            src="mammal.jpeg"
+          />
+          seen
+        </div>
+      </li>
+      <li>
+        <div
+          className="SpeciesAnalysis"
+        >
+          0
+           
+          <img
+            alt="Fish"
+            className="SpeciesAnalysis-img"
+            src="fish.jpeg"
+          />
+          seen
+        </div>
+      </li>
+      <li>
+        <div
+          className="SpeciesAnalysis"
+        >
+          0
+           
+          <img
+            alt="Bird"
+            className="SpeciesAnalysis-img"
+            src="bird.jpeg"
+          />
+          seen
+        </div>
+      </li>
+      <li>
+        <div
+          className="SpeciesAnalysis"
+        >
+          0
+           
+          <img
+            alt="Arthropod"
+            className="SpeciesAnalysis-img"
+            src="insect.jpeg"
+          />
+          seen
+        </div>
+      </li>
+      <li>
+        <div
+          className="SpeciesAnalysis"
+        >
+          0
+           
+          <img
+            alt="Amphibian"
+            className="SpeciesAnalysis-img"
+            src="amphibian.jpeg"
+          />
+          seen
+        </div>
+      </li>
+      <li>
+        <div
+          className="SpeciesAnalysis"
+        >
+          0
+           
+          <img
+            alt="Reptile"
+            className="SpeciesAnalysis-img"
+            src="reptile.jpeg"
+          />
+          seen
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`renders the UI as expected with no observations 1`] = `
+<div
+  className="ObservationList"
+>
+  <h2>
+    My Observations
+  </h2>
+  <a
+    href="/add-observation"
+    onClick={[Function]}
+  >
+    <button
+      className="ObservationList-button"
+      type="button"
+    >
+      Add Observation
+    </button>
+  </a>
+  <div>
+    <ul />
+  </div>
+  <div
+    className="Analysis"
+  >
+    <p>
+      Total observations: 
+      0
+       
+      <br />
+      Most recent observation: 
+      01/29/2021
+    </p>
+    <ul>
+      <li>
+        <div
+          className="SpeciesAnalysis"
+        >
+          0
+           
+          <img
+            alt="Mammal"
+            className="SpeciesAnalysis-img"
+            src="mammal.jpeg"
+          />
+          seen
+        </div>
+      </li>
+      <li>
+        <div
+          className="SpeciesAnalysis"
+        >
+          0
+           
+          <img
+            alt="Fish"
+            className="SpeciesAnalysis-img"
+            src="fish.jpeg"
+          />
+          seen
+        </div>
+      </li>
+      <li>
+        <div
+          className="SpeciesAnalysis"
+        >
+          0
+           
+          <img
+            alt="Bird"
+            className="SpeciesAnalysis-img"
+            src="bird.jpeg"
+          />
+          seen
+        </div>
+      </li>
+      <li>
+        <div
+          className="SpeciesAnalysis"
+        >
+          0
+           
+          <img
+            alt="Arthropod"
+            className="SpeciesAnalysis-img"
+            src="insect.jpeg"
+          />
+          seen
+        </div>
+      </li>
+      <li>
+        <div
+          className="SpeciesAnalysis"
+        >
+          0
+           
+          <img
+            alt="Amphibian"
+            className="SpeciesAnalysis-img"
+            src="amphibian.jpeg"
+          />
+          seen
+        </div>
+      </li>
+      <li>
+        <div
+          className="SpeciesAnalysis"
+        >
+          0
+           
+          <img
+            alt="Reptile"
+            className="SpeciesAnalysis-img"
+            src="reptile.jpeg"
+          />
+          seen
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

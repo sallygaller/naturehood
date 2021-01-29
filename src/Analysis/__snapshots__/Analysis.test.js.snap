@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="Analysis"
+>
+  <p>
+    Total observations: 
+    3
+     
+    <br />
+    Most recent observation: 
+    12/25/2020
+  </p>
+  <ul>
+    <li>
+      <div
+        className="SpeciesAnalysis"
+      >
+        2
+         
+        <img
+          alt="Mammal"
+          className="SpeciesAnalysis-img"
+          src="mammal.jpeg"
+        />
+        seen
+      </div>
+    </li>
+    <li>
+      <div
+        className="SpeciesAnalysis"
+      >
+        0
+         
+        <img
+          alt="Fish"
+          className="SpeciesAnalysis-img"
+          src="fish.jpeg"
+        />
+        seen
+      </div>
+    </li>
+    <li>
+      <div
+        className="SpeciesAnalysis"
+      >
+        1
+         
+        <img
+          alt="Bird"
+          className="SpeciesAnalysis-img"
+          src="bird.jpeg"
+        />
+        seen
+      </div>
+    </li>
+    <li>
+      <div
+        className="SpeciesAnalysis"
+      >
+        0
+         
+        <img
+          alt="Arthropod"
+          className="SpeciesAnalysis-img"
+          src="insect.jpeg"
+        />
+        seen
+      </div>
+    </li>
+    <li>
+      <div
+        className="SpeciesAnalysis"
+      >
+        0
+         
+        <img
+          alt="Amphibian"
+          className="SpeciesAnalysis-img"
+          src="amphibian.jpeg"
+        />
+        seen
+      </div>
+    </li>
+    <li>
+      <div
+        className="SpeciesAnalysis"
+      >
+        0
+         
+        <img
+          alt="Reptile"
+          className="SpeciesAnalysis-img"
+          src="reptile.jpeg"
+        />
+        seen
+      </div>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`renders the UI as expected with no observations 1`] = `
+<div
+  className="Analysis"
+>
+  <p>
+    Total observations: 
+    0
+     
+    <br />
+    Most recent observation: 
+    01/29/2021
+  </p>
+  <ul>
+    <li>
+      <div
+        className="SpeciesAnalysis"
+      >
+        0
+         
+        <img
+          alt="Mammal"
+          className="SpeciesAnalysis-img"
+          src="mammal.jpeg"
+        />
+        seen
+      </div>
+    </li>
+    <li>
+      <div
+        className="SpeciesAnalysis"
+      >
+        0
+         
+        <img
+          alt="Fish"
+          className="SpeciesAnalysis-img"
+          src="fish.jpeg"
+        />
+        seen
+      </div>
+    </li>
+    <li>
+      <div
+        className="SpeciesAnalysis"
+      >
+        0
+         
+        <img
+          alt="Bird"
+          className="SpeciesAnalysis-img"
+          src="bird.jpeg"
+        />
+        seen
+      </div>
+    </li>
+    <li>
+      <div
+        className="SpeciesAnalysis"
+      >
+        0
+         
+        <img
+          alt="Arthropod"
+          className="SpeciesAnalysis-img"
+          src="insect.jpeg"
+        />
+        seen
+      </div>
+    </li>
+    <li>
+      <div
+        className="SpeciesAnalysis"
+      >
+        0
+         
+        <img
+          alt="Amphibian"
+          className="SpeciesAnalysis-img"
+          src="amphibian.jpeg"
+        />
+        seen
+      </div>
+    </li>
+    <li>
+      <div
+        className="SpeciesAnalysis"
+      >
+        0
+         
+        <img
+          alt="Reptile"
+          className="SpeciesAnalysis-img"
+          src="reptile.jpeg"
+        />
+        seen
+      </div>
+    </li>
+  </ul>
+</div>
+`;

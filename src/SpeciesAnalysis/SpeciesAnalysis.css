@@ -12,8 +12,6 @@
 }
 
 .SpeciesAnalysis-img {
-    background-image: url("./images/mammal.jpeg");
-    background-size: cover;
     margin: 10px;
     width: 100px;
     height: 100px;

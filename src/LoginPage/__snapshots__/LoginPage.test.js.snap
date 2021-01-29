@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the UI as expected 1`] = `
+<div
+  className="LoginPage"
+>
+  <h2>
+    Log in...
+  </h2>
+  <p>
+    For demo purposes, please use the login credentials provided.
+  </p>
+  <div>
+    <form
+      className="LoginForm"
+      onSubmit={[Function]}
+    >
+      <div
+        role="alert"
+      />
+      <label
+        htmlFor="LoginForm-email"
+      >
+        Email address 
+      </label>
+      <input
+        defaultValue="clare.raccoon@madeup.com"
+        id="email"
+        name="email"
+        required={true}
+        type="text"
+      />
+      <label
+        htmlFor="LoginForm-password"
+      >
+        Password
+      </label>
+      <input
+        defaultValue="Secret12345!"
+        id="password"
+        name="password"
+        required={true}
+        type="password"
+      />
+      <button
+        type="submit"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</div>
+`;

@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import renderer from "react-test-renderer";
 import RegistrationForm from "./RegistrationForm";
 
 it("renders without crashing", () => {
@@ -11,4 +12,9 @@ it("renders without crashing", () => {
     div
   );
   ReactDOM.unmountComponentAtNode(div);
+});
+
+it("renders the UI as expected", () => {
+  const tree = renderer.create(<RegistrationForm />).toJSON();
+  expect(tree).toMatchSnapshot();
 });

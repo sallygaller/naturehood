@@ -10,7 +10,7 @@
     font-family: 'Lato', sans-serif;
     border-style: solid;
     border-radius: 5px;
-    border-image: url("../Utils/images/banner.jpg 80 round;
+    border-image: url("../Utils/images/banner.jpg") 80 round;
     border-width: 5px;
 }
 
