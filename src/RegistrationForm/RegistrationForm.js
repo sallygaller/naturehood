@@ -99,25 +99,6 @@ class RegistrationForm extends React.Component {
             placeholder="97203"
           />
         </div>
-        {/* <div className="RegistrationForm-latlng"> */}
-        {/* <p>One more thing...</p>
-          <label htmlFor="Latlng">
-            Click the orange button to find the latitude and longitude of your
-            zipcode:
-          </label>
-          <br></br>
-          <button type="button" onClick={(e) => this.handleLatLng(e)}>
-            OK!
-          </button>
-        </div>
-        <div>
-          <label htmlFor="lat">Latitude:</label>
-          <input type="text" name="lat" id="lat" value={this.state.lat} />
-        </div>
-        <div>
-          <label htmlFor="lat">Longitude:</label>
-          <input type="text" name="lng" id="lng" value={this.state.lng} />
-        </div> */}
         <button type="submit">Register</button>
       </form>
     );

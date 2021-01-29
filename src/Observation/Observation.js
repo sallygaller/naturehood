@@ -8,25 +8,21 @@ export default function Observation(props) {
 
   return (
     <div className="Observation">
-      <div className="Observation-item Observation-title">
-        {observation.species}
+      <div className="Observation-time-date">
+        {timeFormat(observation)}, {dateFormat(observation)}
       </div>
-      <div className="Observation-item">
-        Date: {dateFormat(observation)}
-        <br></br>
-        Time: {timeFormat(observation)}
-      </div>
-      <div className="Observation-item">{observation.description}</div>
-      <div className="Observation-item">
-        <Link
-          className="Observation-item"
-          to={`/observations/edit/${observation.id}`}
+      <div className="Observation-title">{observation.species}</div>
+      <div>{observation.description}</div>
+      <div className="Observation-buttons">
+        <Link to={`/observations/edit/${observation.id}`}>
+          <button className="Observation-button" type="button">
+            Edit
+          </button>
+        </Link>{" "}
+        <button
+          className="Observation-button"
+          onClick={() => props.handleDeleteRequest(observation.id)}
         >
-          <button type="button">Edit</button>
-        </Link>
-      </div>
-      <div className="Observation-item">
-        <button onClick={() => props.handleDeleteRequest(observation.id)}>
           Delete
         </button>
       </div>

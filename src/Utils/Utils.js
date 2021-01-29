@@ -17,22 +17,22 @@ export function timeFormat(observation) {
 }
 
 export function className(speciesType) {
-  if (speciesType.type === "Mammal") {
+  if (speciesType === "Mammal") {
     return Mammal;
   }
-  if (speciesType.type === "Bird") {
+  if (speciesType === "Bird") {
     return Bird;
   }
-  if (speciesType.type === "Arthropod") {
+  if (speciesType === "Arthropod") {
     return Insect;
   }
-  if (speciesType.type === "Reptile") {
+  if (speciesType === "Reptile") {
     return Reptile;
   }
-  if (speciesType.type === "Fish") {
+  if (speciesType === "Fish") {
     return Fish;
   }
-  if (speciesType.type === "Amphibian") {
+  if (speciesType === "Amphibian") {
     return Amphibian;
   } else return null;
 }

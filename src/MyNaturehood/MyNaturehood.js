@@ -2,7 +2,7 @@ import React from "react";
 import MainMap from "../MainMap/MainMap";
 import { dateFormat, timeFormat } from "../Utils/Utils";
 import { API_ENDPOINT } from "../config";
-import Mammal from "../MainMap/images/mammal.jpeg";
+import { className } from "../Utils/Utils";
 import TokenService from "../services/token-service";
 import "./MyNaturehood.css";
 
@@ -98,7 +98,7 @@ class MyNaturehood extends React.Component {
                 <li key={observation.id}>
                   <img
                     className="MyNaturehood-speciesImage"
-                    src={Mammal}
+                    src={className(observation.type)}
                     alt="species"
                   ></img>
                   <div className="MyNaturehood-item MyNaturehood-title">

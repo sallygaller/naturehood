@@ -2,6 +2,7 @@ import React from "react";
 import SpeciesAnalysis from "../SpeciesAnalysis/SpeciesAnalysis";
 import moment from "moment";
 import { speciesTypes } from "../Utils/Utils";
+import "./Analysis.css";
 
 function dateLatest(observations) {
   let dates = observations.map((observation) => {

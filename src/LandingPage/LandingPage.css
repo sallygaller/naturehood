@@ -1,13 +1,14 @@
 .LandingPage {
     text-align: center;
     padding-top: 20px;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 .LandingPage h2 {
     text-align: center;
+    font-size: 24px;
     padding-top: 20px;
-    font-family: 'Noto Sans HK', sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 .LandingPage-section {
@@ -43,9 +44,22 @@
 .LandingPage a:active,
 .LandingPage a:focus,
 .LandingPage a:visited {
-  color: black;
+  color: white;
   text-decoration: none;
   font-weight: bold;
+}
+
+.LandingPage button {
+    width: 25%;
+    margin: 10px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-image: url("../Utils/images/button.png");
+}
+
+.LandingPage-link {
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .LandingPage-instructions {

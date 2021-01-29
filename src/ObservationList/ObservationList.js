@@ -74,6 +74,11 @@ class ObservationList extends React.Component {
     return (
       <div className="ObservationList">
         <h2>My Observations</h2>
+        <Link to={"/add-observation"}>
+          <button className="ObservationList-button" type="button">
+            Add Observation
+          </button>
+        </Link>
         <div>
           <ul>
             {this.state.observations
@@ -87,13 +92,7 @@ class ObservationList extends React.Component {
                 </li>
               ))}
           </ul>
-          <Link to={"/add-observation"}>
-            <button className="Observations-button" type="button">
-              Add Observation
-            </button>
-          </Link>
         </div>
-        <h3>Analysis</h3>
         <Analysis observations={this.state.observations} />
       </div>
     );

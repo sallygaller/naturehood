@@ -1,8 +1,11 @@
 .RegistrationForm {
     border-radius: 5px;
+    font-family: 'Lato', sans-serif;
     background-color: #f2f2f2;
     padding: 20px;
     max-width: 75%;
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
 }
 
@@ -27,27 +30,15 @@
     box-sizing: border-box;
   }
 
-.RegistrationForm button[type=submit]  {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
+.RegistrationForm button {
+    width: 50%;
+    font-family: 'Lato', sans-serif;
+    background-image: url("../Utils/images/button.png");
+    background-size: cover;
+    color: #f2f2f2;
+    font-size: 16px;
     padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.RegistrationForm button[type=submit]:hover   {
-    background-color:#4CAF60;
-}
-
-.RegistrationForm button[type=button]  {
-    width: 100%;
-    background-color: orange;
-    color: white;
-    padding: 14px 20px;
-    margin: 10px auto;
+    margin: 8px auto;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -66,6 +57,3 @@
     margin-top: 0px;
 }
 
-.RegistrationForm-latlng {
-    margin-top: 25px;
-}

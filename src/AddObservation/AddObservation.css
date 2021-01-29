@@ -3,20 +3,22 @@
 }
 
 .AddObservation {
-    border-radius: 5px;
-    background-color: #f2f2f2;
     display: flex;
     flex-direction: column;
-}
-
-.AddObservation textarea {
-    font-family: sans-serif
+    margin-left: 0px;
+    padding: 20px;  
+    font-family: 'Lato', sans-serif;
+    border-style: solid;
+    border-radius: 5px;
+    border-image: url("../App/images/banner.jpg") 80 round;
+    border-width: 5px;
 }
 
 .AddObservation-form {
     width: 80%;
     margin: 0 auto;
 }
+
 
 .AddObservation-latlong {
     font-style: italic;
@@ -31,6 +33,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
   }
 
 .AddObservation button {
@@ -43,21 +46,21 @@
 }
 
 .AddObservation button[type=submit] {
-    background-color: #4CAF50;
-    color: white;
+    background-image: url("../Utils/images/button.png");
+    background-size: cover;
+    width: 100%;
+    color: #f2f2f2;
+    margin-top: 10px;
+    border-radius: 4px;
 }
 
 .AddObservation button[type=button] {
-    background-color: grey;
+    background-color: #4C6473;
     color: white;
 }
 
 .AddObservation button:hover[type=button]  {
     background-color: darkgrey;
-}
-
-.AddObservation button:hover[type=submit]   {
-    background-color: #45a049;
 }
 
 .AddObservation-error {

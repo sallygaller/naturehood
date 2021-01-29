@@ -24,7 +24,6 @@ export default function AddObservation(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validTime(timeShort)) {
-      console.log("Oh no");
       setError("Time must be in twelve hour HH:MM format (e.g. 08:15)");
     } else {
       const fullTime = timeShort.concat(ampm);

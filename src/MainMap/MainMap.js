@@ -22,7 +22,7 @@ class MainMap extends React.Component {
   componentDidMount() {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: "mapbox://styles/mapbox/light-v10",
+      style: "mapbox://styles/mapbox/outdoors-v11",
       center: [this.props.centralLng, this.props.centralLat],
       zoom: this.state.zoom,
     });

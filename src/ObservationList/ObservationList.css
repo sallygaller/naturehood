@@ -1,7 +1,19 @@
 .ObservationList {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     margin-left: 0px;
     padding: 20px;  
+    font-family: 'Lato', sans-serif;
+    border-style: solid;
+    border-radius: 5px;
+    border-image: url("../App/images/banner.jpg") 80 round;
+    border-width: 5px;
+}
+
+.ObservationList h2 {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
 }
 
 .ObservationList select {
@@ -11,18 +23,22 @@
 .ObservationList ul, li {
     list-style-type: none;
     list-style-position: inside;
-    margin: 0;
-    padding: 0; 
+    padding: 0;
 }
 
 .ObservationList li {
     margin-left: 0px;
 }
 
-.Observations-button {
-    margin: 0 auto;
-    text-align: center;
-    margin: 10px;
+.ObservationList-button {
+    background-image: url("../Utils/images/button.png");
+    background-size: cover;
+    width: 20%;
+    color: #f2f2f2;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .ObservationList select {

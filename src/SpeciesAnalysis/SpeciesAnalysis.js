@@ -22,7 +22,7 @@ export default function SpeciesAnalysis(props) {
       <img
         className="SpeciesAnalysis-img"
         alt={speciesType.type}
-        src={className(speciesType)}
+        src={className(speciesType.type)}
       />
       seen
     </div>

@@ -1,9 +1,12 @@
 .LoginForm {
     border-radius: 5px;
+    font-family: 'Lato', sans-serif;
     background-color: #f2f2f2;
     padding: 20px;
     max-width: 75%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -27,30 +30,16 @@
     box-sizing: border-box;
   }
 
-.LoginForm button:enabled {
-    width: 100%;
-    background-color: #4CAF50;
+.LoginForm button {
+    width: 50%;
+    background-image: url("../Utils/images/button.png");
     color: white;
+    font-size: 14px;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 8px auto;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-.LoginForm button:disabled {
-    width: 100%;
-    background-color: grey;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.LoginForm button:disabled:hover {
-    background-color: grey;
 }
 
 .LoginForm button:enabled:hover {

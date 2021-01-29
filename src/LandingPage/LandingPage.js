@@ -6,10 +6,10 @@ export default function LandingPage() {
   return (
     <div className="LandingPage">
       <div class="LandingPage-header">
-        <h2>connecting you to nature and neighbor</h2>
+        <h2>Connecting You to Nature and Neighbor</h2>
       </div>
       <section className="LandingPage-first-section">
-        <h3>Record your wildlife observations</h3>
+        <h3>Record Your Wildlife Observations</h3>
         <p>
           [<em>placeholder for screenshot of entering new observation</em>]
         </p>
@@ -19,7 +19,7 @@ export default function LandingPage() {
         </p>
       </section>
       <section className="LandingPage-section">
-        <h3>See what wildlife your neighbors have spotted</h3>
+        <h3>See What Wildlife Lives in Your Neighborhood</h3>
         <p>
           [<em>placeholder for screenshot of map</em>]
         </p>
@@ -29,7 +29,7 @@ export default function LandingPage() {
         </p>
       </section>
       <section className="LandingPage-section">
-        <h3>Analyze your sightings</h3>
+        <h3>Analyze Your Sightings</h3>
         <p>
           [<em>placeholder for screenshot of observations</em>]
         </p>
@@ -40,12 +40,15 @@ export default function LandingPage() {
       </section>
       <section className="LandingPage-section">
         <h3>Start Exploring Your natureHood</h3>
-        <p>
-          <Link to="/register">Register</Link>{" "}
-        </p>
-        <p>
+        <button type="button">
+          <Link className="LandingPage-link" to="/register">
+            Register
+          </Link>{" "}
+        </button>
+        <br></br>
+        <button type="button">
           <Link to="/login">Log in</Link>
-        </p>
+        </button>
         <p className="LandingPage-instructions">
           For demo purposes, please use the credentials provided on the Login
           page.

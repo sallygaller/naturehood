@@ -1,18 +1,28 @@
 .Observation {
-    width: 100%;
-    display:flex;
+    width: 80%;
+    display: flex;
     flex-direction: column;
-    padding-bottom: 25px;
-}
-
-.Observation-item {
-    padding-right: 5px;
-    border: white;
-    align-self: center;
+    margin: 0 auto;
+    padding: 15px;
+    border-top: 5px solid 
 }
 
 .Observation-title {
     font-weight: bold;
+    font-family: 'Homemade Apple', cursive;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.Observation-button {
+    background-image: url("../Utils/images/button.png");
+    background-size: cover;
+    width: 20%;
+    color: #f2f2f2;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 
