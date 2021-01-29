@@ -5,7 +5,7 @@ import "./LandingPage.css";
 export default function LandingPage() {
   return (
     <div className="LandingPage">
-      <div class="LandingPage-header">
+      <div className="LandingPage-header">
         <h2>Connecting You to Nature and Neighbor</h2>
       </div>
       <section className="LandingPage-first-section">

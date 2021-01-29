@@ -1,5 +1,5 @@
 import React from "react";
-import { className } from "../Utils/Utils";
+import { speciesImage } from "../Utils/Utils";
 import "./SpeciesAnalysis.css";
 
 function countSpecies(speciesType, observations) {
@@ -22,7 +22,7 @@ export default function SpeciesAnalysis(props) {
       <img
         className="SpeciesAnalysis-img"
         alt={speciesType.type}
-        src={className(speciesType.type)}
+        src={speciesImage(speciesType.type)}
       />
       seen
     </div>

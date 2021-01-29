@@ -16,7 +16,7 @@
     margin: 0 auto;
     border: 8px;
     border-style: solid;
-    border-image: url("../App/images/banner.jpg") 80 round;
+    border-image: url("../Utils/images/banner.jpg") 80 round;
 }
 
 .mapboxgl-popup-content {

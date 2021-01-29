@@ -16,7 +16,7 @@
     border-style: solid;
     margin-bottom: 5px;
     border-radius: 5px;
-    border-image: url("../App/images/banner.jpg") 80 round;
+    border-image: url("../Utils/images/banner.jpg") 80 round;
     border-width: 8px;
 }
 
@@ -25,13 +25,13 @@
     border-style: solid;
     margin-bottom: 5px;
     border-radius: 5px;
-    border-image: url("../App/images/banner.jpg") 80 round;
+    border-image: url("../Utils/images/banner.jpg") 80 round;
     border-width: 8px;
     border-top-style: none;
 }
 
 .LandingPage-header {
-    background-image: url("../App/images/banner.jpg");
+    background-image: url("../Utils/images/banner.jpg");
     padding-bottom: 10px;
 }
 

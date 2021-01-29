@@ -8,7 +8,7 @@ header {
   flex: 0 1 auto;
   padding-top: 10px;
   flex-shrink: 0;
-  background-image: url("./images/banner.jpg");
+  background-image: url("../Utils/images/banner.jpg");
   background-size: cover;
 }
 
@@ -19,7 +19,7 @@ main {
 }
 
 footer {
-  background-image: url("./images/banner.jpg");
+  background-image: url("../Utils/images/banner.jpg");
   background-size: cover;
   color: #fcfaf1;
   margin-top: auto;
