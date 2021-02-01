@@ -40,15 +40,13 @@ export default function LandingPage() {
       </section>
       <section className="LandingPage-section">
         <h3>Start Exploring Your natureHood</h3>
-        <button type="button">
-          <Link className="LandingPage-link" to="/register">
-            Register
-          </Link>{" "}
-        </button>
+        <Link to="/register">
+          <button type="button">Register</button>
+        </Link>
         <br></br>
-        <button type="button">
-          <Link to="/login">Log in</Link>
-        </button>
+        <Link to="/login">
+          <button type="button">Log in</button>
+        </Link>
         <p className="LandingPage-instructions">
           For demo purposes, please use the credentials provided on the Login
           page.

@@ -8,7 +8,7 @@
     text-align: center;
     font-size: 24px;
     padding-top: 20px;
-    font-family: 'Lato', sans-serif;
+    font-family: c
 }
 
 .LandingPage-section {
@@ -51,15 +51,26 @@
 
 .LandingPage button {
     width: 25%;
-    margin: 10px;
+    margin: 5px;
     padding: 10px 30px;
     border-radius: 5px;
-    font-family: 'Noto Sans KR', sans-serif;
-    background-image: url("../Utils/images/button.png");
+    font-family: 'Lato', sans-serif;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    background-color: #012611;
 }
 
 .LandingPage-link {
-    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #012611;
+    color: black;
+    padding: 10px;
+    margin: 10px;
+    width: 100px;
+    /* margin: 50px auto; */
+    /* padding: 10px 30px; */
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
 }
 
 .LandingPage-instructions {

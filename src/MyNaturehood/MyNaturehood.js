@@ -76,25 +76,25 @@ class MyNaturehood extends React.Component {
         <p className="MyNaturehood-instructions">
           Click on a marker to see a neighbor's observation.
         </p>
-        <section>
-          <div className="MyNaturehood-observations">
-            <h3>Recent Observations</h3>
-            <div className="MyNaturehood-species-filter">
-              <select onClick={(e) => this.handleTypeChange(e)}>
-                <option value="All">All Species</option>
-                <option value="Mammal">Mammals</option>
-                <option value="Bird">Birds</option>
-                <option value="Arthropod">Arthropods</option>
-                <option value="Amphibian">Amphibians</option>
-                <option value="Reptile">Reptiles</option>
-                <option value="Fish">Fish</option>
-              </select>
-            </div>
-            <div className="MyNaturehood-error" role="alert">
-              {error && <p>{error}</p>}
-            </div>
-            <ul>
-              {this.state.observationsFilter.map((observation) => (
+        <section className="MyNaturehood-observations">
+          <h3>Recent Observations</h3>
+          <div className="MyNaturehood-species-filter">
+            <select onClick={(e) => this.handleTypeChange(e)}>
+              <option value="All">All Species</option>
+              <option value="Mammal">Mammals</option>
+              <option value="Bird">Birds</option>
+              <option value="Arthropod">Arthropods</option>
+              <option value="Amphibian">Amphibians</option>
+              <option value="Reptile">Reptiles</option>
+              <option value="Fish">Fish</option>
+            </select>
+          </div>
+          <div className="MyNaturehood-error" role="alert">
+            {error && <p>{error}</p>}
+          </div>
+          <ul>
+            {this.state.observationsFilter.map((observation) => (
+              <div className="MyNaturehood-observation">
                 <li key={observation.id}>
                   <img
                     className="MyNaturehood-speciesImage"
@@ -110,9 +110,9 @@ class MyNaturehood extends React.Component {
                     Time: {timeFormat(observation)}
                   </div>
                 </li>
-              ))}
-            </ul>
-          </div>
+              </div>
+            ))}
+          </ul>
         </section>
       </div>
     );

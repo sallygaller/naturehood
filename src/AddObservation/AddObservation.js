@@ -150,10 +150,12 @@ export default function AddObservation(props) {
             <option>am</option>
             <option>pm</option>
           </select>
-          <label htmlFor="location">
-            Location (drag and drop the marker):
-            <Required />
-          </label>
+          <div className="AddObservation-location-label">
+            <label htmlFor="location">
+              Location (drag and drop the marker):
+              <Required />
+            </label>
+          </div>
           <AddObservationMap
             lat={lat}
             lng={lng}

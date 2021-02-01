@@ -163,7 +163,7 @@ class EditObservation extends React.Component {
         <div role="alert">
           {error && <p className="EditObservation-error">{error}</p>}
         </div>
-        <form onSubmit={this.handleSubmit}>
+        <form className="EditObservation-form" onSubmit={this.handleSubmit}>
           <label htmlFor="species">Species seen:</label>
           <input
             type="text"
@@ -211,7 +211,11 @@ class EditObservation extends React.Component {
             <option>am</option>
             <option>pm</option>
           </select>
-          <label htmlFor="location">Location (drag and drop the marker):</label>
+          <div className="EditObservation-location-label">
+            <label htmlFor="location">
+              Location (drag and drop the marker):
+            </label>
+          </div>
           <AddObservationMap
             lat={lat}
             lng={lng}

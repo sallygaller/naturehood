@@ -6,16 +6,16 @@
     display: flex;
     flex-direction: column;
     margin-left: 0px;
-    padding: 20px;  
+    padding: 10px 25px;  
     font-family: 'Lato', sans-serif;
     border-style: solid;
     border-radius: 5px;
     border-image: url("../Utils/images/banner.jpg") 80 round;
-    border-width: 5px;
+    border-width: 6px;
 }
 
 .AddObservation-form {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
 }
 
@@ -46,8 +46,7 @@
 }
 
 .AddObservation button[type=submit] {
-    background-image: url("../Utils/images/button.png");
-    background-size: cover;
+    background-color: #012611;
     width: 100%;
     color: #f2f2f2;
     margin-top: 10px;
@@ -67,4 +66,8 @@
     color: red;
     text-align: center;
 } 
+
+.AddObservation-location-label {
+    padding-bottom: 15px;
+}
 

@@ -8,7 +8,7 @@
     border-style: solid;
     border-radius: 5px;
     border-image: url("../Utils/images/banner.jpg") 80 round;
-    border-width: 5px;
+    border-width: 6px;
 }
 
 .ObservationList h2 {

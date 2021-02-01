@@ -18,6 +18,7 @@ export default function Analysis(props) {
   const observations = props.observations;
   return (
     <div className="Analysis">
+      <h3>Species Log</h3>
       <p>
         Total observations: {observations.length} <br></br>
         Most recent observation: {dateLatest(observations)}

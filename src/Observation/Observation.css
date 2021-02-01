@@ -4,7 +4,7 @@
     flex-direction: column;
     margin: 0 auto;
     padding: 15px;
-    border-top: 5px solid 
+    border-top: 2px solid;
 }
 
 .Observation-title {
@@ -15,8 +15,7 @@
 }
 
 .Observation-button {
-    background-image: url("../Utils/images/button.png");
-    background-size: cover;
+    background-color: #012611;
     width: 20%;
     color: #f2f2f2;
     margin-top: 10px;
