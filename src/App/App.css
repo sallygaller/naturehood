@@ -21,7 +21,7 @@ main {
 footer {
   background-image: url("../Utils/images/banner.jpg");
   background-size: cover;
-  color: #fcfaf1;
+  color: #f2f2f2;
   margin-top: auto;
   text-align: center;
   flex-shrink: 0;
@@ -37,7 +37,7 @@ footer p {
   font-family: 'Homemade Apple', cursive;
   font-size: 36px;
   text-align: center;
-  color: #fcfaf1;
+  color: #f2f2f2;
   text-decoration: none;
 }
   

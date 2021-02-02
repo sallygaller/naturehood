@@ -1,9 +1,9 @@
 .Nav {
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-    padding-bottom: 20px;
-  }
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  padding-bottom: 20px;
+}
 
 .Nav a:not(:last-of-type) {
   margin-right: 32px;
@@ -13,6 +13,12 @@
 .Nav a:active,
 .Nav a:focus,
 .Nav a:visited {
-  color: #ececea;
+  color: #f2f2f2;
   text-decoration: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .Nav {
+    font-size: 18px;
+  }
 }

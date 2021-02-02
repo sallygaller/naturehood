@@ -4,6 +4,14 @@
     flex-direction: column;
 }
 
+.mapboxgl-popup-content {
+    font-size: 12px;
+    width: 150px;
+    font-family: 'Lato', sans-serif;
+    background: #f2f2f2;
+    border-width: 3px;
+}
+
 .mapContainer {
     width: 200px;
     height: 200px;
@@ -13,18 +21,17 @@
     border-image: url("../Utils/images/banner.jpg") 80 round;
 }
 
-.mapboxgl-popup-content {
-    font-size: 12px;
-    font-family: 'Lato', sans-serif;
-    border-color: #012611;
-    border-width: 3px;
-}
-
-
   @media screen and (min-width: 1000px) {
     .mapContainer {
         height: 350px;
         width: 350px;
         margin: 0 auto;
+    }
+
+    .mapboxgl-popup-content {
+        font-size: 12px;
+        font-family: 'Lato', sans-serif;
+        border-color: #012611;
+        border-width: 3px;
     }
   }

@@ -33,7 +33,7 @@
 .LoginForm button {
     width: 50%;
     background-image: url("../Utils/images/button.png");
-    color: white;
+    color: #f2f2f2;
     font-size: 14px;
     padding: 14px 20px;
     margin: 8px auto;
@@ -43,5 +43,5 @@
 }
 
 .LoginForm button:enabled:hover {
-    background-color: #45a049;
+    background-color: #31593B;
 }

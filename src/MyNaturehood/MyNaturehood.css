@@ -42,8 +42,8 @@
 }
 
 .MyNaturehood-speciesImage {
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     border-width: 3px;
     border-style: solid;
@@ -53,7 +53,7 @@
 .MyNaturehood-title {
     font-weight: bold;
     font-family: 'Homemade Apple', cursive;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .MyNaturehood-error {
@@ -75,4 +75,15 @@
     margin: 0 auto;
     padding: 15px;
     border-bottom: 2px solid 
+}
+
+.MyNaturehood select {
+    width: 80%;
+    background-color: #f2f2f2;
+}
+
+@media screen and (min-width: 1000px) {
+    .MyNaturehood select  {
+        width: 50%;
+  }
 }

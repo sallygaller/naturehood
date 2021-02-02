@@ -8,7 +8,7 @@
     text-align: center;
     font-size: 24px;
     padding-top: 20px;
-    font-family: c
+    font-family: 'Lato', sans-serif;
 }
 
 .LandingPage-section {
@@ -44,18 +44,18 @@
 .LandingPage a:active,
 .LandingPage a:focus,
 .LandingPage a:visited {
-  color: white;
+  color: #f2f2f2;
   text-decoration: none;
   font-weight: bold;
 }
 
 .LandingPage button {
-    width: 25%;
+    width: 50%;
     margin: 5px;
     padding: 10px 30px;
     border-radius: 5px;
     font-family: 'Lato', sans-serif;
-    color: white;
+    color:#f2f2f2;
     cursor: pointer;
     text-align: center;
     background-color: #012611;
@@ -67,12 +67,21 @@
     padding: 10px;
     margin: 10px;
     width: 100px;
-    /* margin: 50px auto; */
-    /* padding: 10px 30px; */
     border-radius: 5px;
     font-family: 'Lato', sans-serif;
 }
 
 .LandingPage-instructions {
     font-size: 12px;
+}
+
+.LandingPage img {
+    width: 75%;
+}
+
+
+@media screen and (min-width: 1000px) {
+    .LandingPage-button {
+        width: 25%;
+  }
 }

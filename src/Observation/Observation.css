@@ -14,9 +14,9 @@
     font-size: 18px;
 }
 
-.Observation-button {
+.Observation button {
     background-color: #012611;
-    width: 20%;
+    width: 50%;
     color: #f2f2f2;
     margin-top: 10px;
     padding: 5px;
@@ -24,4 +24,13 @@
     cursor: pointer;
 }
 
+.Observation button:hover {
+    background-color: #31593B;
+}
+
+@media screen and (min-width: 1000px) {
+    .Observation-button {
+        width: 25%;
+  }
+}
 

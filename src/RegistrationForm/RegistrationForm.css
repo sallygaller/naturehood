@@ -30,13 +30,17 @@
     box-sizing: border-box;
   }
 
+.RegistrationForm-password p {
+    font-style: italic;
+    font-size: 12px;
+    margin: 0px;
+}
+
 .RegistrationForm button {
     width: 50%;
-    font-family: 'Lato', sans-serif;
     background-image: url("../Utils/images/button.png");
-    background-size: cover;
     color: #f2f2f2;
-    font-size: 16px;
+    font-size: 14px;
     padding: 14px 20px;
     margin: 8px auto;
     border: none;
@@ -44,10 +48,8 @@
     cursor: pointer;
 }
 
-.RegistrationForm-password p {
-    font-style: italic;
-    font-size: 12px;
-    margin: 0px;
+.RegistrationForm button:enabled:hover {
+    background-color: #31593B;
 }
 
 .red {

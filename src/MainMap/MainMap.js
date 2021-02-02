@@ -15,7 +15,7 @@ class MainMap extends React.Component {
     super(props);
     this.state = {
       map: null,
-      zoom: 11,
+      zoom: 12.5,
     };
   }
 

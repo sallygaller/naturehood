@@ -14,7 +14,7 @@ class AddObservationMap extends React.Component {
     super(props);
     this.state = {
       map: null,
-      zoom: 12,
+      zoom: 12.5,
       lng: "",
       lat: "",
     };
