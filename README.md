@@ -9,22 +9,21 @@ natureHood is an app designed to foster community and wildlife advocacy in local
 ## How to Use
 ### Logging In
 Users may login with a demo account (using the credentials provided on the Login page), register for their own account, or login with an existing account. 
-![Login Page](src/Utils/images/1-LoginPage.png | width=100)
-<img src="src/Utils/images/1-LoginPage.png" alt="Login Page" width="100>
+![Login Page](src/Utils/images/1-LoginPage.png)
 
 ### My natureHood
 My natureHood is the community hub of the application, as it is where the user can see what wildlife has been spotted in their locale by their neighbors. An interactive map is centered on the user's zipcode, and the user can click on the markers to see details about the observations.
-![My Naturehood Page](src/Utils/images/2-MyNaturehood.PNG | width=100) 
+![My Naturehood Page](src/Utils/images/2-MyNaturehood.PNG)
 
 Towards the bottom of the page, "Sightings in My natureHood" shows a list of the neighborhood's observations. Observations can be filtered by species type (e.g. mammal, bird, fish).
-![List of sightings](src/Utils/images/2.5-MyNaturehood.PNG | width=100) 
+![List of sightings](src/Utils/images/2.5-MyNaturehood.PNG)
 
 ### My Observations
 The "My Observations" page is where the user focuses on their own sightings. The user can add a new observation, and edit or delete an existing observation. 
-![My Observations Page](src/Utils/images/3-Observations.PNG | width=100) 
+![My Observations Page](src/Utils/images/3-Observations.PNG)
 
 Towards the bottom of the page, "Species Log" shows a summary of what the user has submitted: how many observations they've recoded, and how many of each species type. 
-![Species log](src/Utils/images/3.5-Observations.PNG | width=100) 
+![Species log](src/Utils/images/3.5-Observations.PNG)
 
 ### Add Observation
 The Add Observation form allows the user to log pertinent details about their sighting:
@@ -34,7 +33,7 @@ The Add Observation form allows the user to log pertinent details about their si
 - Date and time 
 - Location 
 The user records the location of the sighting by dragging and dropping a marker on an interactive map.
-![Add Observation Page](src/Utils/images/4-AddObservation.PNG | width=100) 
+![Add Observation Page](src/Utils/images/4-AddObservation.PNG)
 
 ## Technology Used
 - HTML
