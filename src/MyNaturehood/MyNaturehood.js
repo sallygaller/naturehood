@@ -77,7 +77,7 @@ class MyNaturehood extends React.Component {
           Click on a marker to see a neighbor's observation.
         </p>
         <section className="MyNaturehood-observations">
-          <h3>Recent Observations</h3>
+          <h3>Sightings in My natureHood</h3>
           <div className="MyNaturehood-species-filter">
             <select onClick={(e) => this.handleTypeChange(e)}>
               <option value="All">All Species</option>

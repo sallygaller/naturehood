@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# natureHood
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+View natureHood [here](https://naturehood-app.vercel.app/).
+View the server repo [here](https://github.com/sallygaller/naturehood-api).
 
-## Available Scripts
+natureHood is an app designed to foster community and wildlife advocacy in local neighborhoods. Users can record wildlife observations in their locale (e.g. species, time spotted, approximate location, and photo) and view wildlife spotted by their neighbors. The intention of the app is to build community, provide insight into wildlife population and migratory behaviors, and encourage local conservation efforts.
 
-In the project directory, you can run:
+## How to Use
+### Logging In
+Users may login with a demo account (using the credentials provided on the Login page), register for their own account, or login with an existing account. 
+![Login Page](/Utils/images/1-LoginPage.png)
 
-### `npm start`
+### My natureHood
+My natureHood is the community hub of the application, as it is where the user can see what wildlife has been spotted in their locale by their neighbors. An interactive map is centered on the user's zipcode, and the user can click on the markers to see details about the observations. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Towards the bottom of the page, "Sightings in My natureHood" shows a list of the neighborhood's observations. Observations can be filtered by species type (e.g. mammal, bird, fish).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### My Observations
+The "My Observations" page is where the user focuses on their own sightings. The user can add a new observation, and edit or delete an existing observation. 
 
-### `npm test`
+Towards the bottom of the page, "Species Log" shows a summary of what the user has submitted: how many observations they've recoded, and how many of each species type. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Add Observation
+The Add Observation form allows the user to log pertinent details about their sighting:
+- Species seen
+- Species Type (e.g. mammal, bird)
+- Description
+- Date and time 
+- Location 
+The user records the location of the sighting by dragging and dropping a marker on an interactive map.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Technology Used
+- HTML
+- CSS
+- JavaScript
+- React
+- Jest
+- Enzyme
+- [Mapbox GL JS v2 0.1](https://docs.mapbox.com/mapbox-gl-js/api/)
+- [Google Maps Geocoding](https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple)

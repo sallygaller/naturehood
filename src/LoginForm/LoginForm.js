@@ -56,7 +56,7 @@ class LoginForm extends React.Component {
             id="password"
             defaultValue="Secret12345!"
           ></input>
-          <button type="submit">Login</button>
+          <button type="submit">Log In</button>
         </form>
       </div>
     );
