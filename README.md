@@ -1,6 +1,7 @@
 # natureHood
 
 View natureHood [here](https://naturehood-app.vercel.app/).
+
 View the server repo [here](https://github.com/sallygaller/naturehood-api).
 
 natureHood is an app designed to foster community and wildlife advocacy in local neighborhoods. Users can record wildlife observations in their locale (e.g. species, time spotted, approximate location, and photo) and view wildlife spotted by their neighbors. The intention of the app is to build community, provide insight into wildlife population and migratory behaviors, and encourage local conservation efforts.
@@ -8,7 +9,7 @@ natureHood is an app designed to foster community and wildlife advocacy in local
 ## How to Use
 ### Logging In
 Users may login with a demo account (using the credentials provided on the Login page), register for their own account, or login with an existing account. 
-![Login Page](/Utils/images/1-LoginPage.png)
+![Login Page](./Utils/images/1-LoginPage.png)
 
 ### My natureHood
 My natureHood is the community hub of the application, as it is where the user can see what wildlife has been spotted in their locale by their neighbors. An interactive map is centered on the user's zipcode, and the user can click on the markers to see details about the observations. 
