@@ -9,7 +9,7 @@ natureHood is an app designed to foster community and wildlife advocacy in local
 ## How to Use
 ### Logging In
 Users may login with a demo account (using the credentials provided on the Login page), register for their own account, or login with an existing account. 
-![Login Page](./Utils/images/1-LoginPage.png)
+![Login Page](src//Utils/images/1-LoginPage.png)
 
 ### My natureHood
 My natureHood is the community hub of the application, as it is where the user can see what wildlife has been spotted in their locale by their neighbors. An interactive map is centered on the user's zipcode, and the user can click on the markers to see details about the observations. 
