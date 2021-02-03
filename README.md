@@ -22,11 +22,11 @@ Towards the bottom of the page, "Sightings in My natureHood" shows a list of the
 <img src="src/Utils/images/2.5-MyNaturehood.PNG" alt="List of sightings" width="500">
 
 ### My Observations
-The "My Observations" page is where the user focuses on their own sightings. The user can add a new observation, and edit or delete an existing observation. 
+The "My Observations" page is where the user focuses on their own sightings. They can add a new observation, and edit or delete an existing observation. 
 
 <img src="src/Utils/images/3-Observations.PNG" alt="My Observations Page" width="500">
 
-Towards the bottom of the page, "Species Log" shows a summary of what the user has submitted: how many observations they've recoded, and how many of each species type. 
+Towards the bottom of the page, the "Species Log" shows a summary of what the user has submitted: how many observations they've recoded, and how many of each species type. 
 
 <img src="src/Utils/images/3.5-Observations.PNG" alt="Species Log" width="500">
 

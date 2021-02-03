@@ -13,19 +13,25 @@
 }
 
 .mapContainer {
-    width: 200px;
-    height: 200px;
+    width: 175px;
+    height: 175px;
     margin: 0 auto;
     border: 5px;
     border-style: solid;
     border-image: url("../Utils/images/banner.jpg") 80 round;
 }
 
+@media screen and (min-width: 750px) {
+    .mapContainer {
+        height: 250px;
+        width: 250px;
+    }
+}
+
   @media screen and (min-width: 1000px) {
     .mapContainer {
         height: 350px;
         width: 350px;
-        margin: 0 auto;
     }
 
     .mapboxgl-popup-content {
