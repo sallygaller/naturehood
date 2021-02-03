@@ -5,7 +5,7 @@
     margin-left: 0px; 
     font-family: 'Lato', sans-serif;
     border-style: solid;
-    border-radius: 50%;
+    border-radius: 75%;
     border-image: url("../Utils/images/banner.jpg") 80 round;
     border-width: 6px;
 }

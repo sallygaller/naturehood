@@ -77,6 +77,8 @@
 
 .LandingPage img {
     width: 75%;
+    border-top: #012611 solid 1px;
+    padding-top: 10px;
 }
 
 
@@ -84,4 +86,8 @@
     .LandingPage-button {
         width: 25%;
   }
+
+    .LandingPage img {
+        width: 50%;
+    }
 }

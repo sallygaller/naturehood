@@ -13,30 +13,30 @@ export default function LandingPage() {
       </div>
       <section className="LandingPage-first-section">
         <h3>See What Wildlife Lives in Your Neighborhood</h3>
-        <img src={Screenshot1} alt="Screenshot of map with markers"></img>
         <p>View your neighborhood's wildlife observations on a map.</p>
+        <img src={Screenshot1} alt="Screenshot of map with markers"></img>
       </section>
       <section className="LandingPage-section">
         <h3>Record Your Wildlife Observations</h3>
-        <img
-          src={Screenshot2}
-          alt="Screenshot of map in Add Observation page"
-        ></img>
         <p>
           Record your sightings with the species, date spotted, approximate
           location and a description.
         </p>
+        <img
+          src={Screenshot2}
+          alt="Screenshot of map in Add Observation page"
+        ></img>
       </section>
       <section className="LandingPage-section">
         <h3>Analyze Your Sightings</h3>
-        <img
-          src={Screenshot3}
-          alt="Screenshot of map in Add Observation page"
-        ></img>
         <p>
           See how many mammals, birds, amphibians, anthropods, and fish you can
           spot!
         </p>
+        <img
+          src={Screenshot3}
+          alt="Screenshot of map in Add Observation page"
+        ></img>
       </section>
       <section className="LandingPage-section">
         <h3>Start Exploring Your natureHood</h3>

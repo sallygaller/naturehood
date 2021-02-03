@@ -12,7 +12,7 @@ const TokenService = {
     return window.localStorage.getItem(TOKEN_KEY);
   },
   clearAuthToken() {
-    console.info("clearing the auth token");
+    //clearing the auth token
     window.localStorage.removeItem(TOKEN_KEY);
   },
   hasAuthToken() {
