@@ -45,7 +45,7 @@ exports[`renders the UI as expected 1`] = `
       <button
         type="submit"
       >
-        Login
+        Log In
       </button>
     </form>
   </div>

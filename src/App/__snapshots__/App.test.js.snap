@@ -53,35 +53,29 @@ exports[`renders the UI as expected 1`] = `
         className="LandingPage-first-section"
       >
         <h3>
-          Record Your Wildlife Observations
+          See What Wildlife Lives in Your Neighborhood
         </h3>
         <p>
-          [
-          <em>
-            placeholder for screenshot of entering new observation
-          </em>
-          ]
+          View your neighborhood's wildlife observations on a map.
         </p>
-        <p>
-          Record your sightings with the species, date spotted, approximate location and a description.
-        </p>
+        <img
+          alt="Screenshot of map with markers"
+          src="screenshot-1.png"
+        />
       </section>
       <section
         className="LandingPage-section"
       >
         <h3>
-          See What Wildlife Lives in Your Neighborhood
+          Record Your Wildlife Observations
         </h3>
         <p>
-          [
-          <em>
-            placeholder for screenshot of map
-          </em>
-          ]
+          Record your sightings with the species, date spotted, approximate location and a description.
         </p>
-        <p>
-          View your neighborhood's wildlife observations on a map. Apply filters to see a particular species or when it was seen.
-        </p>
+        <img
+          alt="Screenshot of map in Add Observation page"
+          src="screenshot-2.PNG"
+        />
       </section>
       <section
         className="LandingPage-section"
@@ -90,15 +84,12 @@ exports[`renders the UI as expected 1`] = `
           Analyze Your Sightings
         </h3>
         <p>
-          [
-          <em>
-            placeholder for screenshot of observations
-          </em>
-          ]
+          See how many mammals, birds, amphibians, anthropods, and fish you can spot!
         </p>
-        <p>
-          Interactive charts show your historical sightings and observations of your favorite species.
-        </p>
+        <img
+          alt="Screenshot of map in Add Observation page"
+          src="screenshot-3.PNG"
+        />
       </section>
       <section
         className="LandingPage-section"
@@ -106,29 +97,27 @@ exports[`renders the UI as expected 1`] = `
         <h3>
           Start Exploring Your natureHood
         </h3>
-        <button
-          type="button"
+        <a
+          href="/register"
+          onClick={[Function]}
         >
-          <a
-            className="LandingPage-link"
-            href="/register"
-            onClick={[Function]}
+          <button
+            type="button"
           >
             Register
-          </a>
-           
-        </button>
+          </button>
+        </a>
         <br />
-        <button
-          type="button"
+        <a
+          href="/login"
+          onClick={[Function]}
         >
-          <a
-            href="/login"
-            onClick={[Function]}
+          <button
+            type="button"
           >
             Log in
-          </a>
-        </button>
+          </button>
+        </a>
         <p
           className="LandingPage-instructions"
         >

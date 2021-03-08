@@ -5,6 +5,8 @@ import MyNaturehood from "./MyNaturehood";
 
 enzyme.configure({ adapter: new Adapter() });
 
+// flaky test due to maxboxgl
+
 describe("MyNaturehood", () => {
   it("renders without crashing", () => {
     const wrapper = shallow(<MyNaturehood />);

@@ -24,13 +24,16 @@ exports[`renders the UI as expected 1`] = `
   <div
     className="Analysis"
   >
+    <h3>
+      Species Log
+    </h3>
     <p>
       Total observations: 
       0
        
       <br />
       Most recent observation: 
-      01/31/2021
+      02/03/2021
     </p>
     <ul>
       <li>
@@ -146,13 +149,16 @@ exports[`renders the UI as expected with no observations 1`] = `
   <div
     className="Analysis"
   >
+    <h3>
+      Species Log
+    </h3>
     <p>
       Total observations: 
       0
        
       <br />
       Most recent observation: 
-      01/31/2021
+      02/03/2021
     </p>
     <ul>
       <li>

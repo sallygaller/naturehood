@@ -7,6 +7,8 @@ import enzyme from "enzyme";
 
 enzyme.configure({ adapter: new Adapter() });
 
+// flaky test due to maxboxgl
+
 describe("AddObservation", () => {
   it("renders without crashing", () => {
     const wrapper = shallow(<AddObservation />);
